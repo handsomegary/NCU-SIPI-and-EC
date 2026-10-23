@@ -1,0 +1,12 @@
+{
+  "successful": true,
+  "tests_run": 46,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 2.621,
+  "command": "python -m unittest discover -s tests -v",
+  "temporary_directory_override": "Workspace scratch directory used for restricted local sandbox; test cases unchanged",
+  "hw08_tests": 34,
+  "scope": "Top-level regression suite, including the independent HW8 numerical and output checks; HW6 also has a separate suite"
+}

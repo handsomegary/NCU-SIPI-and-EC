@@ -1,0 +1,49 @@
+Independent HW8 verification notes
+
+Assignment requirements checked from the source PDF:
+- 40 Gbps NRZ, 5 ps 0-to-100 percent transition duration.
+- Matched-source transfer H = S21 / 2.
+- Construct the finite-rise post-FFE waveform explicitly; then apply
+  sectional linear convolution. FFE frequency response is for reference.
+- Five cases: unequalized; one precursor; one postcursor; one precursor
+  plus one postcursor; one precursor plus two postcursors.
+- Case 4 requires two Tx snapshots plus two Rx snapshots.
+
+Independent mathematical oracles:
+- A causal trapezoid with rise beginning at 0 and fall beginning at Tb has
+  Vin(f) = Vpp*Tb*sinc(f*Tb)*sinc(f*Tr)*exp(-j*pi*f*(Tb+Tr)).
+  The Tb*Tr phase product in the source program is dimensionally invalid.
+- For sampled real inverse transforms, the DC and (if present) Nyquist
+  bins appear once; all interior positive-frequency bins have conjugate
+  negative-frequency partners. Unit transfer over the complete sampled
+  bandwidth must produce one unit discrete impulse, not a doubled one.
+- If a stores cursors [-P,...,Q], the selected finite-model convolution
+  matrix is A[i,j]=a[i-j+P] within bounds and zero elsewhere. Its target
+  is a unit vector at index P. This generalizes beyond P=1.
+- Causal implementation orders taps left to right and adds P UI latency;
+  the equalized main response occurs P UI after the original main.
+- The Tx source uses levels 0 and 2 V. Normalized taps satisfy
+  sum(abs(c))=1, so max Tx level minus min Tx level remains 2 V.
+- A zero selected finite-model matrix residual does not prove all physical
+  channel cursors cancel: omitted cursor terms leak through side taps.
+
+Independent analytic channel reference, using the supplied data, alpha=0.5,
+dt=0.5 ps, Tb=25 ps, Tr=5 ps, Vpp=2 V, and H=S21/2:
+  SBR main index = 5804; time = 2902.0 ps; voltage = 0.3911978018048386 V.
+  Case 2 taps = [-0.09958441, 0.90041559].
+  Case 3 taps = [0.68714306, -0.31285694].
+  Case 4 taps = [-0.07062923, 0.63861067, -0.29076009].
+  Case 5 taps = [-0.07102079, 0.64215105, -0.27609499, -0.01073317].
+  Case 4 physical selected cursors, from the complete SBR, are
+  [-0.00081067, 0.22466316, -0.00587062] V.
+  Case 5 physical selected cursors are approximately
+  [-0.00078830, 0.226582973, 0, -0.00341777] V.
+  These are analytic-pulse reference values. A sampled finite-ramp design
+  may differ slightly and must describe that distinction explicitly.
+
+The lecture page 21 example a=[36,230,97,37,18], P=1 prints normalized
+taps approximately [-0.097,0.624,-0.250,0.017,-0.016]. These do not quite
+solve its displayed matrix. The exact solve of that matrix instead gives
+[-0.0975361791612765, 0.6231478113081557, -0.2494519337422591,
+  0.0149290470221032, -0.0149350287662054]. The test suite checks this
+exact numerical example and the full convolution of its cursors.

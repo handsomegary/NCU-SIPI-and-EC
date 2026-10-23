@@ -1,0 +1,45 @@
+{
+  "description": "Supplied HW8 assignment, template, numerical input, legacy helper, and original usage note. All reference files retain their original bytes. Source paths are logical labels, not personal filesystem paths.",
+  "files": [
+    {
+      "path": "HW8_FFE.pdf",
+      "source": "Instruction/HW8_FFE.pdf",
+      "sha256": "1e8ca94907d3014f0464ab3ed0991124b0b05c83ce91338154c100f8eb09d217",
+      "bytes": 687970,
+      "storage": "original",
+      "role": "supplied assignment"
+    },
+    {
+      "path": "HW8_FFE_sample.py",
+      "source": "Instruction/HW8_FFE_sample.py",
+      "sha256": "89dd786406e9d4fcac27a1a7927bcce0aa5d2760348a9c08083e0bd299bdd2aa",
+      "bytes": 10300,
+      "storage": "original",
+      "role": "incomplete course template; not an executable solution"
+    },
+    {
+      "path": "HW7_stripline_50cm.s2p",
+      "source": "source/HW7_stripline_50cm.s2p",
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "bytes": 1368346,
+      "storage": "original",
+      "role": "supplied numerical input; 50 cm stripline channel"
+    },
+    {
+      "path": "snpreader.py",
+      "source": "source/snpreader.py",
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "bytes": 27828,
+      "storage": "original",
+      "role": "legacy auxiliary reference; not required by the rewritten solver"
+    },
+    {
+      "path": "cautions.txt",
+      "source": "source/cautions.txt",
+      "sha256": "487fd5bf62adfcc9941f54891f47f89c8986d20f4a8f7fe3fec187e18ee9d956",
+      "bytes": 55,
+      "storage": "original",
+      "role": "original usage note for the legacy student solution; rewritten solver generates all five cases automatically"
+    }
+  ]
+}

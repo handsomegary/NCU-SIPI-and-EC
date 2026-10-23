@@ -13,6 +13,7 @@ and an anonymous report. Further assignments can be added as they are completed.
 | [HW3](homework/hw03/) | Sectional convolution with overlap-add | Assignment, full input/reference data, rewritten solver, numerical checks, four ADS comparisons, anonymous report |
 | [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
+| [HW8](homework/hw08/) | Transmitter FFE design and simulation | Assignment, template, channel data, five ZF configurations, waveform snapshots, numerical checks, anonymous report |
 
 ## Reproduce
 
@@ -24,6 +25,7 @@ python homework/hw01/analyze.py
 python homework/hw03/analyze.py --verification-study
 python homework/hw07/src/hw7.py
 python homework/hw07/tests/verify_reference.py
+python homework/hw08/analyze.py
 python -m unittest discover -s tests -v
 ```
 
@@ -65,6 +67,11 @@ statistical-eye bin and the conditional boundaries.
   and a six-page anonymous report with editable source.
 - `homework/hw07/`: supplied instructions, verified CTLE analysis, numerical checks,
   generated figures, and an anonymous report with editable source.
+- `homework/hw08/instructions/`: supplied FFE assignment, template, channel data,
+  and legacy Touchstone helper.
+- `homework/hw08/analyze.py`: rewritten five-case transmitter FFE simulation.
+- `homework/hw08/results/`: eye diagrams, waveform snapshots, tap values, and checks.
+- `homework/hw08/report/`: anonymous report and its reproducible source.
 - `tests/`: automated numerical checks.
 
 ## Method and provenance
@@ -83,6 +90,13 @@ power. HW3 reconstructs the finite-rise-time NRZ input, derives a sampled channe
 impulse response from S21, convolves each section with zero padding, and adds the
 overlapping tails at their original sample positions. Its report documents
 truncation and sampling approximations and measures agreement with ADS.
+
+HW8 designs transmitter taps by a finite zero-forcing system, normalizes their
+absolute sum to the available voltage swing, constructs the post-FFE bit levels
+and finite-rise-time waveform explicitly, and applies channel overlap-add
+convolution. Its tests separate exact finite-system cancellation from residual
+ISI in the full channel response. No ADS validation or BER estimate is claimed
+for HW8.
 
 The report, rewritten source, generated results, and commit metadata omit personal
 names, student IDs, personal email addresses, and local machine paths. The public
