@@ -1,0 +1,36 @@
+name: Verify HW2
+
+on:
+  push:
+    paths:
+      - 'homework/hw02/**'
+      - '.github/workflows/verify-hw02.yml'
+  pull_request:
+    paths:
+      - 'homework/hw02/**'
+      - '.github/workflows/verify-hw02.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: homework/hw02/requirements.txt
+      - name: Install analysis dependencies
+        run: python -m pip install -r homework/hw02/requirements.txt
+      - name: Install independent circuit simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ngspice
+      - name: Run numerical unit tests
+        run: python -m unittest discover -s homework/hw02/tests -v
+      - name: Recompute and verify against fresh SPICE
+        run: python homework/hw02/src/hw2.py --ngspice ngspice --output /tmp/hw02-results

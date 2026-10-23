@@ -1,0 +1,9 @@
+Plot Output
+
+.control 
+
+load "D:/HW2_Chebyshev_LPF_S11_sample.out"
+plot v(2)-v(1)/2
+
+
+.endc

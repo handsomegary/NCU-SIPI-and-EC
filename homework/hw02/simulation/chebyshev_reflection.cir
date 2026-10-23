@@ -1,0 +1,23 @@
+* NCU EE8091 HW2: 3rd-order Chebyshev LPF, 2 dB ripple, 5 GHz cutoff.
+* Input reference plane is node 2. Source is 2 V with a 50 ps full ramp.
+* Incident wave is V(1)/2; reflected wave is V(2)-V(1)/2.
+* T1 TD=250 ps is one way, so its reflection round trip is 500 ps.
+Vin 1 0 PULSE(0 2 0 50p 50p 1u 10u)
+Rin 1 2 50
+T1 2 0 3 0 Z0=50 TD=250p
+L1 3 4 4.314n
+C2 4 0 0.5301p
+L3 4 5 4.314n
+Rout 5 0 50
+.options reltol=1e-9 abstol=1e-15 vntol=1e-12 method=trap
+.control
+set noaskquit
+set numdgt=15
+tran 0.5p 3n 0 0.01p
+linearize v(1) v(2)
+let reflected = v(2)-v(1)/2
+set wr_singlescale
+wrdata spice_reference.txt v(1) v(2) reflected
+quit
+.endc
+.end
