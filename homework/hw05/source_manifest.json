@@ -1,0 +1,52 @@
+{
+  "assignment": "HW5: Construction of statistical eye",
+  "instruction_coverage": "All three supplied instruction files are included unchanged.",
+  "submission_coverage": "The supplied code, PDF, and editable report are replaced by verified anonymous source, a regenerated PDF, and editable Markdown. Identity-bearing originals are not published.",
+  "instruction_files": [
+    {
+      "path": "instructions/HW5_ADS_waveforms.csv",
+      "bytes": 80340355,
+      "sha256": "5e72b7e14bab20ee171442ae58f01c3594c656d71baf48926378c6d4c297b615",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW5_stat_eye_construction.pdf",
+      "bytes": 694045,
+      "sha256": "dff2076e8b70b405da73c4747209ea1edf0eb72b07bed117f85fda584578cb7e",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW5_stateye_construction_sample.py",
+      "bytes": 2044,
+      "sha256": "14bd9cd8f09e027e004b912788869856b4d58603428c530317c55a9209171ddf",
+      "status": "supplied bytes preserved"
+    }
+  ],
+  "submission_rewrites": [
+    {
+      "source_role": "submission .docx",
+      "source_sha256": "6b78651fce81ee7874f351a7769775856aa44b07cfb09a5c7208a2b4835baee8",
+      "status": "replaced by anonymous verified rewrite",
+      "replacements": [
+        "report/report.md",
+        "report/hw05_report.pdf"
+      ]
+    },
+    {
+      "source_role": "submission .pdf",
+      "source_sha256": "0ae365f9889d5d1fab2399d83acd4f5150e0c91acdde552d9f30895dbbcaeb1f",
+      "status": "replaced by anonymous verified rewrite",
+      "replacements": [
+        "report/hw05_report.pdf"
+      ]
+    },
+    {
+      "source_role": "submission .py",
+      "source_sha256": "201a5086b42c71643240be6771de293c7f9508e1ee6cd65eb6be7612fc045591",
+      "status": "replaced by anonymous verified rewrite",
+      "replacements": [
+        "src/hw5.py"
+      ]
+    }
+  ]
+}

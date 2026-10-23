@@ -1,0 +1,3 @@
+# Keep every supplied instruction and input file byte-for-byte unchanged.
+instructions/* -text
+*.npz binary

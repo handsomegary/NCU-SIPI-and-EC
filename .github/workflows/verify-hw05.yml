@@ -1,0 +1,36 @@
+name: Verify HW5
+
+on:
+  push:
+    paths:
+      - 'homework/hw05/**'
+      - '.github/workflows/verify-hw05.yml'
+  pull_request:
+    paths:
+      - 'homework/hw05/**'
+      - '.github/workflows/verify-hw05.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: homework/hw05/requirements.txt
+      - name: Install analysis and verification dependencies
+        run: python -m pip install -r homework/hw05/requirements.txt
+      - name: Run numerical unit tests
+        run: python -m unittest discover -s homework/hw05/tests -p test_hw5.py -v
+      - name: Verify committed results and source checksums
+        run: python homework/hw05/tests/verify_delivery.py
+      - name: Recompute the full waveform record
+        run: python homework/hw05/src/hw5.py --output-dir /tmp/hw05-results
+      - name: Independently verify regenerated histograms
+        run: python homework/hw05/tests/verify_delivery.py --results /tmp/hw05-results

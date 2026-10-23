@@ -1,0 +1,136 @@
+{
+  "course": "NCU EE8091",
+  "homework": "HW2",
+  "all_checks_passed": true,
+  "part1": [
+    {
+      "alpha": 0.0,
+      "normalized_rise": 0.8916388524014546,
+      "rise_ps_at_F_40GHz": 22.290971310036362
+    },
+    {
+      "alpha": 1.0,
+      "normalized_rise": 1.420755033661143,
+      "rise_ps_at_F_40GHz": 35.51887584152857
+    },
+    {
+      "alpha": 2.0,
+      "normalized_rise": 2.0193203531251,
+      "rise_ps_at_F_40GHz": 50.483008828127495
+    },
+    {
+      "alpha": 3.0,
+      "normalized_rise": 2.4834136373187183,
+      "rise_ps_at_F_40GHz": 62.08534093296795
+    },
+    {
+      "alpha": 4.0,
+      "normalized_rise": 2.873692709907336,
+      "rise_ps_at_F_40GHz": 71.84231774768341
+    }
+  ],
+  "part2": {
+    "alpha_for_40ps": 1.2691102380098884,
+    "target_rise_ps": 40,
+    "actual_kaiser_rise_ps": 39.99999999999994,
+    "source_full_ramp_ps": 50.0,
+    "source_ramp_10_90_ps": 40.00000000000001,
+    "source_center_delay_ps": 25.0,
+    "line_one_way_delay_ps": 250.00000000000003,
+    "reflection_round_trip_delay_ps": 500.00000000000006,
+    "spice_reference_status": "saved_reference",
+    "s11_circuit_max_complex_error": 8.724125318395282e-07,
+    "s21_phase_anomaly_frequencies_ghz": [
+      2.0,
+      6.0,
+      10.0,
+      14.0,
+      18.0
+    ],
+    "s21_other_points_max_complex_error": 8.631392401873118e-07,
+    "s21_max_magnitude_error": 7.070094976135977e-08,
+    "kaiser_vs_ngspice": {
+      "rmse_v": 0.003536166030678987,
+      "max_abs_error_v": 0.049254449147957846
+    },
+    "linear_ramp_idft_vs_ngspice": {
+      "rmse_v": 0.003396585528432781,
+      "max_abs_error_v": 0.04956462985401511
+    },
+    "state_space_vs_ngspice": {
+      "rmse_v": 2.911977257773179e-07,
+      "max_abs_error_v": 1.967106421574e-05
+    },
+    "same_kaiser_state_vs_idft": {
+      "rmse_v": 3.706705964797986e-07,
+      "max_abs_error_v": 4.70499898586052e-06
+    },
+    "same_kaiser_state_grid": {
+      "dt_ps": 0.2,
+      "prehistory_ns": 20,
+      "uses_sparameters_or_fft": false
+    },
+    "fft_size_doubled_convergence": {
+      "rmse_v": 1.9284893283444977e-06,
+      "max_abs_error_v": 2.500883955069977e-05
+    },
+    "alpha_comparison": [
+      {
+        "alpha": 0.0,
+        "rise_ps": 22.290971310036362,
+        "peak_v": 0.7014763116537337,
+        "minimum_v": -0.08274407344030847,
+        "peak_time_ns": 0.5405,
+        "rmse_v": 0.020738585339716648,
+        "max_abs_error_v": 0.209580506338432
+      },
+      {
+        "alpha": 4.0,
+        "rise_ps": 71.84231774768341,
+        "peak_v": 0.38764042693171896,
+        "minimum_v": -0.01632047604035937,
+        "peak_time_ns": 0.5505,
+        "rmse_v": 0.017193033283851963,
+        "max_abs_error_v": 0.16955708277684645
+      }
+    ],
+    "comparison_interval_ns": [
+      0,
+      3
+    ],
+    "comparison_samples": 6001,
+    "grid": {
+      "df_hz": 10000000.0,
+      "fmax_hz": 20000000000.0,
+      "F_hz": 40000000000.0,
+      "n_fft": 524288,
+      "dt_s": 1.9073486328125e-13,
+      "period_s": 1e-07,
+      "dc_s11_real": 0.0,
+      "max_ifft_imaginary": 1.4019341243454164e-06,
+      "max_ifft_imaginary_relative": 8.912628576931237e-17,
+      "integrated_impulse": -4.3200998334214086e-18,
+      "initial_step": 0.0,
+      "final_step": 1.5761054575628346e-10
+    }
+  },
+  "checks": {
+    "kaiser_impulse_even": true,
+    "kaiser_step_symmetry": true,
+    "target_rise_within_0_001ps": true,
+    "real_ifft": true,
+    "dc_area_matches_s11": true,
+    "fft_convergence_below_0_1mV": true,
+    "ngspice_vs_state_below_0_1mV": true,
+    "supplied_s11_matches_circuit_below_1ppm": true,
+    "same_kaiser_state_vs_idft_below_0_1mV": true
+  },
+  "notes": [
+    "Kaiser and piecewise-linear edges share the 40 ps 10-90 rise but differ in shape.",
+    "Finite 20 GHz bandwidth and the window cause residual disagreement with broadband SPICE.",
+    "The line TD is one way; input reflection accumulates twice that delay.",
+    "Saved SPICE reference is generated independently from the standalone netlist.",
+    "The supplied S11 agrees with the nominal circuit within export rounding.",
+    "Supplied S21 has isolated 180-degree phase anomalies at 2,6,10,14,18 GHz; preserved as source data and not used in reflection."
+  ]
+}

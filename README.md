@@ -5,23 +5,32 @@ Integrity and Electromagnetic Compatibility**.
 
 Verified coursework for the assignments listed below. Each completed homework
 includes supplied reference material, portable rewritten code, numerical checks,
-and an anonymous report. Further assignments can be added as they are completed.
+and an anonymous report. HW1-HW7 are consolidated here from both course
+repositories, preserving their Git histories. The same repository is intended
+to hold HW1-HW14 as the remaining assignments are completed.
 
 | Homework | Topic | Contents |
 | --- | --- | --- |
 | [HW1](homework/hw01/) | Spectrum analysis with a Kaiser window | Assignment, data, rewritten analysis, verification, figures, anonymous report |
+| [HW2](homework/hw02/) | Step response via IDFT with a Kaiser window | Complete supplied files, rewritten code, independent SPICE and circuit checks, figures, anonymous report |
 | [HW3](homework/hw03/) | Sectional convolution with overlap-add | Assignment, full input/reference data, rewritten solver, numerical checks, four ADS comparisons, anonymous report |
+| [HW4](homework/hw04/) | Spectrum of digital signals | All instruction files, verified analysis, six PSD plots, independent checks, anonymous report |
+| [HW5](homework/hw05/) | Fixed-rate and triggered statistical eye diagrams | Complete supplied files, rewritten analysis, independent histogram verification, regenerated figures, anonymous report |
 | [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
 
 ## Reproduce
 
-Python 3.10 or newer is required.
+Use Python 3.12 or newer to reproduce all included assignments.
 
 ```sh
 python -m pip install -r requirements.txt
 python homework/hw01/analyze.py
+python homework/hw02/src/hw2.py
 python homework/hw03/analyze.py --verification-study
+python homework/hw04/src/hw4.py
+python homework/hw05/src/hw5.py
+python homework/hw06/src/hw6.py
 python homework/hw07/src/hw7.py
 python homework/hw07/tests/verify_reference.py
 python -m unittest discover -s tests -v
@@ -48,6 +57,44 @@ S21/2 transfer give a 0.436735919 V finite-model worst-case opening. Both 64,802
 records are processed completely; independent reconstruction verifies every
 statistical-eye bin and the conditional boundaries.
 
+## Run HW2
+
+Python 3.12 or newer is required for HW2.
+
+```sh
+python -m pip install -r homework/hw02/requirements.txt
+python homework/hw02/src/hw2.py
+python -m unittest discover -s homework/hw02/tests -v
+```
+
+The default run uses the saved independent circuit reference. Add
+`--ngspice ngspice` to run a fresh circuit simulation. See the
+[HW2 guide](homework/hw02/) for the full source inventory, verification method,
+and report rebuilding instructions.
+
+## Run HW4
+
+```sh
+python -m pip install -r homework/hw04/requirements.txt
+python homework/hw04/src/hw4.py
+python homework/hw04/tests/verify_reference.py
+```
+
+See the [HW4 guide](homework/hw04/) for all six PSD plots, the independent
+verification, and the anonymous report.
+
+## Run HW5
+
+```sh
+python -m pip install -r homework/hw05/requirements.txt
+python homework/hw05/src/hw5.py
+python -m unittest discover -s homework/hw05/tests -p test_hw5.py -v
+python homework/hw05/tests/verify_delivery.py
+```
+
+The [HW5 guide](homework/hw05/) documents the fixed-rate and triggered methods,
+complete input files, regenerated eye diagrams, and anonymous report.
+
 ## Files
 
 - `homework/hw01/instructions/`: supplied assignment, waveform data, reference
@@ -66,6 +113,10 @@ statistical-eye bin and the conditional boundaries.
 - `homework/hw07/`: supplied instructions, verified CTLE analysis, numerical checks,
   generated figures, and an anonymous report with editable source.
 - `tests/`: automated numerical checks.
+- `homework/hw02/`: complete HW2 material, its verified implementation and tests,
+  numerical results, and anonymous report with a full source appendix.
+- `homework/hw05/`: complete HW5 instructions and waveform data, rewritten
+  fixed-rate and triggered analysis, tests, results, and anonymous report.
 
 ## Method and provenance
 
@@ -84,8 +135,23 @@ impulse response from S21, convolves each section with zero padding, and adds th
 overlapping tails at their original sample positions. Its report documents
 truncation and sampling approximations and measures agreement with ADS.
 
+HW2 reconstructs the reflected step from S11 with a correctly scaled Hermitian
+IFFT. It solves the Kaiser parameter for the requested 40 ps rise, distinguishes
+the transmission line's one-way and round-trip delay, and validates against both
+fresh SPICE output and independent circuit equations. The report records source
+data limitations and the difference between Kaiser and piecewise-linear inputs.
+
+HW5 folds the received voltage into fixed nominal two-UI intervals and compares
+it with alignment to interpolated positive differential-clock zero crossings.
+Independent full-data histograms verify every count, the unique sample assignment,
+and the per-time-column probability normalization.
+
 The report, rewritten source, generated results, and commit metadata omit personal
 names, student IDs, personal email addresses, and local machine paths. The public
 GitHub owner account remains visible; anonymizing report content does not conceal
 repository ownership. Original course materials retain their existing provenance;
 no ownership or blanket license is claimed over supplied reference materials.
+
+Use **NCU-SIPI-and-EC** as the consolidated course repository. The combined
+verification includes the coursework workflow for HW1, HW3, HW6, and HW7, plus
+the dedicated HW2, HW4, and HW5 workflows.

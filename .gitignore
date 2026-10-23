@@ -16,6 +16,8 @@ tmp/
 *.dat
 *.npy
 *.npz
+!homework/hw04/results/spectra.npz
+!homework/hw05/results/histograms.npz
 !homework/hw06/results/arrays.npz
 !homework/hw07/results/analysis_data.npz
 *.float32

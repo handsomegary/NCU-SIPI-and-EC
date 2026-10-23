@@ -1,0 +1,4 @@
+# Preserve reference bytes so source_manifest.json also matches fresh clones.
+instructions/** -text -whitespace
+reference/** -text -whitespace
+data/*.s2p -whitespace

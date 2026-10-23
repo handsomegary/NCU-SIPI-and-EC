@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "source_coverage": {
+    "instruction_files_verified": 3,
+    "anonymous_source_replacements_verified": 3
+  },
+  "independent_method": "Integer 1 ps grid; per-cycle fractional ages; numpy.histogram2d; hand-counted synthetic examples",
+  "statistics": {
+    "input_samples": 1639001,
+    "positive_crossings": 32777,
+    "fixed_total": 1639001,
+    "triggered_total": 1638788,
+    "samples_before_first_trigger": 170,
+    "samples_excluded_after_2UI": 43,
+    "fixed_column_count_range": [
+      32780,
+      32781
+    ],
+    "triggered_column_count_range": [
+      32754,
+      32777
+    ]
+  },
+  "independent_received_clock_timing_ps": {
+    "first_crossing_ps": 1169.2294823671912,
+    "last_crossing_ps": 1639978.0498876425,
+    "minimum_interval_ps": 48.84171286132187,
+    "mean_interval_ps": 50.00026911170598,
+    "maximum_interval_ps": 51.13480733893812,
+    "minimum_phase_error_ps": -5.183384079602547,
+    "maximum_phase_error_ps": 9.8239525181707,
+    "peak_to_peak_phase_error_ps": 15.007336597773246
+  },
+  "matrices": {
+    "fixed": {
+      "bins_compared": 6000,
+      "differing_bins": 0,
+      "total_samples": 1639001,
+      "maximum_probability_error": 0.0,
+      "maximum_column_sum_error": 7.771561172376096e-16,
+      "count_array_sha256": "2f644477209cebe0202346cf81950eb411ce6e0d438cb05f280a7c465293a429"
+    },
+    "triggered": {
+      "bins_compared": 6000,
+      "differing_bins": 0,
+      "total_samples": 1638788,
+      "maximum_probability_error": 0.0,
+      "maximum_column_sum_error": 1.1102230246251565e-15,
+      "count_array_sha256": "7ceae20adb18fea48eb705bf6fb540df2db149dce045528522df062ba59bda6e"
+    }
+  },
+  "maximum_trigger_time_error_ps": 1.1641532182693481e-10,
+  "synthetic_checks": {
+    "hand_counted_histograms": true,
+    "exact_2UI_exclusion": true,
+    "empty_column_normalization": true
+  },
+  "report_checks": {
+    "pages": 3,
+    "neutral_or_blank_author": true,
+    "no_embedded_files": true,
+    "no_annotation_authors": true,
+    "generic_identity_pattern_checks": true,
+    "scope": "Metadata and generic patterns; private source-token scan is separate."
+  },
+  "sha256": {
+    "input_csv": "5e72b7e14bab20ee171442ae58f01c3594c656d71baf48926378c6d4c297b615",
+    "solution_source": "db1fff29082c63f86580e15b013faac2a8a92aec2cc5218f129273eb6525980f",
+    "histograms_npz": "bea125f92ca388a74f109f324a9c1be352f29aee4ebae765d4e21cfdb4a5d41e",
+    "summary_json": "0c5f0071101ecece1991cb282c76eeac59c501b6d1e1144395cd9cd04b7b8e3b",
+    "report_pdf": "4d08c1a6819187b6635fa49e40a1a5831a08c99979fec989a62677d0bff30bed"
+  }
+}

@@ -13,3 +13,5 @@ homework/*/instructions/* -text -whitespace
 # Preserve the supplied reference bytes so the published checksums remain valid.
 homework/hw01/instructions/HW1_Kaiser.txt -text
 homework/hw01/instructions/HW1_Kaiser_sample.py -text
+# Keep all HW5 instruction files byte-for-byte identical to the supplied files.
+homework/hw05/instructions/** -text -whitespace

@@ -1,0 +1,71 @@
+{
+  "configuration": {
+    "ui_ps": 25.0,
+    "bins_per_ui": 25,
+    "vmin": -0.1,
+    "vmax": 1.1,
+    "dv": 0.01,
+    "origin_ps": 0.0,
+    "dt_ps": 1.0,
+    "window_ps": 50.0,
+    "time_bins": 50,
+    "voltage_bins": 120
+  },
+  "input": {
+    "samples": 1639001,
+    "start_time_ps": 1000.0000000000001,
+    "end_time_ps": 1640000.0,
+    "duration_ps": 1639000.0,
+    "minimum_voltage_V": -0.09617345,
+    "maximum_voltage_V": 1.08581,
+    "median_sample_spacing_ps": 1.0,
+    "minimum_sample_spacing_ps": 0.9999999997671694,
+    "maximum_sample_spacing_ps": 1.0000000001164153,
+    "filename": "HW5_ADS_waveforms.csv",
+    "sha256": "5e72b7e14bab20ee171442ae58f01c3594c656d71baf48926378c6d4c297b615"
+  },
+  "trigger": {
+    "polarity": "positive differential zero crossing",
+    "crossing_method": "linear interpolation between adjacent clock samples",
+    "crossings": 32777,
+    "first_crossing_ps": 1169.2294823671912,
+    "last_crossing_ps": 1639978.0498876425,
+    "minimum_interval_ps": 48.84171286132187,
+    "maximum_interval_ps": 51.13480733893812,
+    "mean_interval_ps": 50.00026911170598,
+    "phase_error_reference": "first crossing plus n * nominal 2UI",
+    "minimum_phase_error_ps": -5.183384079602547,
+    "maximum_phase_error_ps": 9.8239525181707,
+    "peak_to_peak_phase_error_ps": 15.007336597773246,
+    "samples_before_first_trigger": 170,
+    "samples_excluded_after_2UI": 43
+  },
+  "fixed_rate": {
+    "total_samples": 1639001,
+    "nonempty_time_bins": 50,
+    "empty_time_bins": 0,
+    "minimum_column_count": 32780,
+    "maximum_column_count": 32781,
+    "maximum_column_sum_error": 2.220446049250313e-16,
+    "all_probabilities_finite": true
+  },
+  "triggered": {
+    "total_samples": 1638788,
+    "nonempty_time_bins": 50,
+    "empty_time_bins": 0,
+    "minimum_column_count": 32754,
+    "maximum_column_count": 32777,
+    "maximum_column_sum_error": 1.1102230246251565e-16,
+    "all_probabilities_finite": true
+  },
+  "probability_definition": "P(voltage bin | time bin), not a continuous probability density",
+  "time_bin_convention": "[left, right); fixed origin 0 ps by default; triggered age in [0, 2UI)",
+  "voltage_bin_convention": "floor((V-vmin)/dv); [left, right), final bin includes vmax",
+  "trigger_assignment": "latest positive crossing; each measured sample is counted at most once",
+  "voltage_interpolation": false,
+  "software": {
+    "python": "3.14.4",
+    "numpy": "2.5.0",
+    "matplotlib": "3.11.2"
+  }
+}
