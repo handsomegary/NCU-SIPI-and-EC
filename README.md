@@ -5,7 +5,7 @@ Integrity and Electromagnetic Compatibility**.
 
 Verified coursework for the assignments listed below. Each completed homework
 includes supplied reference material, portable rewritten code, numerical checks,
-and an anonymous report. HW1-HW7 are consolidated here from both course
+and an anonymous report. HW1-HW8 are consolidated here from both course
 repositories, preserving their Git histories. The same repository is intended
 to hold HW1-HW14 as the remaining assignments are completed.
 
@@ -18,6 +18,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW5](homework/hw05/) | Fixed-rate and triggered statistical eye diagrams | Complete supplied files, rewritten analysis, independent histogram verification, regenerated figures, anonymous report |
 | [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
+| [HW8](homework/hw08/) | Transmitter FFE design and simulation | Assignment, template, channel data, five ZF configurations, waveform snapshots, numerical checks, anonymous report |
 
 ## Reproduce
 
@@ -33,6 +34,7 @@ python homework/hw05/src/hw5.py
 python homework/hw06/src/hw6.py
 python homework/hw07/src/hw7.py
 python homework/hw07/tests/verify_reference.py
+python homework/hw08/analyze.py
 python -m unittest discover -s tests -v
 ```
 
@@ -112,6 +114,11 @@ complete input files, regenerated eye diagrams, and anonymous report.
   and a six-page anonymous report with editable source.
 - `homework/hw07/`: supplied instructions, verified CTLE analysis, numerical checks,
   generated figures, and an anonymous report with editable source.
+- `homework/hw08/instructions/`: supplied FFE assignment, template, channel data,
+  and legacy Touchstone helper.
+- `homework/hw08/analyze.py`: rewritten five-case transmitter FFE simulation.
+- `homework/hw08/results/`: eye diagrams, waveform snapshots, tap values, and checks.
+- `homework/hw08/report/`: anonymous report and its reproducible source.
 - `tests/`: automated numerical checks.
 - `homework/hw02/`: complete HW2 material, its verified implementation and tests,
   numerical results, and anonymous report with a full source appendix.
@@ -146,6 +153,13 @@ it with alignment to interpolated positive differential-clock zero crossings.
 Independent full-data histograms verify every count, the unique sample assignment,
 and the per-time-column probability normalization.
 
+HW8 designs transmitter taps by a finite zero-forcing system, normalizes their
+absolute sum to the available voltage swing, constructs the post-FFE bit levels
+and finite-rise-time waveform explicitly, and applies channel overlap-add
+convolution. Its tests separate exact finite-system cancellation from residual
+ISI in the full channel response. No ADS validation or BER estimate is claimed
+for HW8.
+
 The report, rewritten source, generated results, and commit metadata omit personal
 names, student IDs, personal email addresses, and local machine paths. The public
 GitHub owner account remains visible; anonymizing report content does not conceal
@@ -153,5 +167,5 @@ repository ownership. Original course materials retain their existing provenance
 no ownership or blanket license is claimed over supplied reference materials.
 
 Use **NCU-SIPI-and-EC** as the consolidated course repository. The combined
-verification includes the coursework workflow for HW1, HW3, HW6, and HW7, plus
+verification includes the coursework workflow for HW1, HW3, HW6, HW7, and HW8, plus
 the dedicated HW2, HW4, and HW5 workflows.

@@ -1,0 +1,419 @@
+{
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "parameters": {
+    "bit_rate_bps": 40000000000.0,
+    "tb_s": 2.5e-11,
+    "tr_s": 5e-12,
+    "dt_s": 5e-13,
+    "samples_per_ui": 50,
+    "rise_samples": 10,
+    "source_vpp_v": 2.0,
+    "source_levels_v": [
+      0,
+      2.0
+    ],
+    "kaiser_alpha": 0.5,
+    "fir_truncation_s": 2e-08,
+    "payload_bits": 65536,
+    "guard_bits_each_end": 933,
+    "seed": 0,
+    "section_samples": 16384,
+    "input_file": "HW7_stripline_50cm.s2p",
+    "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+    "eye_voltage_bins": 400,
+    "eye_common_voltage_limits_v": [
+      -0.054915212508615925,
+      0.9501885458072334
+    ],
+    "eye_voltage_bin_width_v": 0.002512759395789623
+  },
+  "channel": {
+    "reference_impedance_ohm": 50.0,
+    "frequency_samples": 8001,
+    "frequency_step_hz": 10000000.0,
+    "maximum_frequency_hz": 80000000000.0,
+    "dft_samples": 200000,
+    "period_s": 1e-07,
+    "transfer_convention": "H = S21 / 2, applied exactly once",
+    "dc_gain": 0.484733287,
+    "finite_fir_dc_gain": 0.4834345565224206,
+    "omitted_fir_absolute_sum": 0.002446910250056077,
+    "dc_gain_relative_truncation_error": 0.002679268192240717,
+    "omitted_fir_energy_fraction": 9.999539751580426e-08,
+    "main_sbr_index": 5804,
+    "main_sbr_time_s": 2.902e-09
+  },
+  "verification": {
+    "ola_vs_direct_max_abs_v": 2.329340604949326e-21,
+    "continuous_sbr_vs_sampled_pulse_max_abs_v": 4.762901927207741e-05,
+    "continuous_sbr_vs_sampled_pulse_rms_v": 5.890630187431942e-07,
+    "continuous_sbr_vs_sampled_pulse_relative_peak": 0.00012175175589518945,
+    "sampled_pulse_fft_vs_folded_linear_filter_max_abs_v": 1.6653345369377348e-16,
+    "sampled_pulse_periodic_vs_linear_boundary_max_abs_v_before_t2": 1.2230657602660044e-05,
+    "dt_convergence_main_window_coarse_max_abs_v": 4.762901927207741e-05,
+    "dt_convergence_main_window_fine_max_abs_v": 1.1903039627891854e-05,
+    "dt_convergence_fine_dt_s": 2.5e-13,
+    "pulse_comparison_note": "Continuous-pulse SBR and sample-first ramp filtering differ by finite time sampling. Folding the full linear-filter result at the DFT period verifies exact agreement with the discrete periodic reference; the unfurled linear comparison separately exposes periodic boundary contributions.",
+    "metric_note": "Empirical sampled vertical gaps are extrema over this finite noiseless bit sequence, not BER or noise-margin estimates."
+  },
+  "cases": [
+    {
+      "name": "case1_no_ffe",
+      "label": "No FFE",
+      "npre": 0,
+      "npost": 0,
+      "taps": [
+        1.0
+      ],
+      "tap_l1_norm": 1.0,
+      "design_cursors_v": [
+        0.3911978018048386
+      ],
+      "zf_matrix_v": [
+        [
+          0.3911978018048386
+        ]
+      ],
+      "zf_selected_response_v": [
+        0.3911978018048386
+      ],
+      "zf_matrix_residual_v": 0.0,
+      "zf_condition_number": 1.0,
+      "zf_predicted_main_cursor_v": 0.3911978018048386,
+      "main_cursor_v": 0.3911978018048386,
+      "design_phase_main_cursor_v": 0.3911978018048386,
+      "physical_selected_cursors_at_design_phase_v": [
+        0.3911978018048386
+      ],
+      "physical_selected_residual_v": 0.0,
+      "physical_vs_zf_selected_max_abs_v": 0.0,
+      "full_residual_isi_l1_v": 0.5782687721951615,
+      "analytic_cursor_gap_bound_v": -0.1870709703903229,
+      "analytic_cursor_bound_note": "Main minus the L1 sum of other UI-spaced cursors in the analytic finite-period response; not an infinite physical-channel guarantee.",
+      "empirical_sampled_vertical_gap_v": -0.0934066901620832,
+      "empirical_high_min_v": 0.4333362709968089,
+      "empirical_low_max_v": 0.5267429611588921,
+      "empirical_high_mean_v": 0.679697395733185,
+      "empirical_low_mean_v": 0.28868309729793423,
+      "tx_min_v": 0.0,
+      "tx_max_v": 2.0,
+      "tx_swing_v": 2.0,
+      "sample_index": 5804,
+      "sample_latency_s": 2.902e-09,
+      "main_tap_delay_ui": 0,
+      "sample_phase_ps": 2902.0,
+      "phase_shift_from_design_ps": 0.0,
+      "eye_file": "eye_case1_no_ffe.png"
+    },
+    {
+      "name": "case2_pre1",
+      "label": "1 precursor",
+      "npre": 1,
+      "npost": 0,
+      "taps": [
+        -0.0995844059050425,
+        0.9004155940949575
+      ],
+      "tap_l1_norm": 1.0,
+      "design_cursors_v": [
+        0.043265799636945206,
+        0.3911978018048386
+      ],
+      "zf_matrix_v": [
+        [
+          0.3911978018048386,
+          0.043265799636945206
+        ],
+        [
+          0.0,
+          0.3911978018048386
+        ]
+      ],
+      "zf_selected_response_v": [
+        3.8634285641240144e-18,
+        0.3522406011207452
+      ],
+      "zf_matrix_residual_v": 5.551115123125783e-17,
+      "zf_condition_number": 1.1168832326808964,
+      "zf_predicted_main_cursor_v": 0.3522406011207452,
+      "main_cursor_v": 0.33450334772672924,
+      "design_phase_main_cursor_v": 0.33450334772672924,
+      "physical_selected_cursors_at_design_phase_v": [
+        6.938893903907228e-18,
+        0.33450334772672924
+      ],
+      "physical_selected_residual_v": 6.938893903907228e-18,
+      "physical_vs_zf_selected_max_abs_v": 0.01773725339401594,
+      "full_residual_isi_l1_v": 0.4454744405955039,
+      "analytic_cursor_gap_bound_v": -0.11097109286877466,
+      "analytic_cursor_bound_note": "Main minus the L1 sum of other UI-spaced cursors in the analytic finite-period response; not an infinite physical-channel guarantee.",
+      "empirical_sampled_vertical_gap_v": -0.038654815593238134,
+      "empirical_high_min_v": 0.36609453931067576,
+      "empirical_low_max_v": 0.4047493549039139,
+      "empirical_high_mean_v": 0.5549108982686699,
+      "empirical_low_mean_v": 0.22054274950924405,
+      "tx_min_v": -0.199168811810085,
+      "tx_max_v": 1.800831188189915,
+      "tx_swing_v": 2.0,
+      "sample_index": 5854,
+      "sample_latency_s": 2.927e-09,
+      "main_tap_delay_ui": 1,
+      "sample_phase_ps": 2927.0,
+      "phase_shift_from_design_ps": 0.0,
+      "eye_file": "eye_case2_pre1.png"
+    },
+    {
+      "name": "case3_post1",
+      "label": "1 postcursor",
+      "npre": 0,
+      "npost": 1,
+      "taps": [
+        0.6871430604203566,
+        -0.31285693957964344
+      ],
+      "tap_l1_norm": 1.0,
+      "design_cursors_v": [
+        0.3911978018048386,
+        0.1781127600533066
+      ],
+      "zf_matrix_v": [
+        [
+          0.3911978018048386,
+          0.0
+        ],
+        [
+          0.1781127600533066,
+          0.3911978018048386
+        ]
+      ],
+      "zf_selected_response_v": [
+        0.26880885476189287,
+        5.396841657225087e-18
+      ],
+      "zf_matrix_residual_v": 5.396841657225087e-18,
+      "zf_condition_number": 1.5705994493884508,
+      "zf_predicted_main_cursor_v": 0.26880885476189287,
+      "main_cursor_v": 0.25821427763459776,
+      "design_phase_main_cursor_v": 0.25527284909901216,
+      "physical_selected_cursors_at_design_phase_v": [
+        0.25527284909901216,
+        0.0
+      ],
+      "physical_selected_residual_v": 0.0,
+      "physical_vs_zf_selected_max_abs_v": 0.013536005662880712,
+      "full_residual_isi_l1_v": 0.10465115623339376,
+      "analytic_cursor_gap_bound_v": 0.15356312140120398,
+      "analytic_cursor_bound_note": "Main minus the L1 sum of other UI-spaced cursors in the analytic finite-period response; not an infinite physical-channel guarantee.",
+      "empirical_sampled_vertical_gap_v": 0.18682903892177616,
+      "empirical_high_min_v": 0.2731861619717642,
+      "empirical_low_max_v": 0.08635712304998805,
+      "empirical_high_mean_v": 0.31018049822318816,
+      "empirical_low_mean_v": 0.05197694676478261,
+      "tx_min_v": -0.6257138791592869,
+      "tx_max_v": 1.374286120840713,
+      "tx_swing_v": 2.0,
+      "sample_index": 5801,
+      "sample_latency_s": 2.9005e-09,
+      "main_tap_delay_ui": 0,
+      "sample_phase_ps": 2900.5,
+      "phase_shift_from_design_ps": -1.5,
+      "eye_file": "eye_case3_post1.png"
+    },
+    {
+      "name": "case4_pre1_post1",
+      "label": "1 precursor + 1 postcursor",
+      "npre": 1,
+      "npost": 1,
+      "taps": [
+        -0.07062923474772699,
+        0.6386106719006557,
+        -0.2907600933516174
+      ],
+      "tap_l1_norm": 1.0,
+      "design_cursors_v": [
+        0.043265799636945206,
+        0.3911978018048386,
+        0.1781127600533066
+      ],
+      "zf_matrix_v": [
+        [
+          0.3911978018048386,
+          0.043265799636945206,
+          0.0
+        ],
+        [
+          0.1781127600533066,
+          0.3911978018048386,
+          0.043265799636945206
+        ],
+        [
+          0.0,
+          0.1781127600533066,
+          0.3911978018048386
+        ]
+      ],
+      "zf_selected_response_v": [
+        -5.534141691368616e-19,
+        0.2246631551739064,
+        -3.3444151003387184e-18
+      ],
+      "zf_matrix_residual_v": 2.7755575615628914e-17,
+      "zf_condition_number": 2.286625880431088,
+      "zf_predicted_main_cursor_v": 0.2246631551739064,
+      "main_cursor_v": 0.22669155995793797,
+      "design_phase_main_cursor_v": 0.2246631551739064,
+      "physical_selected_cursors_at_design_phase_v": [
+        -0.0008106715427327996,
+        0.2246631551739064,
+        -0.005870618265700359
+      ],
+      "physical_selected_residual_v": 0.005870618265700359,
+      "physical_vs_zf_selected_max_abs_v": 0.005870618265700355,
+      "full_residual_isi_l1_v": 0.06937964323979014,
+      "analytic_cursor_gap_bound_v": 0.15731191671814782,
+      "analytic_cursor_bound_note": "Main minus the L1 sum of other UI-spaced cursors in the analytic finite-period response; not an infinite physical-channel guarantee.",
+      "empirical_sampled_vertical_gap_v": 0.18081350246603878,
+      "empirical_high_min_v": 0.2249247030266072,
+      "empirical_low_max_v": 0.04411120056056841,
+      "empirical_high_mean_v": 0.24742356374891947,
+      "empirical_low_mean_v": 0.020721384148171512,
+      "tx_min_v": -0.7227786561986888,
+      "tx_max_v": 1.2772213438013114,
+      "tx_swing_v": 2.0,
+      "sample_index": 5851,
+      "sample_latency_s": 2.9255e-09,
+      "main_tap_delay_ui": 1,
+      "sample_phase_ps": 2925.5,
+      "phase_shift_from_design_ps": -1.5,
+      "eye_file": "eye_case4_pre1_post1.png",
+      "snapshots": [
+        {
+          "signal": "tx",
+          "snapshot": 1,
+          "start_sample": 865850,
+          "start_time_s": 4.3292499999999997e-07,
+          "source_payload_start_bit": 16384,
+          "span_ui": 20,
+          "csv_file": "case4_tx_snapshot1.csv",
+          "figure_file": "case4_tx_snapshot1.png"
+        },
+        {
+          "signal": "rx",
+          "snapshot": 1,
+          "start_sample": 871676,
+          "start_time_s": 4.35838e-07,
+          "source_payload_start_bit": 16384,
+          "span_ui": 20,
+          "csv_file": "case4_rx_snapshot1.csv",
+          "figure_file": "case4_rx_snapshot1.png"
+        },
+        {
+          "signal": "tx",
+          "snapshot": 2,
+          "start_sample": 2340400,
+          "start_time_s": 1.1702e-06,
+          "source_payload_start_bit": 45875,
+          "span_ui": 20,
+          "csv_file": "case4_tx_snapshot2.csv",
+          "figure_file": "case4_tx_snapshot2.png"
+        },
+        {
+          "signal": "rx",
+          "snapshot": 2,
+          "start_sample": 2346226,
+          "start_time_s": 1.173113e-06,
+          "source_payload_start_bit": 45875,
+          "span_ui": 20,
+          "csv_file": "case4_rx_snapshot2.csv",
+          "figure_file": "case4_rx_snapshot2.png"
+        }
+      ]
+    },
+    {
+      "name": "case5_pre1_post2",
+      "label": "1 precursor + 2 postcursors",
+      "npre": 1,
+      "npost": 2,
+      "taps": [
+        -0.07102079405478572,
+        0.6421510465495227,
+        -0.27609498634137847,
+        -0.010733173054313072
+      ],
+      "tap_l1_norm": 0.9999999999999999,
+      "design_cursors_v": [
+        0.043265799636945206,
+        0.3911978018048386,
+        0.1781127600533066,
+        0.08311881456268068
+      ],
+      "zf_matrix_v": [
+        [
+          0.3911978018048386,
+          0.043265799636945206,
+          0.0,
+          0.0
+        ],
+        [
+          0.1781127600533066,
+          0.3911978018048386,
+          0.043265799636945206,
+          0.0
+        ],
+        [
+          0.08311881456268068,
+          0.1781127600533066,
+          0.3911978018048386,
+          0.043265799636945206
+        ],
+        [
+          0.0,
+          0.08311881456268068,
+          0.1781127600533066,
+          0.3911978018048386
+        ]
+      ],
+      "zf_selected_response_v": [
+        0.0,
+        0.22661289782676328,
+        1.3877787807814457e-17,
+        6.938893903907228e-18
+      ],
+      "zf_matrix_residual_v": 1.3877787807814457e-17,
+      "zf_condition_number": 2.4857883340674443,
+      "zf_predicted_main_cursor_v": 0.22661289782676328,
+      "main_cursor_v": 0.22838977525419715,
+      "design_phase_main_cursor_v": 0.22658297254417703,
+      "physical_selected_cursors_at_design_phase_v": [
+        -0.0007883001630948497,
+        0.22658297254417703,
+        1.9678269430611905e-17,
+        -0.0034177710534089986
+      ],
+      "physical_selected_residual_v": 0.0034177710534089986,
+      "physical_vs_zf_selected_max_abs_v": 0.0034177710534090055,
+      "full_residual_isi_l1_v": 0.07684356226874789,
+      "analytic_cursor_gap_bound_v": 0.15154621298544926,
+      "analytic_cursor_bound_note": "Main minus the L1 sum of other UI-spaced cursors in the analytic finite-period response; not an infinite physical-channel guarantee.",
+      "empirical_sampled_vertical_gap_v": 0.17559734664424093,
+      "empirical_high_min_v": 0.22573561729361744,
+      "empirical_low_max_v": 0.0501382706493765,
+      "empirical_high_mean_v": 0.2517013268221178,
+      "empirical_low_mean_v": 0.023303275537278657,
+      "tx_min_v": -0.7156979069009547,
+      "tx_max_v": 1.2843020930990456,
+      "tx_swing_v": 2.0000000000000004,
+      "sample_index": 5851,
+      "sample_latency_s": 2.9255e-09,
+      "main_tap_delay_ui": 1,
+      "sample_phase_ps": 2925.5,
+      "phase_shift_from_design_ps": -1.5,
+      "eye_file": "eye_case5_pre1_post2.png"
+    }
+  ]
+}
