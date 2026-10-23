@@ -1,0 +1,103 @@
+{
+  "title": "Independent numerical verification of HW4 results",
+  "status": "passed",
+  "unit_test_count": 20,
+  "unit_test_failures": 0,
+  "unit_test_errors": 0,
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.0",
+    "scipy": "1.18.1"
+  },
+  "independent_method": "Construct complete bipolar NRZ stream by causal boxcar convolution with preceding zero; split its samples into blocks; use scipy.signal.periodogram (detrend=False, density, symmetric Kaiser) and average power spectra. No rewritten estimator is called.",
+  "relative_error_policy": "Peak pointwise error is computed only at bins above 1e-14 times the maximum reference spectral density. Relative L2 and maximum absolute errors include all bins.",
+  "tolerances": {
+    "spectral_relative_L2": 1e-12,
+    "full_band_power_relative": 1e-12
+  },
+  "spectral_comparisons": [
+    {
+      "pattern": 1,
+      "K": 10,
+      "source_sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 6.058451752097371e-27,
+      "relative_L2_error": 2.49227597909675e-15,
+      "maximum_relative_error_above_threshold": 3.968369746971525e-12,
+      "saved_full_band_power_w": 0.0046709930452720205,
+      "independent_window_weighted_power_w": 0.004670993045272019,
+      "independent_unwindowed_power_w": 0.004672904,
+      "relative_full_band_power_error": 3.713821577475254e-16
+    },
+    {
+      "pattern": 1,
+      "K": 100,
+      "source_sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 3.8370194429950014e-27,
+      "relative_L2_error": 2.505446393622599e-15,
+      "maximum_relative_error_above_threshold": 7.481393719608965e-13,
+      "saved_full_band_power_w": 0.004670322134556121,
+      "independent_window_weighted_power_w": 0.00467032213455612,
+      "independent_unwindowed_power_w": 0.004670514799999999,
+      "relative_full_band_power_error": 1.8571775415034405e-16
+    },
+    {
+      "pattern": 2,
+      "K": 10,
+      "source_sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 5.6545549686242126e-27,
+      "relative_L2_error": 2.497865247904894e-15,
+      "maximum_relative_error_above_threshold": 2.2983597123905122e-12,
+      "saved_full_band_power_w": 0.004597129448166662,
+      "independent_window_weighted_power_w": 0.00459712944816666,
+      "independent_unwindowed_power_w": 0.004599412999999999,
+      "relative_full_band_power_error": 3.773492775298326e-16
+    },
+    {
+      "pattern": 2,
+      "K": 100,
+      "source_sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 3.8370194429950014e-27,
+      "relative_L2_error": 2.506731696063527e-15,
+      "maximum_relative_error_above_threshold": 5.401602077628159e-13,
+      "saved_full_band_power_w": 0.004598096190154769,
+      "independent_window_weighted_power_w": 0.004598096190154767,
+      "independent_unwindowed_power_w": 0.0045977299999999995,
+      "relative_full_band_power_error": 3.772699404790873e-16
+    },
+    {
+      "pattern": 3,
+      "K": 10,
+      "source_sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 9.04728794979874e-26,
+      "relative_L2_error": 2.533280549893706e-15,
+      "maximum_relative_error_above_threshold": 5.02957337702443e-12,
+      "saved_full_band_power_w": 0.00463367088870143,
+      "independent_window_weighted_power_w": 0.004633670888701429,
+      "independent_unwindowed_power_w": 0.004636438999999998,
+      "relative_full_band_power_error": 1.8718673786335284e-16
+    },
+    {
+      "pattern": 3,
+      "K": 100,
+      "source_sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+      "fft_bins_compared": 262145,
+      "maximum_absolute_error_w_per_hz": 9.04728794979874e-26,
+      "relative_L2_error": 2.457008709135426e-15,
+      "maximum_relative_error_above_threshold": 4.887560386404485e-12,
+      "saved_full_band_power_w": 0.004636756693122705,
+      "independent_window_weighted_power_w": 0.004636756693122704,
+      "independent_unwindowed_power_w": 0.004636567699999999,
+      "relative_full_band_power_error": 1.870621633597651e-16
+    }
+  ],
+  "sampled_random_reference_check": {
+    "exact_expected_power_w": 0.00467,
+    "integrated_reference_power_w": 0.004670000000000001,
+    "relative_error": 3.714611297594876e-16
+  }
+}

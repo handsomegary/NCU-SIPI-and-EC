@@ -1,0 +1,28 @@
+name: Verify HW4
+
+on:
+  push:
+    paths:
+      - 'homework/hw04/**'
+      - '.github/workflows/verify-hw04.yml'
+  pull_request:
+    paths:
+      - 'homework/hw04/**'
+      - '.github/workflows/verify-hw04.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r homework/hw04/requirements.txt -r homework/hw04/report/requirements.txt
+      - run: python homework/hw04/src/hw4.py --output-dir /tmp/hw04-results
+      - run: python homework/hw04/tests/verify_reference.py --results-dir /tmp/hw04-results
+      - run: python homework/hw04/tests/verify_delivery.py

@@ -1,0 +1,406 @@
+{
+  "title": "Spectrum of digital signals: reproducible HW4 analysis",
+  "configuration": {
+    "bit_duration": 1e-10,
+    "rise_time": 2e-11,
+    "dt": 2e-12,
+    "vpp": 1.0,
+    "z0": 50.0,
+    "block_bits": 2000,
+    "nfft": 524288,
+    "kaiser_beta": 3.141592653589793,
+    "averages": [
+      10,
+      100
+    ]
+  },
+  "derived_parameters": {
+    "bit_rate_bps": 10000000000.0,
+    "samples_per_bit": 50,
+    "rise_samples": 10,
+    "block_samples": 100000,
+    "block_duration_s": 2e-07,
+    "unwindowed_resolution_scale_hz": 5000000.0,
+    "fft_grid_step_hz": 953674.31640625,
+    "nyquist_hz": 250000000000.0,
+    "window_power_gain_U": 0.5185997603273929,
+    "window_coherent_gain": 0.6710761564556492,
+    "window_enbw_hz": 5757828.15625348,
+    "window_enbw_in_unpadded_bins": 1.151565631250696,
+    "kaiser_alpha": 1.0,
+    "sampled_vs_continuous_reference_at_50_GHz_db": 0.2867003443237515,
+    "independent_random_sampled_expected_total_power_w": 0.00467
+  },
+  "method": {
+    "segments": "Consecutive nonoverlapping blocks; the same initial blocks are used for every K.",
+    "first_predecessor": 0,
+    "block_boundaries": "Use the actual preceding input bit; never reset at each block.",
+    "detrending": "None; DC and deterministic components are retained.",
+    "window": "Symmetric Kaiser window, beta = pi * alpha.",
+    "normalization": "S2 = dt**2 * abs(FFT(x*w))**2 / (T * Z0 * U), U = mean(w**2).",
+    "one_sided": "Double interior positive-frequency bins only; retain DC and even-FFT Nyquist without doubling.",
+    "units": "Stored spectra are W/Hz; figures use 10*log10(PSD*1000) dBm/Hz.",
+    "resolution": "Zero padding refines the plotted grid; independent resolution is set by block duration and window.",
+    "reference": "The continuous sinc-squared reference assumes independent equiprobable bits, linear ramps, and no sampling.",
+    "parseval_check": "Full-band sum(PSD)*df equals window-weighted time-domain power; trapezoidal endpoint weighting is inappropriate for this DFT-bin check."
+  },
+  "patterns": [
+    {
+      "pattern": 1,
+      "input_file": "HW4_bit_pattern_1.txt",
+      "statistics": {
+        "total_bits": 200000,
+        "ones": 99981,
+        "ones_fraction": 0.499905,
+        "transition_fraction": 0.49921749608748045,
+        "maximum_run_length": 17,
+        "run_length_counts": {
+          "1": 49900,
+          "2": 24955,
+          "3": 12439,
+          "4": 6271,
+          "5": 3131,
+          "6": 1565,
+          "7": 771,
+          "8": 393,
+          "9": 197,
+          "10": 103,
+          "11": 69,
+          "12": 30,
+          "13": 8,
+          "14": 6,
+          "15": 4,
+          "16": 1,
+          "17": 1
+        },
+        "cumulative_disparity_min": -255,
+        "cumulative_disparity_max": 291,
+        "cumulative_disparity_final": -38,
+        "bit_autocorrelation": {
+          "1": 0.0015649717811736523,
+          "2": 0.0011199732398020745,
+          "3": 0.0012949795709001717,
+          "4": -0.000680053526341921,
+          "5": 0.004325068381938161,
+          "8": -0.0009300790381799884,
+          "10": 0.0005599862177204242,
+          "16": -0.0020902128953702356,
+          "20": 0.00196015238238271,
+          "32": -0.001280248591760215,
+          "64": -0.001840628979250758,
+          "100": -0.003241672271151386
+        },
+        "ones_fraction_by_position_modulo_10": [
+          0.4969,
+          0.4998,
+          0.50155,
+          0.49585,
+          0.4958,
+          0.50835,
+          0.50235,
+          0.5,
+          0.50085,
+          0.4976
+        ],
+        "aligned_10bit_word_disparity_counts": {
+          "-10": 21,
+          "-8": 187,
+          "-6": 895,
+          "-4": 2387,
+          "-2": 4047,
+          "0": 4962,
+          "2": 4030,
+          "4": 2357,
+          "6": 880,
+          "8": 214,
+          "10": 20
+        },
+        "aligned_10bit_last_pair_counts": {
+          "00": 4999,
+          "01": 4984,
+          "10": 5049,
+          "11": 4968
+        }
+      },
+      "estimates": {
+        "10": {
+          "averages": 10,
+          "bits_used": 20000,
+          "record_duration_s": 2e-06,
+          "mean_time_domain_power_w": 0.004672904,
+          "mean_window_weighted_power_w": 0.00467099304527202,
+          "integrated_full_band_psd_w": 0.0046709930452720205,
+          "parseval_relative_error": 1.8569107887376268e-16,
+          "power_0_to_50_GHz_w": 0.004669299293923587,
+          "dc_bin_psd_w_per_hz": 5.045718158030203e-13,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 0.9968061214117737,
+            "std_psd_ratio": 0.3148930026262344,
+            "median_ratio_db": -0.1874627369726409,
+            "std_ratio_db": 1.3977906816835133,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        },
+        "100": {
+          "averages": 100,
+          "bits_used": 200000,
+          "record_duration_s": 2e-05,
+          "mean_time_domain_power_w": 0.004670514799999998,
+          "mean_window_weighted_power_w": 0.004670322134556121,
+          "integrated_full_band_psd_w": 0.004670322134556121,
+          "parseval_relative_error": 0.0,
+          "power_0_to_50_GHz_w": 0.004668624944539141,
+          "dc_bin_psd_w_per_hz": 4.697799921713333e-13,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 0.9988470859700598,
+            "std_psd_ratio": 0.09644096733974063,
+            "median_ratio_db": -0.024802378235527306,
+            "std_ratio_db": 0.42073233509668456,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        }
+      }
+    },
+    {
+      "pattern": 2,
+      "input_file": "HW4_bit_pattern_2.txt",
+      "statistics": {
+        "total_bits": 200000,
+        "ones": 100294,
+        "ones_fraction": 0.50147,
+        "transition_fraction": 0.6095030475152375,
+        "maximum_run_length": 6,
+        "run_length_counts": {
+          "1": 66462,
+          "2": 36983,
+          "3": 14657,
+          "4": 3436,
+          "5": 321,
+          "6": 42
+        },
+        "cumulative_disparity_min": -2,
+        "cumulative_disparity_max": 590,
+        "cumulative_disparity_final": 588,
+        "bit_autocorrelation": {
+          "1": -0.2190166612094715,
+          "2": -0.10879070132735187,
+          "3": -0.048334786531746075,
+          "4": -0.0287694678290273,
+          "5": -0.024724475631115662,
+          "8": -0.008999052288932585,
+          "10": -0.004018820908569012,
+          "16": -0.0012587264686632336,
+          "20": 0.002591695904572989,
+          "32": 0.004402126801447386,
+          "64": -0.002899569883016766,
+          "100": 0.0027528110660336178
+        },
+        "ones_fraction_by_position_modulo_10": [
+          0.4976,
+          0.50125,
+          0.5055,
+          0.49725,
+          0.5002,
+          0.50425,
+          0.50755,
+          0.502,
+          0.4985,
+          0.5006
+        ],
+        "aligned_10bit_word_disparity_counts": {
+          "-2": 4699,
+          "0": 10427,
+          "2": 4755,
+          "4": 119
+        },
+        "aligned_10bit_last_pair_counts": {
+          "00": 2464,
+          "01": 7566,
+          "10": 7524,
+          "11": 2446
+        }
+      },
+      "estimates": {
+        "10": {
+          "averages": 10,
+          "bits_used": 20000,
+          "record_duration_s": 2e-06,
+          "mean_time_domain_power_w": 0.004599412999999999,
+          "mean_window_weighted_power_w": 0.004597129448166661,
+          "integrated_full_band_psd_w": 0.004597129448166662,
+          "parseval_relative_error": 1.8867463876491625e-16,
+          "power_0_to_50_GHz_w": 0.004595055880325326,
+          "dc_bin_psd_w_per_hz": 1.2200818017135702e-14,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 1.080033001056639,
+            "std_psd_ratio": 0.45153343255159073,
+            "median_ratio_db": 0.20770779122354277,
+            "std_ratio_db": 2.4144725592487832,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        },
+        "100": {
+          "averages": 100,
+          "bits_used": 200000,
+          "record_duration_s": 2e-05,
+          "mean_time_domain_power_w": 0.0045977299999999995,
+          "mean_window_weighted_power_w": 0.004598096190154768,
+          "integrated_full_band_psd_w": 0.004598096190154769,
+          "parseval_relative_error": 1.8863497023954362e-16,
+          "power_0_to_50_GHz_w": 0.004596027610613701,
+          "dc_bin_psd_w_per_hz": 1.154441839943709e-14,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 1.0804039590056544,
+            "std_psd_ratio": 0.29857946219202286,
+            "median_ratio_db": 0.6056513927841447,
+            "std_ratio_db": 2.020965790076769,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        }
+      }
+    },
+    {
+      "pattern": 3,
+      "input_file": "HW4_bit_pattern_3.txt",
+      "statistics": {
+        "total_bits": 200000,
+        "ones": 100007,
+        "ones_fraction": 0.500035,
+        "transition_fraction": 0.5506527532637663,
+        "maximum_run_length": 9,
+        "run_length_counts": {
+          "1": 60245,
+          "2": 27411,
+          "3": 12516,
+          "4": 5584,
+          "5": 2480,
+          "6": 1097,
+          "7": 481,
+          "8": 153,
+          "9": 164
+        },
+        "cumulative_disparity_min": -417,
+        "cumulative_disparity_max": 168,
+        "cumulative_disparity_final": 14,
+        "bit_autocorrelation": {
+          "1": -0.10130551122397514,
+          "2": 0.0022700178112520764,
+          "3": 0.0013550154317974411,
+          "4": 0.00244004391273622,
+          "5": 0.0030850722418000083,
+          "8": 0.00043001160237505603,
+          "10": 0.20015000288058496,
+          "16": -0.0019301600226508504,
+          "20": 0.19862985695839477,
+          "32": 0.004080646622667582,
+          "64": 0.0004001217393485489,
+          "100": 0.20023010903270327
+        },
+        "ones_fraction_by_position_modulo_10": [
+          0.49675,
+          0.50235,
+          0.5014,
+          0.4997,
+          0.5006,
+          0.4988,
+          0.4984,
+          0.50235,
+          0.0,
+          1.0
+        ],
+        "aligned_10bit_word_disparity_counts": {
+          "-8": 79,
+          "-6": 663,
+          "-4": 2155,
+          "-2": 4458,
+          "0": 5362,
+          "2": 4287,
+          "4": 2280,
+          "6": 631,
+          "8": 85
+        },
+        "aligned_10bit_last_pair_counts": {
+          "00": 0,
+          "01": 20000,
+          "10": 0,
+          "11": 0
+        }
+      },
+      "estimates": {
+        "10": {
+          "averages": 10,
+          "bits_used": 20000,
+          "record_duration_s": 2e-06,
+          "mean_time_domain_power_w": 0.004636439000000001,
+          "mean_window_weighted_power_w": 0.00463367088870143,
+          "integrated_full_band_psd_w": 0.00463367088870143,
+          "parseval_relative_error": 0.0,
+          "power_0_to_50_GHz_w": 0.00463178506014017,
+          "dc_bin_psd_w_per_hz": 3.7447038374478444e-13,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 1.0228757349986555,
+            "std_psd_ratio": 2.9470686642922144,
+            "median_ratio_db": -1.0907115771875442,
+            "std_ratio_db": 1.9634149697687218,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        },
+        "100": {
+          "averages": 100,
+          "bits_used": 200000,
+          "record_duration_s": 2e-05,
+          "mean_time_domain_power_w": 0.0046365677,
+          "mean_window_weighted_power_w": 0.0046367566931227065,
+          "integrated_full_band_psd_w": 0.004636756693122705,
+          "parseval_relative_error": 3.7412432671953e-16,
+          "power_0_to_50_GHz_w": 0.004634886777089923,
+          "dc_bin_psd_w_per_hz": 3.891789615952748e-13,
+          "sampled_random_reference_comparison": {
+            "frequency_band_hz": [
+              100000000.0,
+              9000000000.0
+            ],
+            "mean_psd_ratio": 1.0220620040024144,
+            "std_psd_ratio": 2.914066263271061,
+            "median_ratio_db": -0.9684891238072025,
+            "std_ratio_db": 1.417567629117178,
+            "interpretation": "Descriptive only; agreement is expected only for the independent random pattern."
+          }
+        }
+      }
+    }
+  ],
+  "artifacts": [
+    "pattern_1_K10.png",
+    "pattern_1_K100.png",
+    "pattern_2_K10.png",
+    "pattern_2_K100.png",
+    "pattern_3_K10.png",
+    "pattern_3_K100.png",
+    "psd_overview.png",
+    "waveform_examples.png",
+    "spectra.npz",
+    "summary.json"
+  ],
+  "elapsed_seconds": 5.396133500034921
+}

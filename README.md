@@ -3,13 +3,14 @@
 Coursework for **National Central University, EE8091: Introduction to Signal
 Integrity and Electromagnetic Compatibility**.
 
-HW1 and HW2 are included now. The same repository is intended to hold HW1-HW14 as the
-remaining assignments are completed.
+Completed homework is listed below. The same repository is intended to hold
+HW1-HW14 as the remaining assignments are completed.
 
 | Homework | Topic | Contents |
 | --- | --- | --- |
 | [HW1](homework/hw01/) | Spectrum analysis with a Kaiser window | Assignment, data, rewritten analysis, verification, figures, anonymous report |
 | [HW2](homework/hw02/) | Step response via IDFT with a Kaiser window | Complete supplied files, rewritten code, independent SPICE and circuit checks, figures, anonymous report |
+| [HW4](homework/hw04/) | Spectrum of digital signals | All instruction files, verified analysis, six PSD plots, independent checks, anonymous report |
 
 ## Run HW1
 
@@ -39,6 +40,17 @@ The default run uses the saved independent circuit reference. Add
 `--ngspice ngspice` to run a fresh circuit simulation. See the
 [HW2 guide](homework/hw02/) for the full source inventory, verification method,
 and report rebuilding instructions.
+
+## Run HW4
+
+```sh
+python -m pip install -r homework/hw04/requirements.txt
+python homework/hw04/src/hw4.py
+python homework/hw04/tests/verify_reference.py
+```
+
+See the [HW4 guide](homework/hw04/) for all six PSD plots, the independent
+verification, and the anonymous report.
 
 ## Files
 

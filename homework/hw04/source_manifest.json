@@ -1,0 +1,57 @@
+{
+  "assignment": "HW4: Spectrum of digital signals",
+  "instruction_coverage": "Every supplied file in the instruction directory is included unchanged.",
+  "submission_coverage": "All three supplied submission files are accounted for by rewritten source and report; originals are not published.",
+  "instruction_files": [
+    {
+      "path": "instructions/HW4_bit_pattern_1.txt",
+      "bytes": 200000,
+      "sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW4_bit_pattern_2.txt",
+      "bytes": 200000,
+      "sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW4_bit_pattern_3.txt",
+      "bytes": 200000,
+      "sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW4_PSD_of_digital_signal_sample.py",
+      "bytes": 1783,
+      "sha256": "3326dd63a6187a918ddcdcb183f860eb25314452252cb05fa4dd95154ccdc147",
+      "status": "supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW4_spectrum_of_digital_signals.pdf",
+      "bytes": 207316,
+      "sha256": "6443d5b98eae5a96a445dcbeb5d97f9876f33bd7ae7f1ba850ff7ebd5427790d",
+      "status": "supplied bytes preserved"
+    }
+  ],
+  "submission_rewrites": [
+    {
+      "source_role": "submission source .docx",
+      "source_sha256": "51b426e9a9acb8b2dd83cfab2b190e76e4f282268cb00236b48d771f53f601cb",
+      "status": "replaced with anonymous verified rewrite",
+      "replacement": "report/report.md"
+    },
+    {
+      "source_role": "submission source .pdf",
+      "source_sha256": "3772e592cd4678d3675f796f371a10c6174d78a01349c10039dc89eba67ffe23",
+      "status": "replaced with anonymous verified rewrite",
+      "replacement": "report/hw04_report.pdf"
+    },
+    {
+      "source_role": "submission source .py",
+      "source_sha256": "7d1fb0dd95c7a3664d9b04dac963f913d3f0cbb96f6545236be3b9bd10eb2df3",
+      "status": "replaced with anonymous verified rewrite",
+      "replacement": "src/hw4.py"
+    }
+  ]
+}

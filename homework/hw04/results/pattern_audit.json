@@ -1,0 +1,940 @@
+{
+  "HW4_bit_pattern_1.txt": {
+    "n_bits": 200000,
+    "ones": 99981,
+    "transition_count": 99843,
+    "max_run": 17,
+    "run_histogram": {
+      "1": 49900,
+      "2": 24955,
+      "3": 12439,
+      "4": 6271,
+      "5": 3131,
+      "6": 1565,
+      "7": 771,
+      "8": 393,
+      "9": 197,
+      "10": 103,
+      "11": 69,
+      "12": 30,
+      "13": 8,
+      "14": 6,
+      "15": 4,
+      "16": 1,
+      "17": 1
+    },
+    "aligned10_disparity": {
+      "-10": 21,
+      "-8": 187,
+      "-6": 895,
+      "-4": 2387,
+      "-2": 4047,
+      "0": 4962,
+      "2": 4030,
+      "4": 2357,
+      "6": 880,
+      "8": 214,
+      "10": 20
+    },
+    "aligned10_running_sum_range": [
+      -254,
+      290
+    ],
+    "bit_running_sum_range": [
+      -255,
+      291
+    ],
+    "aligned10_distinct_words": 1024,
+    "aligned10_position_one_counts": [
+      9938,
+      9996,
+      10031,
+      9917,
+      9916,
+      10167,
+      10047,
+      10000,
+      10017,
+      9952
+    ],
+    "first_words_above_abs2_disparity": [
+      {
+        "word_index_0based": 0,
+        "word": "1110011110",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 1,
+        "word": "1111101100",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 13,
+        "word": "0001101000",
+        "disparity": -4
+      },
+      {
+        "word_index_0based": 15,
+        "word": "1110100111",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 19,
+        "word": "0000001011",
+        "disparity": -4
+      }
+    ],
+    "first_runs_over5": [
+      {
+        "start_bit_0based": 55,
+        "value": 0,
+        "length": 7,
+        "neighborhood": "100101101100000001101110011",
+        "context_start_0based": 45
+      },
+      {
+        "start_bit_0based": 113,
+        "value": 0,
+        "length": 6,
+        "neighborhood": "01000111110000001011100011",
+        "context_start_0based": 103
+      },
+      {
+        "start_bit_0based": 157,
+        "value": 1,
+        "length": 7,
+        "neighborhood": "101111010011111110100011010",
+        "context_start_0based": 147
+      },
+      {
+        "start_bit_0based": 189,
+        "value": 0,
+        "length": 7,
+        "neighborhood": "111011010100000001011101111",
+        "context_start_0based": 179
+      },
+      {
+        "start_bit_0based": 211,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "01111100101111110100011111",
+        "context_start_0based": 201
+      }
+    ],
+    "sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+    "all10_alignments": [
+      {
+        "offset_0based": 0,
+        "count": 20000,
+        "disparity_histogram": {
+          "-10": 21,
+          "-8": 187,
+          "-6": 895,
+          "-4": 2387,
+          "-2": 4047,
+          "0": 4962,
+          "2": 4030,
+          "4": 2357,
+          "6": 880,
+          "8": 214,
+          "10": 20
+        },
+        "word_abs_disparity_gt2_count": 6961,
+        "running_sum_range": [
+          -254,
+          290
+        ]
+      },
+      {
+        "offset_0based": 1,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 23,
+          "-8": 190,
+          "-6": 887,
+          "-4": 2340,
+          "-2": 4131,
+          "0": 4889,
+          "2": 4083,
+          "4": 2363,
+          "6": 874,
+          "8": 199,
+          "10": 20
+        },
+        "word_abs_disparity_gt2_count": 6896,
+        "running_sum_range": [
+          -256,
+          290
+        ]
+      },
+      {
+        "offset_0based": 2,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 20,
+          "-8": 193,
+          "-6": 902,
+          "-4": 2398,
+          "-2": 3991,
+          "0": 4940,
+          "2": 4100,
+          "4": 2383,
+          "6": 831,
+          "8": 220,
+          "10": 21
+        },
+        "word_abs_disparity_gt2_count": 6968,
+        "running_sum_range": [
+          -256,
+          288
+        ]
+      },
+      {
+        "offset_0based": 3,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 28,
+          "-8": 187,
+          "-6": 888,
+          "-4": 2392,
+          "-2": 3998,
+          "0": 4978,
+          "2": 4089,
+          "4": 2333,
+          "6": 883,
+          "8": 206,
+          "10": 17
+        },
+        "word_abs_disparity_gt2_count": 6934,
+        "running_sum_range": [
+          -256,
+          286
+        ]
+      },
+      {
+        "offset_0based": 4,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 19,
+          "-8": 190,
+          "-6": 898,
+          "-4": 2367,
+          "-2": 4052,
+          "0": 4937,
+          "2": 4085,
+          "4": 2360,
+          "6": 876,
+          "8": 194,
+          "10": 21
+        },
+        "word_abs_disparity_gt2_count": 6925,
+        "running_sum_range": [
+          -256,
+          286
+        ]
+      },
+      {
+        "offset_0based": 5,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 17,
+          "-8": 191,
+          "-6": 902,
+          "-4": 2403,
+          "-2": 3994,
+          "0": 4909,
+          "2": 4156,
+          "4": 2353,
+          "6": 849,
+          "8": 200,
+          "10": 25
+        },
+        "word_abs_disparity_gt2_count": 6940,
+        "running_sum_range": [
+          -254,
+          288
+        ]
+      },
+      {
+        "offset_0based": 6,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 19,
+          "-8": 195,
+          "-6": 895,
+          "-4": 2347,
+          "-2": 4149,
+          "0": 4828,
+          "2": 4068,
+          "4": 2425,
+          "6": 853,
+          "8": 195,
+          "10": 25
+        },
+        "word_abs_disparity_gt2_count": 6954,
+        "running_sum_range": [
+          -254,
+          286
+        ]
+      },
+      {
+        "offset_0based": 7,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 23,
+          "-8": 197,
+          "-6": 881,
+          "-4": 2368,
+          "-2": 4113,
+          "0": 4856,
+          "2": 4073,
+          "4": 2409,
+          "6": 860,
+          "8": 192,
+          "10": 27
+        },
+        "word_abs_disparity_gt2_count": 6957,
+        "running_sum_range": [
+          -256,
+          286
+        ]
+      },
+      {
+        "offset_0based": 8,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 17,
+          "-8": 195,
+          "-6": 890,
+          "-4": 2367,
+          "-2": 4133,
+          "0": 4815,
+          "2": 4114,
+          "4": 2373,
+          "6": 887,
+          "8": 180,
+          "10": 28
+        },
+        "word_abs_disparity_gt2_count": 6937,
+        "running_sum_range": [
+          -258,
+          286
+        ]
+      },
+      {
+        "offset_0based": 9,
+        "count": 19999,
+        "disparity_histogram": {
+          "-10": 19,
+          "-8": 204,
+          "-6": 916,
+          "-4": 2291,
+          "-2": 4114,
+          "0": 4912,
+          "2": 4089,
+          "4": 2358,
+          "6": 877,
+          "8": 197,
+          "10": 22
+        },
+        "word_abs_disparity_gt2_count": 6884,
+        "running_sum_range": [
+          -258,
+          286
+        ]
+      }
+    ],
+    "final_signed_sum": -38,
+    "eight_payload_unique_count": 256
+  },
+  "HW4_bit_pattern_2.txt": {
+    "n_bits": 200000,
+    "ones": 100294,
+    "transition_count": 121900,
+    "max_run": 6,
+    "run_histogram": {
+      "1": 66462,
+      "2": 36983,
+      "3": 14657,
+      "4": 3436,
+      "5": 321,
+      "6": 42
+    },
+    "aligned10_disparity": {
+      "-2": 4699,
+      "0": 10427,
+      "2": 4755,
+      "4": 119
+    },
+    "aligned10_running_sum_range": [
+      0,
+      588
+    ],
+    "bit_running_sum_range": [
+      -2,
+      590
+    ],
+    "aligned10_distinct_words": 440,
+    "aligned10_position_one_counts": [
+      9952,
+      10025,
+      10110,
+      9945,
+      10004,
+      10085,
+      10151,
+      10040,
+      9970,
+      10012
+    ],
+    "first_words_above_abs2_disparity": [
+      {
+        "word_index_0based": 778,
+        "word": "1001111011",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 919,
+        "word": "1001111101",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 1180,
+        "word": "1001111101",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 1565,
+        "word": "1001111011",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 1633,
+        "word": "1001111011",
+        "disparity": 4
+      }
+    ],
+    "first_runs_over5": [
+      {
+        "start_bit_0based": 23433,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "11011001001111110010101100",
+        "context_start_0based": 23423
+      },
+      {
+        "start_bit_0based": 29753,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "01000011001111110010101001",
+        "context_start_0based": 29743
+      },
+      {
+        "start_bit_0based": 29993,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "01100011001111110110100000",
+        "context_start_0based": 29983
+      },
+      {
+        "start_bit_0based": 34553,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "01000011001111110001101101",
+        "context_start_0based": 34543
+      },
+      {
+        "start_bit_0based": 38233,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "10001011001111110011000100",
+        "context_start_0based": 38223
+      }
+    ],
+    "sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+    "all10_alignments": [
+      {
+        "offset_0based": 0,
+        "count": 20000,
+        "disparity_histogram": {
+          "-2": 4699,
+          "0": 10427,
+          "2": 4755,
+          "4": 119
+        },
+        "word_abs_disparity_gt2_count": 119,
+        "running_sum_range": [
+          0,
+          588
+        ]
+      },
+      {
+        "offset_0based": 1,
+        "count": 19999,
+        "disparity_histogram": {
+          "-4": 715,
+          "-2": 4767,
+          "0": 8794,
+          "2": 4955,
+          "4": 768
+        },
+        "word_abs_disparity_gt2_count": 1483,
+        "running_sum_range": [
+          0,
+          590
+        ]
+      },
+      {
+        "offset_0based": 2,
+        "count": 19999,
+        "disparity_histogram": {
+          "-6": 28,
+          "-4": 806,
+          "-2": 4867,
+          "0": 8427,
+          "2": 4931,
+          "4": 894,
+          "6": 46
+        },
+        "word_abs_disparity_gt2_count": 1774,
+        "running_sum_range": [
+          0,
+          592
+        ]
+      },
+      {
+        "offset_0based": 3,
+        "count": 19999,
+        "disparity_histogram": {
+          "-4": 869,
+          "-2": 4921,
+          "0": 8329,
+          "2": 4866,
+          "4": 955,
+          "6": 59
+        },
+        "word_abs_disparity_gt2_count": 1883,
+        "running_sum_range": [
+          0,
+          590
+        ]
+      },
+      {
+        "offset_0based": 4,
+        "count": 19999,
+        "disparity_histogram": {
+          "-6": 30,
+          "-4": 842,
+          "-2": 4887,
+          "0": 8307,
+          "2": 4965,
+          "4": 914,
+          "6": 54
+        },
+        "word_abs_disparity_gt2_count": 1840,
+        "running_sum_range": [
+          -2,
+          590
+        ]
+      },
+      {
+        "offset_0based": 5,
+        "count": 19999,
+        "disparity_histogram": {
+          "-4": 732,
+          "-2": 4797,
+          "0": 8760,
+          "2": 4865,
+          "4": 845
+        },
+        "word_abs_disparity_gt2_count": 1577,
+        "running_sum_range": [
+          -2,
+          588
+        ]
+      },
+      {
+        "offset_0based": 6,
+        "count": 19999,
+        "disparity_histogram": {
+          "-2": 4677,
+          "0": 10351,
+          "2": 4971
+        },
+        "word_abs_disparity_gt2_count": 0,
+        "running_sum_range": [
+          0,
+          588
+        ]
+      },
+      {
+        "offset_0based": 7,
+        "count": 19999,
+        "disparity_histogram": {
+          "-4": 237,
+          "-2": 3703,
+          "0": 11893,
+          "2": 3862,
+          "4": 304
+        },
+        "word_abs_disparity_gt2_count": 541,
+        "running_sum_range": [
+          -2,
+          588
+        ]
+      },
+      {
+        "offset_0based": 8,
+        "count": 19999,
+        "disparity_histogram": {
+          "-2": 4749,
+          "0": 10286,
+          "2": 4885,
+          "4": 79
+        },
+        "word_abs_disparity_gt2_count": 79,
+        "running_sum_range": [
+          0,
+          588
+        ]
+      },
+      {
+        "offset_0based": 9,
+        "count": 19999,
+        "disparity_histogram": {
+          "-4": 627,
+          "-2": 4708,
+          "0": 9169,
+          "2": 4753,
+          "4": 723,
+          "6": 19
+        },
+        "word_abs_disparity_gt2_count": 1369,
+        "running_sum_range": [
+          -2,
+          588
+        ]
+      }
+    ],
+    "final_signed_sum": 588,
+    "eight_payload_unique_count": 156
+  },
+  "HW4_bit_pattern_3.txt": {
+    "n_bits": 200000,
+    "ones": 100007,
+    "transition_count": 110130,
+    "max_run": 9,
+    "run_histogram": {
+      "1": 60245,
+      "2": 27411,
+      "3": 12516,
+      "4": 5584,
+      "5": 2480,
+      "6": 1097,
+      "7": 481,
+      "8": 153,
+      "9": 164
+    },
+    "aligned10_disparity": {
+      "-8": 79,
+      "-6": 663,
+      "-4": 2155,
+      "-2": 4458,
+      "0": 5362,
+      "2": 4287,
+      "4": 2280,
+      "6": 631,
+      "8": 85
+    },
+    "aligned10_running_sum_range": [
+      -416,
+      166
+    ],
+    "bit_running_sum_range": [
+      -417,
+      168
+    ],
+    "aligned10_distinct_words": 256,
+    "aligned10_position_one_counts": [
+      9935,
+      10047,
+      10028,
+      9994,
+      10012,
+      9976,
+      9968,
+      10047,
+      0,
+      20000
+    ],
+    "first_words_above_abs2_disparity": [
+      {
+        "word_index_0based": 1,
+        "word": "1100000001",
+        "disparity": -4
+      },
+      {
+        "word_index_0based": 3,
+        "word": "0111110101",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 7,
+        "word": "1110111001",
+        "disparity": 4
+      },
+      {
+        "word_index_0based": 8,
+        "word": "0100001001",
+        "disparity": -4
+      },
+      {
+        "word_index_0based": 15,
+        "word": "0000010101",
+        "disparity": -4
+      }
+    ],
+    "first_runs_over5": [
+      {
+        "start_bit_0based": 12,
+        "value": 0,
+        "length": 7,
+        "neighborhood": "010001011100000001110010100",
+        "context_start_0based": 2
+      },
+      {
+        "start_bit_0based": 171,
+        "value": 1,
+        "length": 6,
+        "neighborhood": "00111010101111110011010001",
+        "context_start_0based": 161
+      },
+      {
+        "start_bit_0based": 271,
+        "value": 0,
+        "length": 6,
+        "neighborhood": "01100110110000001011011111",
+        "context_start_0based": 261
+      },
+      {
+        "start_bit_0based": 429,
+        "value": 1,
+        "length": 9,
+        "neighborhood": "11001010101111111110101000001",
+        "context_start_0based": 419
+      },
+      {
+        "start_bit_0based": 510,
+        "value": 0,
+        "length": 9,
+        "neighborhood": "11010100010000000001111110100",
+        "context_start_0based": 500
+      }
+    ],
+    "sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+    "all10_alignments": [
+      {
+        "offset_0based": 0,
+        "count": 20000,
+        "disparity_histogram": {
+          "-8": 79,
+          "-6": 663,
+          "-4": 2155,
+          "-2": 4458,
+          "0": 5362,
+          "2": 4287,
+          "4": 2280,
+          "6": 631,
+          "8": 85
+        },
+        "word_abs_disparity_gt2_count": 5893,
+        "running_sum_range": [
+          -416,
+          166
+        ]
+      },
+      {
+        "offset_0based": 1,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 75,
+          "-6": 647,
+          "-4": 2226,
+          "-2": 4308,
+          "0": 5499,
+          "2": 4304,
+          "4": 2193,
+          "6": 671,
+          "8": 76
+        },
+        "word_abs_disparity_gt2_count": 5888,
+        "running_sum_range": [
+          -418,
+          166
+        ]
+      },
+      {
+        "offset_0based": 2,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 79,
+          "-6": 667,
+          "-4": 2171,
+          "-2": 4357,
+          "0": 5487,
+          "2": 4310,
+          "4": 2166,
+          "6": 667,
+          "8": 95
+        },
+        "word_abs_disparity_gt2_count": 5845,
+        "running_sum_range": [
+          -416,
+          166
+        ]
+      },
+      {
+        "offset_0based": 3,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 81,
+          "-6": 638,
+          "-4": 2206,
+          "-2": 4359,
+          "0": 5472,
+          "2": 4274,
+          "4": 2248,
+          "6": 638,
+          "8": 83
+        },
+        "word_abs_disparity_gt2_count": 5894,
+        "running_sum_range": [
+          -416,
+          168
+        ]
+      },
+      {
+        "offset_0based": 4,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 76,
+          "-6": 646,
+          "-4": 2234,
+          "-2": 4256,
+          "0": 5480,
+          "2": 4405,
+          "4": 2217,
+          "6": 607,
+          "8": 78
+        },
+        "word_abs_disparity_gt2_count": 5858,
+        "running_sum_range": [
+          -416,
+          166
+        ]
+      },
+      {
+        "offset_0based": 5,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 71,
+          "-6": 653,
+          "-4": 2229,
+          "-2": 4283,
+          "0": 5438,
+          "2": 4418,
+          "4": 2225,
+          "6": 605,
+          "8": 77
+        },
+        "word_abs_disparity_gt2_count": 5860,
+        "running_sum_range": [
+          -416,
+          168
+        ]
+      },
+      {
+        "offset_0based": 6,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 74,
+          "-6": 646,
+          "-4": 2211,
+          "-2": 4331,
+          "0": 5445,
+          "2": 4384,
+          "4": 2193,
+          "6": 635,
+          "8": 80
+        },
+        "word_abs_disparity_gt2_count": 5839,
+        "running_sum_range": [
+          -414,
+          170
+        ]
+      },
+      {
+        "offset_0based": 7,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 82,
+          "-6": 629,
+          "-4": 2205,
+          "-2": 4365,
+          "0": 5448,
+          "2": 4338,
+          "4": 2219,
+          "6": 630,
+          "8": 83
+        },
+        "word_abs_disparity_gt2_count": 5848,
+        "running_sum_range": [
+          -414,
+          170
+        ]
+      },
+      {
+        "offset_0based": 8,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 79,
+          "-6": 663,
+          "-4": 2155,
+          "-2": 4457,
+          "0": 5362,
+          "2": 4287,
+          "4": 2280,
+          "6": 631,
+          "8": 85
+        },
+        "word_abs_disparity_gt2_count": 5893,
+        "running_sum_range": [
+          -414,
+          168
+        ]
+      },
+      {
+        "offset_0based": 9,
+        "count": 19999,
+        "disparity_histogram": {
+          "-8": 79,
+          "-6": 663,
+          "-4": 2155,
+          "-2": 4457,
+          "0": 5362,
+          "2": 4287,
+          "4": 2280,
+          "6": 631,
+          "8": 85
+        },
+        "word_abs_disparity_gt2_count": 5893,
+        "running_sum_range": [
+          -414,
+          168
+        ]
+      }
+    ],
+    "final_signed_sum": 14,
+    "eight_payload_unique_count": 256
+  }
+}

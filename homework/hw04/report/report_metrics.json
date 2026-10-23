@@ -1,0 +1,16 @@
+{
+  "random_reference_diagnostics": {
+    "10": {
+      "mean_db": -0.23263992856806529,
+      "rms_db": 1.4170180401693604,
+      "mean_linear_ratio": 0.9968061214117737
+    },
+    "100": {
+      "mean_db": -0.025311777611881713,
+      "rms_db": 0.4214930413207105,
+      "mean_linear_ratio": 0.9988470859700598
+    }
+  },
+  "worst_full_band_parseval_relative_error": 3.7412432671953e-16,
+  "pattern_2_vs_1_mean_psd_10_to_100_MHz_db": -17.670592262295028
+}
