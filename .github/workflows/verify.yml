@@ -1,4 +1,4 @@
-name: Verify HW1
+name: Verify coursework
 
 on:
   push:
@@ -19,4 +19,5 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
+      - run: python homework/hw03/verify_inputs.py --quick
       - run: python homework/hw01/analyze.py --output /tmp/hw01-results

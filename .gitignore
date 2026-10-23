@@ -12,3 +12,8 @@ htmlcov/
 *.tmp
 work/
 tmp/
+*.memmap
+*.dat
+*.npy
+*.npz
+*.float32

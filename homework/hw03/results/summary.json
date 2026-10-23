@@ -1,0 +1,324 @@
+{
+  "course": "NCU EE8091",
+  "homework": "HW3 sectional convolution",
+  "method": "Finite causal FIR from Hermitian S21 followed by FFT overlap-add",
+  "parameters": {
+    "bit_rate_bps": 10000000000.0,
+    "ui_s": 1e-10,
+    "dt_s": 2e-12,
+    "rise_fall_s": 2e-11,
+    "incident_low_v": 0.0,
+    "incident_high_v": 1.0,
+    "line_length_m": 0.2,
+    "source_ohm": 50,
+    "load_ohm": 50
+  },
+  "input": {
+    "bits": 1048576,
+    "ones": 524977,
+    "zeros": 523599,
+    "duration_s": 0.0001048576,
+    "last_20_bits": "01101001110011110101"
+  },
+  "impulse": {
+    "frequency_step_hz": 10000000.0,
+    "frequency_max_hz": 40000000000.0,
+    "frequency_samples": 4001,
+    "impulse_period_s": 1e-07,
+    "impulse_period_points": 50000,
+    "kaiser_alpha": 0.5,
+    "kaiser_beta": 1.5707963267948966,
+    "fir_points": 20001,
+    "tail_duration_s": 4e-08,
+    "peak_delay_s": 1.1139999999999999e-09,
+    "peak_continuous_impulse_per_s": 30637759565.04128,
+    "channel_dc_gain": 0.993689864,
+    "retained_discrete_dc_gain": 0.9915839781356274,
+    "dc_gain_difference": -0.0021058858643726586,
+    "positive_tail_check_start_s": 4.0001999999999996e-08,
+    "positive_tail_check_end_s": 8e-08,
+    "positive_tail_peak_relative_db": -85.5584851947031,
+    "tail_target_db": -80.0,
+    "tail_target_met_on_checked_interval": true,
+    "scaling": "h_discrete = dt*h_continuous; no extra dt in discrete convolution",
+    "truncation_note": "No DC renormalization; causal truncation discards the band-limited periodic negative-time wrap. Tail bound applies only to the stated positive-time interval."
+  },
+  "simulation": {
+    "bit_count": 1048576,
+    "processed_bit_count": 1048576,
+    "block_bits": 512,
+    "block_count": 2048,
+    "final_block_bits": 512,
+    "samples_per_ui": 50,
+    "rise_points": 10,
+    "fft_points": 65536,
+    "maximum_linear_output_points_per_block": 45600,
+    "fft_padding_valid": true,
+    "output_points": 52448800,
+    "output_dtype": "float32",
+    "output_bytes": 209795200,
+    "convolution_seconds": 4.271734700072557
+  },
+  "direct_convolution_check": {
+    "bit_count": 11,
+    "block_bits": 4,
+    "final_block_bits": 3,
+    "max_absolute_error_v": 5.960464477539063e-08,
+    "tolerance_v": 2e-07,
+    "passed": true
+  },
+  "ads_comparison": {
+    "sample_count": 16777216,
+    "start_s": 0.0,
+    "end_s": 0.0001048575951,
+    "file_sample_count": 16800001,
+    "file_start_s": 0.0,
+    "file_end_s": 0.000105,
+    "excluded_sample_count": 22785,
+    "known_input_end_s": 0.0001048576,
+    "exclusion_reason": "ADS extends beyond supplied bits; compare only 0 <= t < known input duration",
+    "rmse_v": 0.022268935765719828,
+    "mean_absolute_error_v": 0.01177793648372433,
+    "mean_signed_error_v": -0.0010543236310408095,
+    "max_absolute_error_v": 0.07553763897599908,
+    "min_ads_step_s": 4.90000000210461e-12,
+    "max_ads_step_s": 7.625e-12,
+    "alignment": "Direct ADS timestamps, linear interpolation only; no fitted shift, gain, or offset"
+  },
+  "comparison_windows": [
+    {
+      "start_s": 0.0,
+      "end_s": 1e-08,
+      "sample_count": 1600,
+      "rmse_v": 0.020281697252422702,
+      "max_absolute_error_v": 0.07370172518730167,
+      "mean_signed_error_v": -0.0006524222605320474
+    },
+    {
+      "start_s": 8e-06,
+      "end_s": 8.01e-06,
+      "sample_count": 1600,
+      "rmse_v": 0.022645532195504893,
+      "max_absolute_error_v": 0.07328369657516476,
+      "mean_signed_error_v": -0.0008864714941719389
+    },
+    {
+      "start_s": 5e-05,
+      "end_s": 5.0010000000000004e-05,
+      "sample_count": 1600,
+      "rmse_v": 0.021640136300504688,
+      "max_absolute_error_v": 0.07291179088018529,
+      "mean_signed_error_v": -0.0005147554346936983
+    },
+    {
+      "start_s": 0.00010484760000000001,
+      "end_s": 0.0001048576,
+      "sample_count": 1600,
+      "rmse_v": 0.022853335609974306,
+      "max_absolute_error_v": 0.07270017017410757,
+      "mean_signed_error_v": -0.0008977657933882627
+    }
+  ],
+  "verification_study": {
+    "scope": "The four 10 ns windows, using all finite-FIR preceding input history",
+    "reference_samples": 6400,
+    "baseline_ads_rmse_v": 0.021878858628040447,
+    "baseline_ads_max_absolute_error_v": 0.07370172518730167,
+    "no_fitted_parameters": true,
+    "variants": [
+      {
+        "variant": "half_sample_interval",
+        "dt_s": 1e-12,
+        "tail_s": 4e-08,
+        "alpha": 0.5,
+        "ads_rmse_v": 0.021925040691366394,
+        "ads_max_absolute_error_v": 0.07385338989975399,
+        "rms_change_from_baseline_v": 7.485476876781382e-05,
+        "max_change_from_baseline_v": 0.00029009170621357994,
+        "retained_dc_gain": 0.9915961916737365,
+        "compute_seconds": 0.0183612999971956,
+        "windows": [
+          {
+            "start_s": 0.0,
+            "rmse_v": 0.02032353114054069,
+            "max_absolute_error_v": 0.07385338989975399
+          },
+          {
+            "start_s": 8e-06,
+            "rmse_v": 0.022693409085991892,
+            "max_absolute_error_v": 0.07344727860515488
+          },
+          {
+            "start_s": 5e-05,
+            "rmse_v": 0.02168594485402258,
+            "max_absolute_error_v": 0.07306122481331545
+          },
+          {
+            "start_s": 0.00010484760000000001,
+            "rmse_v": 0.022902242228565173,
+            "max_absolute_error_v": 0.07287287831696532
+          }
+        ]
+      },
+      {
+        "variant": "no_kaiser_taper",
+        "dt_s": 2e-12,
+        "tail_s": 4e-08,
+        "alpha": 0.0,
+        "ads_rmse_v": 0.02047947410512028,
+        "ads_max_absolute_error_v": 0.06642265349905241,
+        "rms_change_from_baseline_v": 0.0039914383948207914,
+        "max_change_from_baseline_v": 0.011832915849848247,
+        "retained_dc_gain": 0.9916149326520511,
+        "compute_seconds": 0.007343700039200485,
+        "windows": [
+          {
+            "start_s": 0.0,
+            "rmse_v": 0.01900852338139787,
+            "max_absolute_error_v": 0.06642265349905241
+          },
+          {
+            "start_s": 8e-06,
+            "rmse_v": 0.02119293431261521,
+            "max_absolute_error_v": 0.06603598756512064
+          },
+          {
+            "start_s": 5e-05,
+            "rmse_v": 0.020271480438196723,
+            "max_absolute_error_v": 0.06564561446891182
+          },
+          {
+            "start_s": 0.00010484760000000001,
+            "rmse_v": 0.021359730649355185,
+            "max_absolute_error_v": 0.06542436900330151
+          }
+        ]
+      },
+      {
+        "variant": "weak_kaiser_taper",
+        "dt_s": 2e-12,
+        "tail_s": 4e-08,
+        "alpha": 0.1,
+        "ads_rmse_v": 0.020534674235255453,
+        "ads_max_absolute_error_v": 0.06681152421089831,
+        "rms_change_from_baseline_v": 0.0037826381701957968,
+        "max_change_from_baseline_v": 0.011208766337750142,
+        "retained_dc_gain": 0.9916131437139677,
+        "compute_seconds": 0.007125900010578334,
+        "windows": [
+          {
+            "start_s": 0.0,
+            "rmse_v": 0.01905871022673734,
+            "max_absolute_error_v": 0.06681152421089831
+          },
+          {
+            "start_s": 8e-06,
+            "rmse_v": 0.021250261216773047,
+            "max_absolute_error_v": 0.06642305126081915
+          },
+          {
+            "start_s": 5e-05,
+            "rmse_v": 0.02032542889502194,
+            "max_absolute_error_v": 0.06603380948640647
+          },
+          {
+            "start_s": 0.00010484760000000001,
+            "rmse_v": 0.021418690126565453,
+            "max_absolute_error_v": 0.0658129512982768
+          }
+        ]
+      },
+      {
+        "variant": "shorter_tail",
+        "dt_s": 2e-12,
+        "tail_s": 2e-08,
+        "alpha": 0.5,
+        "ads_rmse_v": 0.021884003906175033,
+        "ads_max_absolute_error_v": 0.07370174048118516,
+        "rms_change_from_baseline_v": 0.0001529300158658556,
+        "max_change_from_baseline_v": 0.00020496339464179392,
+        "retained_dc_gain": 0.9912371400487746,
+        "compute_seconds": 0.0036614000564441085,
+        "windows": [
+          {
+            "start_s": 0.0,
+            "rmse_v": 0.020281697315959663,
+            "max_absolute_error_v": 0.07370174048118516
+          },
+          {
+            "start_s": 8e-06,
+            "rmse_v": 0.022652847824770478,
+            "max_absolute_error_v": 0.07344556778817735
+          },
+          {
+            "start_s": 5e-05,
+            "rmse_v": 0.02164509087679636,
+            "max_absolute_error_v": 0.07309698385323016
+          },
+          {
+            "start_s": 0.00010484760000000001,
+            "rmse_v": 0.022861097703495106,
+            "max_absolute_error_v": 0.07287361085519117
+          }
+        ]
+      },
+      {
+        "variant": "longer_tail",
+        "dt_s": 2e-12,
+        "tail_s": 6.000000000000001e-08,
+        "alpha": 0.5,
+        "ads_rmse_v": 0.02187683838729631,
+        "ads_max_absolute_error_v": 0.0737017404933975,
+        "rms_change_from_baseline_v": 7.168700436981975e-05,
+        "max_change_from_baseline_v": 9.504895877867486e-05,
+        "retained_dc_gain": 0.9917534252222742,
+        "compute_seconds": 0.009994499967433512,
+        "windows": [
+          {
+            "start_s": 0.0,
+            "rmse_v": 0.020281697035132152,
+            "max_absolute_error_v": 0.0737017404933975
+          },
+          {
+            "start_s": 8e-06,
+            "rmse_v": 0.022642612161213327,
+            "max_absolute_error_v": 0.07320570658857417
+          },
+          {
+            "start_s": 5e-05,
+            "rmse_v": 0.02163812251076292,
+            "max_absolute_error_v": 0.07282409295035253
+          },
+          {
+            "start_s": 0.00010484760000000001,
+            "rmse_v": 0.022850399676958084,
+            "max_absolute_error_v": 0.07262950937396073
+          }
+        ]
+      }
+    ],
+    "interpretation": "Use the changes to assess numerical sensitivity; these window checks do not establish a unique cause of the residual ADS disagreement."
+  },
+  "timing": {
+    "ads_streaming_seconds": 6.7320588999427855,
+    "total_seconds": 13.44287439994514
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "platform": "Windows",
+    "processor": "AMD64"
+  },
+  "files": {
+    "bits": "HW3_bitpattern_1048576.txt",
+    "channel": "HW3_mline_channel.s2p",
+    "ads": "HW3_Rx_waveform_ADS.txt.gz",
+    "waveform_saved": false
+  },
+  "limitations": [
+    "S21 is measured only through 40 GHz; higher frequencies are zero-filled and a Kaiser window is applied.",
+    "The finite causal FIR omits the periodic negative-time wrap and the tail after T2; the DC gain difference is reported without correction.",
+    "ADS comparison includes finite input, sampling, windowing, truncation, and simulator-model differences; it is not a proof of zero error.",
+    "ADS continues to 105 us, beyond the supplied 104.8576 us bit pattern. Samples outside the known-input interval are excluded, not extrapolated."
+  ]
+}

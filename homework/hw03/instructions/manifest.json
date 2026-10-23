@@ -1,0 +1,58 @@
+{
+  "description": "Supplied HW3 assignment and numerical input data. Gzip decompresses to the byte-identical original ADS reference.",
+  "files": [
+    {
+      "path": "HW3_bitpattern_1048576.txt",
+      "original_name": "HW3_bitpattern_1048576.txt",
+      "sha256": "726ba5eff55b17ae5f7ddf212d33e200ebbb15de5b1aae4ca9ae268f824d0350",
+      "bytes": 1048576,
+      "storage": "original"
+    },
+    {
+      "path": "HW3_mline_channel.s2p",
+      "original_name": "HW3_mline_channel.s2p",
+      "sha256": "9243bca6cdb9829680a0b2bb00fc1f84f3eb74053cf713c326f746bb66761769",
+      "bytes": 684346,
+      "storage": "original"
+    },
+    {
+      "path": "HW3_sectional_convolution_sample.py",
+      "original_name": "HW3_sectional_convolution_sample.py",
+      "sha256": "87bbbc62384547984d07f02aca572e31b5c3edb0add0ace2ec7fef5aa3906faa",
+      "bytes": 4324,
+      "storage": "original"
+    },
+    {
+      "path": "HW3_time_freq_transf_(3)_sectional_convolution.pdf",
+      "original_name": "HW3_time_freq_transf_(3)_sectional_convolution.pdf",
+      "sha256": "8f6a1ebffb79d7660130381fea9d8c2b21861231f91d9686473bc540dfaa4bc9",
+      "bytes": 523101,
+      "storage": "original"
+    },
+    {
+      "path": "HW3_Rx_waveform_ADS.txt.gz",
+      "original_name": "HW3_Rx_waveform_ADS.txt",
+      "sha256": "2fe38239edcbd7e1411aa2bf010d85cd2a3620c93f3432f5a220eaca40326322",
+      "bytes": 470400039,
+      "stored_sha256": "6823b4d027423a19c6194f37ee0f5cd9d49ac2c586baaf000847e2c039c4336e",
+      "stored_bytes": 96088018,
+      "storage": "lossless-gzip"
+    },
+    {
+      "path": "snpreader.py",
+      "original_name": "snpreader.py",
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "bytes": 27828,
+      "storage": "original",
+      "role": "legacy auxiliary reference; not required by the rewritten solver"
+    },
+    {
+      "path": "raw.py",
+      "original_name": "raw.py",
+      "sha256": "242c4b124bcdac401dec266a068fc236bf6dfeccf670ba18c6b54c0c4f010a41",
+      "bytes": 382,
+      "storage": "original",
+      "role": "legacy auxiliary reference; not required by the rewritten solver"
+    }
+  ]
+}
