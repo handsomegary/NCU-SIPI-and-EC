@@ -53,7 +53,10 @@ def verify_saved_results():
     f = table[:, 0]
     s21 = table[:, 3] * np.exp(1j * np.deg2rad(table[:, 4]))
     np.testing.assert_array_equal(arrays["frequency_hz"], f)
-    np.testing.assert_allclose(arrays["s21"], s21, rtol=0, atol=0)
+    # libm complex-exponential results can differ by a few ulps across systems.
+    # The original channel bytes are checked exactly by SHA-256 above.
+    np.testing.assert_allclose(arrays["s21"], s21, rtol=0,
+                               atol=8 * np.finfo(np.float64).eps)
     df, m = f[1] - f[0], len(arrays["full_sbr"])
     tb, tr = cfg["bit_period_ps"] * 1e-12, cfg["rise_time_ps"] * 1e-12
     window = np.i0(np.pi * cfg["kaiser_alpha"] * np.sqrt(1 - (f / f[-1]) ** 2))
