@@ -1,0 +1,213 @@
+{
+  "model": "40 Gbit/s unipolar linear NRZ; matched transfer S21/2; equal rise/fall ramps",
+  "config": {
+    "bit_period_ps": 25.0,
+    "rise_time_ps": 5.0,
+    "vpp_v": 2.0,
+    "samples_per_ui": 250,
+    "kaiser_alpha": 1.0,
+    "truncation_ns": 10.0,
+    "sbr_samples": 100001,
+    "tolerance_v": 0.0002,
+    "block_bits": 1024,
+    "random_seed": 0,
+    "voltage_bins": 512,
+    "max_displayed_traces": 512,
+    "reference_impedance_ohm": 50.0
+  },
+  "spectrum": {
+    "dt_s": 1e-13,
+    "df_hz": 10000000.0,
+    "idft_points": 1000000,
+    "idft_period_s": 1.0000000000000001e-07,
+    "frequency_points": 8001,
+    "maximum_frequency_hz": 80000000000.0,
+    "s21_dc": 0.992407173,
+    "matched_dc_gain": 0.4962035865
+  },
+  "sbr": {
+    "peak_voltage_v": 0.7632231497193872,
+    "peak_index": 8011,
+    "peak_time_ps": 801.1,
+    "pda_start_index": 7761,
+    "pda_start_time_ps": 776.1,
+    "maximum_interior_tail_after_truncation_v": 1.0930995000414397e-06,
+    "tail_inspection_end_ns": 90.0
+  },
+  "pda": {
+    "exact": {
+      "maximum_vertical_gap_v": 0.43673591865473455,
+      "optimum_boundary_index": 244,
+      "optimum_relative_time_ui": 0.976,
+      "optimum_sbr_time_ps": 800.5,
+      "optimum_global_phase_ps": 0.5,
+      "minimum_one_v": 0.7137674263118737,
+      "maximum_zero_v": 0.2770315076571392
+    },
+    "filtered": {
+      "maximum_vertical_gap_v": 0.4418640230861131,
+      "optimum_boundary_index": 242,
+      "optimum_relative_time_ui": 0.968,
+      "optimum_sbr_time_ps": 800.3000000000001,
+      "optimum_global_phase_ps": 0.30000000000000004,
+      "minimum_one_v": 0.7143703726403361,
+      "maximum_zero_v": 0.272506349554223
+    },
+    "tolerance_v": 0.0002,
+    "maximum_sum_of_omitted_taps_v": 0.006314784053482188,
+    "exact_model_scope": "All taps of the finite, bandwidth-limited, windowed, truncated SBR; no jitter or noise"
+  },
+  "truncation_study": [
+    {
+      "truncation_ns": 3.0,
+      "exact": {
+        "maximum_vertical_gap_v": 0.4383858284300677,
+        "optimum_boundary_index": 244,
+        "optimum_relative_time_ui": 0.976,
+        "optimum_sbr_time_ps": 800.5,
+        "optimum_global_phase_ps": 0.5,
+        "minimum_one_v": 0.7139576705080148,
+        "maximum_zero_v": 0.27557184207794716
+      },
+      "filtered": {
+        "maximum_vertical_gap_v": 0.4418640230861131,
+        "optimum_boundary_index": 242,
+        "optimum_relative_time_ui": 0.968,
+        "optimum_sbr_time_ps": 800.3000000000001,
+        "optimum_global_phase_ps": 0.30000000000000004,
+        "minimum_one_v": 0.7143703726403361,
+        "maximum_zero_v": 0.272506349554223
+      },
+      "tolerance_v": 0.0002,
+      "maximum_sum_of_omitted_taps_v": 0.004745201339129,
+      "exact_model_scope": "All taps of the finite, bandwidth-limited, windowed, truncated SBR; no jitter or noise"
+    },
+    {
+      "truncation_ns": 5.0,
+      "exact": {
+        "maximum_vertical_gap_v": 0.43719620557740796,
+        "optimum_boundary_index": 244,
+        "optimum_relative_time_ui": 0.976,
+        "optimum_sbr_time_ps": 800.5,
+        "optimum_global_phase_ps": 0.5,
+        "minimum_one_v": 0.7137674263118737,
+        "maximum_zero_v": 0.2765712207344658
+      },
+      "filtered": {
+        "maximum_vertical_gap_v": 0.4418640230861131,
+        "optimum_boundary_index": 242,
+        "optimum_relative_time_ui": 0.968,
+        "optimum_sbr_time_ps": 800.3000000000001,
+        "optimum_global_phase_ps": 0.30000000000000004,
+        "minimum_one_v": 0.7143703726403361,
+        "maximum_zero_v": 0.272506349554223
+      },
+      "tolerance_v": 0.0002,
+      "maximum_sum_of_omitted_taps_v": 0.005856603757644636,
+      "exact_model_scope": "All taps of the finite, bandwidth-limited, windowed, truncated SBR; no jitter or noise",
+      "maximum_exact_boundary_change_from_previous_v": 0.0010003684986822359
+    },
+    {
+      "truncation_ns": 10.0,
+      "exact": {
+        "maximum_vertical_gap_v": 0.43673591865473455,
+        "optimum_boundary_index": 244,
+        "optimum_relative_time_ui": 0.976,
+        "optimum_sbr_time_ps": 800.5,
+        "optimum_global_phase_ps": 0.5,
+        "minimum_one_v": 0.7137674263118737,
+        "maximum_zero_v": 0.2770315076571392
+      },
+      "filtered": {
+        "maximum_vertical_gap_v": 0.4418640230861131,
+        "optimum_boundary_index": 242,
+        "optimum_relative_time_ui": 0.968,
+        "optimum_sbr_time_ps": 800.3000000000001,
+        "optimum_global_phase_ps": 0.30000000000000004,
+        "minimum_one_v": 0.7143703726403361,
+        "maximum_zero_v": 0.272506349554223
+      },
+      "tolerance_v": 0.0002,
+      "maximum_sum_of_omitted_taps_v": 0.006314784053482188,
+      "exact_model_scope": "All taps of the finite, bandwidth-limited, windowed, truncated SBR; no jitter or noise",
+      "maximum_exact_boundary_change_from_previous_v": 0.0004607773236495194
+    },
+    {
+      "truncation_ns": 20.0,
+      "exact": {
+        "maximum_vertical_gap_v": 0.43651773669880944,
+        "optimum_boundary_index": 244,
+        "optimum_relative_time_ui": 0.976,
+        "optimum_sbr_time_ps": 800.5,
+        "optimum_global_phase_ps": 0.5,
+        "minimum_one_v": 0.7137674263118737,
+        "maximum_zero_v": 0.2772496896130643
+      },
+      "filtered": {
+        "maximum_vertical_gap_v": 0.4418640230861131,
+        "optimum_boundary_index": 242,
+        "optimum_relative_time_ui": 0.968,
+        "optimum_sbr_time_ps": 800.3000000000001,
+        "optimum_global_phase_ps": 0.30000000000000004,
+        "minimum_one_v": 0.7143703726403361,
+        "maximum_zero_v": 0.272506349554223
+      },
+      "tolerance_v": 0.0002,
+      "maximum_sum_of_omitted_taps_v": 0.006532754529001823,
+      "exact_model_scope": "All taps of the finite, bandwidth-limited, windowed, truncated SBR; no jitter or noise",
+      "maximum_exact_boundary_change_from_previous_v": 0.0002184869336113726
+    }
+  ],
+  "eye_alignment": {
+    "fold_origin_sample": 7761,
+    "pda_relative_time_formula": "q/samples_per_ui; q=0..2*samples_per_ui-1",
+    "fold_formula": "y[kstart+j*samples_per_ui+r], r=0..samples_per_ui-1",
+    "display": "Construct one UI, then duplicate the same traces/histogram into the second UI"
+  },
+  "cases": {
+    "random": {
+      "input_bits": 64802,
+      "input_ones": 32474,
+      "stable_bits": 63996,
+      "stable_ones": 32082,
+      "guard_bits_per_end": 403,
+      "histogram_samples_per_phase": 63996,
+      "histogram_probability_max_column_error": 1.2212453270876722e-15,
+      "stable_min_voltage_v": -0.02722013764433291,
+      "stable_max_voltage_v": 1.015839287247727,
+      "maximum_exact_bound_violation_v": 0.0,
+      "observed_min_one_at_exact_optimum_v": 0.747733728375712,
+      "observed_max_zero_at_exact_optimum_v": 0.24595688811325578,
+      "observed_gap_at_exact_optimum_v": 0.5017768402624562,
+      "one_clearance_at_exact_optimum_v": 0.033966302063838216,
+      "zero_clearance_at_exact_optimum_v": 0.03107461954388341
+    },
+    "pattern": {
+      "input_bits": 64802,
+      "input_ones": 32401,
+      "stable_bits": 63996,
+      "stable_ones": 31998,
+      "guard_bits_per_end": 403,
+      "histogram_samples_per_phase": 63996,
+      "histogram_probability_max_column_error": 1.3322676295501878e-15,
+      "stable_min_voltage_v": -0.03891814581496286,
+      "stable_max_voltage_v": 1.0297075077226994,
+      "maximum_exact_bound_violation_v": 0.0,
+      "observed_min_one_at_exact_optimum_v": 0.7138483102505733,
+      "observed_max_zero_at_exact_optimum_v": 0.2769506237184399,
+      "observed_gap_at_exact_optimum_v": 0.43689768653213334,
+      "one_clearance_at_exact_optimum_v": 8.088393869953858e-05,
+      "zero_clearance_at_exact_optimum_v": 8.088393869926103e-05
+    }
+  },
+  "source_sha256": {
+    "HW6_channel.s2p": "67e7883b67e6706bb680872bff8d49aeec8df56e9bdf11ca1538ed16ab7e27da",
+    "HW6_wcbitpattern.txt": "5796948da110f882c7f236c2f70794141e0be0c1e6ff51188c2cf3f8b9bd8c17"
+  },
+  "limitations": [
+    "PDA is exact for the finite SBR used by convolution; it is not an exact bound on the untruncated physical channel.",
+    "Tap tolerance relaxes the boundary; solid overlays include all retained taps.",
+    "Finite random and supplied bit records need not attain the worst-case symbol combinations.",
+    "No jitter, random noise, receiver threshold model, or nonlinear device model is included."
+  ]
+}

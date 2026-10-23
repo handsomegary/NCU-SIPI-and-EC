@@ -11,6 +11,7 @@ and an anonymous report. Further assignments can be added as they are completed.
 | --- | --- | --- |
 | [HW1](homework/hw01/) | Spectrum analysis with a Kaiser window | Assignment, data, rewritten analysis, verification, figures, anonymous report |
 | [HW3](homework/hw03/) | Sectional convolution with overlap-add | Assignment, full input/reference data, rewritten solver, numerical checks, four ADS comparisons, anonymous report |
+| [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
 
 ## Reproduce
 
@@ -29,6 +30,21 @@ required. See each script's `--help` and homework README for options. The HW3 AD
 reference is included as lossless gzip because its original plain text exceeds
 GitHub's ordinary per-file size limit; the solver reads it directly.
 
+## Run HW6
+
+```sh
+python -m pip install -r homework/hw06/requirements.txt
+python homework/hw06/src/hw6.py
+python -m unittest discover -s homework/hw06/tests -v
+python homework/hw06/tests/verify_results.py
+```
+
+The [HW6 guide](homework/hw06/) includes the anonymous report and all four
+supplied instruction files. Its corrected causal pulse spectrum and matched
+S21/2 transfer give a 0.436735919 V finite-model worst-case opening. Both 64,802-bit
+records are processed completely; independent reconstruction verifies every
+statistical-eye bin and the conditional boundaries.
+
 ## Files
 
 - `homework/hw01/instructions/`: supplied assignment, waveform data, reference
@@ -41,6 +57,9 @@ GitHub's ordinary per-file size limit; the solver reads it directly.
 - `homework/hw03/analyze.py`: rewritten full-pattern overlap-add solver.
 - `homework/hw03/results/`: verification metrics and comparison figures.
 - `homework/hw03/report/`: anonymous report and its reproducible source.
+- `homework/hw06/`: complete HW6 inputs, portable PDA and sectional-convolution
+  solver, five regenerated figures, saved numerical arrays, independent checks,
+  and a six-page anonymous report with editable source.
 - `tests/`: automated numerical checks.
 
 ## Method and provenance

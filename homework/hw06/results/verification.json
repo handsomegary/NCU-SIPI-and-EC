@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "instruction_hashes_verified": 4,
+  "full_sbr_hermitian_ifft_verified": true,
+  "direct_frequency_sum_samples_verified": 6,
+  "polyphase_pda_phases_verified": 500,
+  "truncation_study": [
+    {
+      "truncation_ns": 3.0,
+      "exact_gap_v": 0.43838582843006757,
+      "filtered_gap_v": 0.44186402308611317
+    },
+    {
+      "truncation_ns": 5.0,
+      "exact_gap_v": 0.4371962055774079,
+      "filtered_gap_v": 0.44186402308611317
+    },
+    {
+      "truncation_ns": 10.0,
+      "exact_gap_v": 0.4367359186547344,
+      "filtered_gap_v": 0.44186402308611317
+    },
+    {
+      "truncation_ns": 20.0,
+      "exact_gap_v": 0.43651773669880933,
+      "filtered_gap_v": 0.44186402308611317
+    }
+  ],
+  "cases": {
+    "random": {
+      "input_bits_verified": 64802,
+      "stable_windows_verified": 63996,
+      "waveform_samples_verified": 31998000,
+      "histogram_count_conserved": true,
+      "raw_and_tolerance_bounds_verified": true,
+      "maximum_extrema_difference_v": 1.0824674490095276e-15
+    },
+    "pattern": {
+      "input_bits_verified": 64802,
+      "stable_windows_verified": 63996,
+      "waveform_samples_verified": 31998000,
+      "histogram_count_conserved": true,
+      "raw_and_tolerance_bounds_verified": true,
+      "maximum_extrema_difference_v": 9.992007221626409e-16
+    }
+  }
+}

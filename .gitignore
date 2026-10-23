@@ -16,4 +16,5 @@ tmp/
 *.dat
 *.npy
 *.npz
+!homework/hw06/results/arrays.npz
 *.float32

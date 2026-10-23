@@ -1,0 +1,29 @@
+{
+  "provided_instruction_files": [
+    {
+      "file": "HW6_channel.s2p",
+      "bytes": 1368346,
+      "sha256": "67e7883b67e6706bb680872bff8d49aeec8df56e9bdf11ca1538ed16ab7e27da"
+    },
+    {
+      "file": "HW6_PDA.pdf",
+      "bytes": 767899,
+      "sha256": "bead7a0aa7f29f3ac8d1a9682e016398204bb5e4893cd2eeeaaede68b13dc843"
+    },
+    {
+      "file": "HW6_PDA_sample.py",
+      "bytes": 4637,
+      "sha256": "a9f75de5d24edb63d1621dec242604e5c502f983de6a8049360dd18f3a3e3b6c"
+    },
+    {
+      "file": "HW6_wcbitpattern.txt",
+      "bytes": 64802,
+      "sha256": "5796948da110f882c7f236c2f70794141e0be0c1e6ff51188c2cf3f8b9bd8c17"
+    }
+  ],
+  "duplicate_data_match": {
+    "HW6_channel.s2p": true,
+    "HW6_wcbitpattern.txt": true
+  },
+  "reference_policy": "The supplied solution and report were inspected locally. The published implementation and report are rewritten without student identity. The rewritten reader is self-contained, so the legacy snpreader.py helper is not required."
+}
