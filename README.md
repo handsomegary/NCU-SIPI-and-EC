@@ -11,6 +11,7 @@ HW1-HW14 as the remaining assignments are completed.
 | [HW1](homework/hw01/) | Spectrum analysis with a Kaiser window | Assignment, data, rewritten analysis, verification, figures, anonymous report |
 | [HW2](homework/hw02/) | Step response via IDFT with a Kaiser window | Complete supplied files, rewritten code, independent SPICE and circuit checks, figures, anonymous report |
 | [HW4](homework/hw04/) | Spectrum of digital signals | All instruction files, verified analysis, six PSD plots, independent checks, anonymous report |
+| [HW5](homework/hw05/) | Fixed-rate and triggered statistical eye diagrams | Complete supplied files, rewritten analysis, independent histogram verification, regenerated figures, anonymous report |
 
 ## Run HW1
 
@@ -52,6 +53,18 @@ python homework/hw04/tests/verify_reference.py
 See the [HW4 guide](homework/hw04/) for all six PSD plots, the independent
 verification, and the anonymous report.
 
+## Run HW5
+
+```sh
+python -m pip install -r homework/hw05/requirements.txt
+python homework/hw05/src/hw5.py
+python -m unittest discover -s homework/hw05/tests -p test_hw5.py -v
+python homework/hw05/tests/verify_delivery.py
+```
+
+The [HW5 guide](homework/hw05/) documents the fixed-rate and triggered methods,
+complete input files, regenerated eye diagrams, and anonymous report.
+
 ## Files
 
 - `homework/hw01/instructions/`: supplied assignment, waveform data, reference
@@ -62,6 +75,8 @@ verification, and the anonymous report.
 - `tests/`: automated numerical checks.
 - `homework/hw02/`: complete HW2 material, its verified implementation and tests,
   numerical results, and anonymous report with a full source appendix.
+- `homework/hw05/`: complete HW5 instructions and waveform data, rewritten
+  fixed-rate and triggered analysis, tests, results, and anonymous report.
 
 ## Method and provenance
 
@@ -81,6 +96,11 @@ IFFT. It solves the Kaiser parameter for the requested 40 ps rise, distinguishes
 the transmission line's one-way and round-trip delay, and validates against both
 fresh SPICE output and independent circuit equations. The report records source
 data limitations and the difference between Kaiser and piecewise-linear inputs.
+
+HW5 folds the received voltage into fixed nominal two-UI intervals and compares
+it with alignment to interpolated positive differential-clock zero crossings.
+Independent full-data histograms verify every count, the unique sample assignment,
+and the per-time-column probability normalization.
 
 The report, rewritten source, generated results, and commit metadata omit personal
 names, student IDs, email addresses, and local machine paths. Repository ownership
