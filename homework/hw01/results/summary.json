@@ -1,0 +1,145 @@
+{
+  "input_file": "HW1_Kaiser.txt",
+  "sampling": {
+    "n_samples": 2000,
+    "dt_s": 9.999999999999759e-12,
+    "fs_hz": 100000000000.00241,
+    "nyquist_hz": 50000000000.001205,
+    "sample_span_s": 1.999e-08,
+    "record_duration_s": 1.9999999999999517e-08,
+    "unpadded_df_hz": 50000000.00000121,
+    "fft_size": 1048575,
+    "plotted_df_hz": 95367.52259018422
+  },
+  "analysis": {
+    "alphas": [
+      0.1,
+      0.2,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "window_convention": "beta = pi * alpha",
+    "window_gains": [
+      {
+        "alpha": 0.1,
+        "coherent_gain": 0.9918969766047453
+      },
+      {
+        "alpha": 0.2,
+        "coherent_gain": 0.9690477821050226
+      },
+      {
+        "alpha": 1.0,
+        "coherent_gain": 0.6708367029009089
+      },
+      {
+        "alpha": 2.0,
+        "coherent_gain": 0.48895469509605816
+      },
+      {
+        "alpha": 3.0,
+        "coherent_gain": 0.40234703365815183
+      },
+      {
+        "alpha": 4.0,
+        "coherent_gain": 0.34972730540444186
+      },
+      {
+        "alpha": 5.0,
+        "coherent_gain": 0.31347914345566164
+      }
+    ],
+    "max_components": 6,
+    "numerical_relative_tolerance": 1e-10,
+    "fit_method": "Residual Kaiser spectral candidates; variable projection with bounded damped Gauss-Newton frequency refinement; BIC order selection",
+    "fit_search_band_hz": [
+      0.0,
+      50000000000.001205
+    ],
+    "display_max_frequency_ghz": 2.0,
+    "amplitude_reference": "dBV = 20 log10(amplitude / 1 V)",
+    "model": "offset + sum A_i sin(2 pi f_i (t - time_origin) + phase_i)"
+  },
+  "fit": {
+    "q": 3,
+    "offset_v": -1.895831787779753e-16,
+    "time_origin_s": 0.0,
+    "rmse_v": 4.719921831085727e-15,
+    "max_abs_residual_v": 2.736699755701011e-14,
+    "relative_rmse": 4.7814434035295554e-15,
+    "bic": -92027.39469516641,
+    "components": [
+      {
+        "index": 1,
+        "frequency_hz": 524999999.99999994,
+        "frequency_mhz": 524.9999999999999,
+        "amplitude_v": 1.0000000000000007,
+        "phase_rad": 2.217117498623556e-15,
+        "amplitude_dbv": 5.785964799319721e-15
+      },
+      {
+        "index": 2,
+        "frequency_hz": 602000000.0,
+        "frequency_mhz": 602.0,
+        "amplitude_v": 0.9999999999999997,
+        "phase_rad": -1.6764805894857549e-15,
+        "amplitude_dbv": -2.892982399659862e-15
+      },
+      {
+        "index": 3,
+        "frequency_hz": 888499999.999999,
+        "frequency_mhz": 888.4999999999991,
+        "amplitude_v": 0.003162277660168715,
+        "phase_rad": -2.158220950841674e-14,
+        "amplitude_dbv": -49.999999999999076
+      }
+    ],
+    "order_selection": [
+      {
+        "q": 0,
+        "rss_v2": 1946.98027232789,
+        "bic": 5.6666490762105735,
+        "rmse_v": 0.9866560374132137
+      },
+      {
+        "q": 1,
+        "rss_v2": 948.6780520478367,
+        "bic": -1409.4614067694454,
+        "rmse_v": 0.6887227497505206
+      },
+      {
+        "q": 2,
+        "rss_v2": 0.009924553174753334,
+        "bic": -24322.28462931859,
+        "rmse_v": 0.002227616795451288
+      },
+      {
+        "q": 3,
+        "rss_v2": 4.455532418311927e-26,
+        "bic": -92027.39469516641,
+        "rmse_v": 4.719921831085727e-15
+      }
+    ],
+    "stop_reason": "relative numerical residual tolerance reached"
+  },
+  "artifacts": {
+    "time_domain": "time_domain.png",
+    "windows": "kaiser_windows.png",
+    "spectra": "spectra.png",
+    "individual_spectra": [
+      "spectrum_alpha_0p1.png",
+      "spectrum_alpha_0p2.png",
+      "spectrum_alpha_1.png",
+      "spectrum_alpha_2.png",
+      "spectrum_alpha_3.png",
+      "spectrum_alpha_4.png",
+      "spectrum_alpha_5.png"
+    ],
+    "reconstruction": "reconstruction.png",
+    "parameters": "parameters.csv",
+    "summary": "summary.json"
+  }
+}

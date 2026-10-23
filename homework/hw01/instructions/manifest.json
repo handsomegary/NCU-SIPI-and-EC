@@ -1,0 +1,14 @@
+{
+  "HW1_Kaiser.txt": {
+    "bytes": 53938,
+    "sha256": "f2b700d43e984567797a7e8c6ca9d3a10615d81a50af9543377bd1a428f18d1e"
+  },
+  "HW1_Kaiser_sample.py": {
+    "bytes": 1879,
+    "sha256": "c28f7b0995bf2dad1c63d99cee36862a49c27b6199f840e8bea70fe4280bed1b"
+  },
+  "HW1_time_freq_transf_(1)_Kaiser.pdf": {
+    "bytes": 184790,
+    "sha256": "a7591bf1b1cff18700f868e1244b65ba702fb89842157757f3b67763ef24b08a"
+  }
+}

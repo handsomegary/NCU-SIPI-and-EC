@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.pdf binary
+*.png binary
+# Preserve the supplied reference bytes so the published checksums remain valid.
+homework/hw01/instructions/HW1_Kaiser.txt -text
+homework/hw01/instructions/HW1_Kaiser_sample.py -text
