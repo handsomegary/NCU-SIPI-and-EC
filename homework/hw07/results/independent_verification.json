@@ -1,0 +1,145 @@
+{
+  "passed": true,
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "touchstone_all_units_formats_ordering_and_continuations",
+      "passed": true,
+      "maximum_complex_error": 3.1031676915590914e-17,
+      "combinations": 12
+    },
+    {
+      "name": "assignment_frequency_and_s21_preserved",
+      "passed": true,
+      "points": 8001,
+      "df_hz": 10000000.0,
+      "fmax_hz": 80000000000.0
+    },
+    {
+      "name": "global_peak_dc_case_and_dense_frequency_sweep",
+      "passed": true,
+      "parameter_sets": 15,
+      "maximum_gain_error_db": 1.7763568394002505e-15,
+      "maximum_frequency_error_hz": 1.9073486328125e-06,
+      "maximum_dense_gap_db": 2.4184468649934843e-08
+    },
+    {
+      "name": "chosen_ctle_constraints_and_angular_frequency_reference",
+      "passed": true,
+      "peak_gain_db": 5.9799534061151025,
+      "peak_frequency_hz": 21216523174.911667,
+      "zero_frequency_hz": 3121527895.619326,
+      "response_complex_error": 1.1102230246251565e-15
+    },
+    {
+      "name": "irfft_matches_independent_full_hermitian_ifft_and_dc",
+      "passed": true,
+      "maximum_kernel_error": 5.204170427930421e-18,
+      "maximum_reference_imaginary": 1.924063809745082e-18,
+      "dc_sum_error": 1.1102230246251565e-16,
+      "dt_s": 5e-13,
+      "fft_period_s": 1e-07,
+      "kernel_sum": 0.5508493480178921,
+      "expected_dc_gain": 0.550849348017892,
+      "maximum_window_error": 0.0
+    },
+    {
+      "name": "source_endpoints_all_bits_and_partial_overlap_add_sections",
+      "passed": true,
+      "bits": 137,
+      "source_error_v": 2.220446049250313e-16,
+      "maximum_direct_convolution_error_v": 3.3306690738754696e-16,
+      "output_samples": 7028,
+      "expected_output_samples": 7028
+    },
+    {
+      "name": "physical_matching_divider_exactly_once",
+      "passed": true,
+      "identity_error_v": 1.1102230246251565e-16,
+      "source_high_v": 2.0,
+      "matched_identity_high_v": 1.0
+    },
+    {
+      "name": "same_pattern_and_bit_conditioned_random_center_eh",
+      "passed": true,
+      "bits": 65539,
+      "analyzed_bits": 64739,
+      "cursor_index": 5801,
+      "center_time_s": 2.9005e-09,
+      "random_center_eh_v": 0.3606063826351047,
+      "discrete_all_tap_pda_eh_v": 0.3193085568481303,
+      "excluded_initial_bits": 800,
+      "all_waveform_samples_finite": true
+    },
+    {
+      "name": "independent_continuous_trapezoid_spectrum_and_dt_convergence",
+      "passed": true,
+      "reference": "2*Tb*sinc(f*Tb)*sinc(f*Tr)*exp(-j*pi*f*(Tb+Tr)); H=channel*CTLE/2",
+      "sensitivity": [
+        {
+          "dt_s": 1e-12,
+          "cursor_time_s": 2.9e-09,
+          "full_period_analytic_pda_eh_v": 0.3138436972338732
+        },
+        {
+          "dt_s": 5e-13,
+          "cursor_time_s": 2.9005e-09,
+          "full_period_analytic_pda_eh_v": 0.31768103319127694
+        },
+        {
+          "dt_s": 2.5e-13,
+          "cursor_time_s": 2.9005e-09,
+          "full_period_analytic_pda_eh_v": 0.31768103319127705
+        }
+      ]
+    },
+    {
+      "name": "tail_cutoff_sensitivity_retains_300mv_margin",
+      "passed": true,
+      "sensitivity": [
+        {
+          "impulse_length_ns": 20,
+          "discrete_all_tap_pda_eh_v": 0.3193085568481303
+        },
+        {
+          "impulse_length_ns": 40,
+          "discrete_all_tap_pda_eh_v": 0.3190253344673414
+        },
+        {
+          "impulse_length_ns": 80,
+          "discrete_all_tap_pda_eh_v": 0.3187543908905316
+        },
+        {
+          "impulse_length_ns": 100,
+          "discrete_all_tap_pda_eh_v": 0.3178242284622077
+        }
+      ],
+      "maximum_cutoff_difference_v": 0.0014843283859226064
+    }
+  ],
+  "parameters": {
+    "fp1_ghz": 20.6,
+    "fp2_ghz": 22.8,
+    "adc_db": -4.91,
+    "aac_db": 11.48
+  },
+  "scope": "Finite seeded random eye and conservative all-tap PDA are separately reported; neither is substituted for the other.",
+  "report_checks": [
+    {
+      "label": "Independent reader and gain checks",
+      "detail": "All 12 unit/format combinations reproduce a defined two-port matrix. A dense 12-decade frequency sweep and a separately derived peak calculation confirm the global CTLE gain limit."
+    },
+    {
+      "label": "Impulse and physical normalization",
+      "detail": "The real IFFT matches a full Hermitian IFFT and preserves the DC kernel sum. An identity transfer maps the 2 V source high level to 1 V with exactly one matched-source division by two."
+    },
+    {
+      "label": "Direct versus sectional convolution",
+      "detail": "Overlap-add matches direct linear convolution for a 137-bit pattern, including its partial final block and final falling ramp; transition endpoints independently match time-knot interpolation."
+    },
+    {
+      "label": "Eye alignment and sensitivity",
+      "detail": "Bit-conditioned random EH and all-tap PDA use y[k*samples_per_ui+cursor] against bit k and remain distinct measures. An independent continuous-pulse spectrum, 0.25 ps grid and full 100 ns impulse period retain more than 300 mV worst-case margin."
+    }
+  ]
+}

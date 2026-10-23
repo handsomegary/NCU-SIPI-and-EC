@@ -1,0 +1,11 @@
+請tune以下地方
+
+# === CTLE === #
+f1G = 1  # in GHz
+f2G = 40 # in GHz
+Adc_dB = -5
+Aac_dB = 5
+w1 = 2*pi*f1G*1e9
+w2 = 2*pi*f2G*1e9
+Adc = 10**(Adc_dB/20)
+Aac = 10**(Aac_dB/20)

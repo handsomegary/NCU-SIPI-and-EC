@@ -23,3 +23,5 @@ jobs:
       - run: python homework/hw01/analyze.py --output /tmp/hw01-results
       - run: python -m unittest discover -s homework/hw06/tests -v
       - run: python homework/hw06/tests/verify_results.py
+      - run: python homework/hw07/tests/verify_reference.py
+      - run: python homework/hw07/src/hw7.py --output /tmp/hw07-results

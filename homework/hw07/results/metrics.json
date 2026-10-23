@@ -1,0 +1,201 @@
+{
+  "source": {
+    "filename": "HW7_stripline_50cm.s2p",
+    "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+    "points": 8001,
+    "df_hz": 10000000.0,
+    "fmax_hz": 80000000000.0,
+    "reference_ohm": 50.0
+  },
+  "settings": {
+    "bit_rate_bps": 40000000000.0,
+    "rise_time_s": 5e-12,
+    "source_vpp": 2.0,
+    "matching_divider": 0.5,
+    "samples_per_ui": 50,
+    "dt_s": 5e-13,
+    "bits": 65536,
+    "seed": 0,
+    "alpha": 1.0,
+    "random_bit_generator": "numpy.default_rng / PCG64, uint8 output",
+    "tail_ns": 20.0,
+    "skip_bits": 800,
+    "fft_period_s": 1e-07,
+    "window_fmax_hz": 80000000000.0,
+    "convolution": "scipy.signal.oaconvolve, full linear convolution"
+  },
+  "ctle": {
+    "fp1_ghz": 20.6,
+    "fp2_ghz": 22.8,
+    "adc_db": -4.91,
+    "aac_db": 11.48,
+    "peak_gain_db": 5.9799534061151025,
+    "peak_frequency_hz": 21216523174.911667,
+    "zero_frequency_hz": 3121527895.619326
+  },
+  "before": {
+    "center_eye_height_v": -0.10740423474415395,
+    "pda_eye_height_v": -0.19833441938033425,
+    "center_time_s": 2.902e-09,
+    "cursor_index": 5804,
+    "phase_samples": 4,
+    "one_min_v": 0.4263542807119798,
+    "zero_max_v": 0.5337585154561337,
+    "pda_high_min_v": 0.38426762398886327,
+    "pda_low_max_v": 0.5826020433691975,
+    "main_cursor_v": 0.38426762398886327,
+    "isi_absolute_sum_v": 0.5826020433691974,
+    "analyzed_bits": 64736,
+    "skip_bits": 800
+  },
+  "after": {
+    "center_eye_height_v": 0.36060638263510436,
+    "pda_eye_height_v": 0.3193085568481315,
+    "center_time_s": 2.9005e-09,
+    "cursor_index": 5801,
+    "phase_samples": 1,
+    "one_min_v": 0.45472140500571345,
+    "zero_max_v": 0.0941150223706091,
+    "pda_high_min_v": 0.43433678824005145,
+    "pda_low_max_v": 0.11502823139191998,
+    "main_cursor_v": 0.4885051105997486,
+    "isi_absolute_sum_v": 0.16919655375161716,
+    "analyzed_bits": 64736,
+    "skip_bits": 800
+  },
+  "tail_convergence": [
+    {
+      "before": {
+        "cutoff_ns": 20.0,
+        "samples": 40000,
+        "discarded_energy_fraction": 4.5454017144316316e-08,
+        "discarded_l1": 0.002692729442029136,
+        "retained_dc_sum": 0.9668696673580605,
+        "full_dc_sum": 0.9694665740000004,
+        "pda_eye_height_v": -0.19833441938033414,
+        "cursor_index": 5804
+      },
+      "after": {
+        "cutoff_ns": 20.0,
+        "samples": 40000,
+        "discarded_energy_fraction": 1.4301334469811045e-08,
+        "discarded_l1": 0.001853699667275869,
+        "retained_dc_sum": 0.5493650196319714,
+        "full_dc_sum": 0.550849348017892,
+        "pda_eye_height_v": 0.3193085568481313,
+        "cursor_index": 5801
+      }
+    },
+    {
+      "before": {
+        "cutoff_ns": 40.0,
+        "samples": 80000,
+        "discarded_energy_fraction": 4.311722796234436e-08,
+        "discarded_l1": 0.002189568853582546,
+        "retained_dc_sum": 0.9673694030798093,
+        "full_dc_sum": 0.9694665740000004,
+        "pda_eye_height_v": -0.19883415510208302,
+        "cursor_index": 5804
+      },
+      "after": {
+        "cutoff_ns": 40.0,
+        "samples": 80000,
+        "discarded_energy_fraction": 1.3436220983334855e-08,
+        "discarded_l1": 0.0015103386429287076,
+        "retained_dc_sum": 0.5496482161249712,
+        "full_dc_sum": 0.550849348017892,
+        "pda_eye_height_v": 0.31902533446734294,
+        "cursor_index": 5801
+      }
+    },
+    {
+      "before": {
+        "cutoff_ns": 80.0,
+        "samples": 160000,
+        "discarded_energy_fraction": 4.1647983051745125e-08,
+        "discarded_l1": 0.0016321347614385775,
+        "retained_dc_sum": 0.9678462370100771,
+        "full_dc_sum": 0.9694665740000004,
+        "pda_eye_height_v": -0.19931098903235078,
+        "cursor_index": 5804
+      },
+      "after": {
+        "cutoff_ns": 80.0,
+        "samples": 160000,
+        "discarded_energy_fraction": 1.2698862409111847e-08,
+        "discarded_l1": 0.0010287353576742314,
+        "retained_dc_sum": 0.5499191855895691,
+        "full_dc_sum": 0.550849348017892,
+        "pda_eye_height_v": 0.3187543908905337,
+        "cursor_index": 5801
+      }
+    }
+  ],
+  "full_period_pda": {
+    "before": {
+      "pda_eye_height_v": -0.2009313260222736,
+      "cursor_index": 5804,
+      "center_time_s": 2.902e-09
+    },
+    "after": {
+      "pda_eye_height_v": 0.31782422846221103,
+      "cursor_index": 5801,
+      "center_time_s": 2.9005e-09
+    }
+  },
+  "time_step_convergence": {
+    "coarse_dt_s": 5e-13,
+    "fine_dt_s": 2.5e-13,
+    "coarse_samples_per_ui": 50,
+    "fine_samples_per_ui": 100,
+    "coarse_cutoff_pda_v": 0.3193085568481315,
+    "fine_cutoff_pda_v": 0.319201422530085,
+    "cutoff_pda_difference_v": -0.00010713431804648677,
+    "coarse_full_period_pda_v": 0.31782422846221103,
+    "fine_full_period_pda_v": 0.3177170378370632,
+    "full_period_pda_difference_v": -0.00010719062514785715,
+    "fine_cutoff_center_time_s": 2.9005e-09,
+    "fine_full_period_center_time_s": 2.9005e-09
+  },
+  "requirements": {
+    "actual_peak_at_most_6db": true,
+    "random_center_eh_at_least_300mv": true,
+    "pda_center_eh_at_least_300mv": true,
+    "full_period_pda_at_least_300mv": true
+  },
+  "report_checks": [
+    {
+      "label": "Analytic gain bound",
+      "detail": "Global CTLE maximum 5.979953406 dB, including frequencies beyond the measured band."
+    },
+    {
+      "label": "Impulse normalization",
+      "detail": "Full channel kernel sum 0.969466574; measured channel DC gain 0.969466574. The source divider is applied separately once."
+    },
+    {
+      "label": "All bits retained",
+      "detail": "All 65536 generated bits are convolved; the first 800 bits are excluded only from measurement."
+    },
+    {
+      "label": "Finite numerical results",
+      "detail": "Both complete output waveforms are finite: True."
+    },
+    {
+      "label": "Full-period conservative margin",
+      "detail": "Full 100 ns kernel PDA EH 317.824228 mV; no impulse renormalization."
+    },
+    {
+      "label": "Time step convergence",
+      "detail": "Halving dt changes cutoff PDA EH by -0.107134 mV and full-period PDA EH by -0.107191 mV."
+    }
+  ],
+  "conventions": {
+    "eye_height": "min(samples conditioned on transmitted 1) - max(samples conditioned on transmitted 0)",
+    "sampling_center": "maximum all-tap PDA eye height around the main cursor; independently aligned for each path",
+    "pda": "main cursor minus sum of absolute values of every other symbol-spaced SBR tap",
+    "random_bits": "all generated bits simulated; initial tail-length bits excluded from measurements",
+    "voltage": "unipolar source 0..2 V; a single 0.5 matched-source divider before convolution",
+    "window": "Kaiser positive-frequency taper using the measured 80 GHz endpoint; bins above measurement are zero",
+    "tail": "FFT-periodic impulse truncated without renormalization; 40/80 ns PDA convergence also reported"
+  }
+}

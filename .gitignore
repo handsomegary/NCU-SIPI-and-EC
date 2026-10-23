@@ -17,4 +17,5 @@ tmp/
 *.npy
 *.npz
 !homework/hw06/results/arrays.npz
+!homework/hw07/results/analysis_data.npz
 *.float32

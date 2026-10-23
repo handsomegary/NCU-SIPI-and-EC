@@ -12,6 +12,7 @@ and an anonymous report. Further assignments can be added as they are completed.
 | [HW1](homework/hw01/) | Spectrum analysis with a Kaiser window | Assignment, data, rewritten analysis, verification, figures, anonymous report |
 | [HW3](homework/hw03/) | Sectional convolution with overlap-add | Assignment, full input/reference data, rewritten solver, numerical checks, four ADS comparisons, anonymous report |
 | [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
+| [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
 
 ## Reproduce
 
@@ -21,6 +22,8 @@ Python 3.10 or newer is required.
 python -m pip install -r requirements.txt
 python homework/hw01/analyze.py
 python homework/hw03/analyze.py --verification-study
+python homework/hw07/src/hw7.py
+python homework/hw07/tests/verify_reference.py
 python -m unittest discover -s tests -v
 ```
 
@@ -60,6 +63,8 @@ statistical-eye bin and the conditional boundaries.
 - `homework/hw06/`: complete HW6 inputs, portable PDA and sectional-convolution
   solver, five regenerated figures, saved numerical arrays, independent checks,
   and a six-page anonymous report with editable source.
+- `homework/hw07/`: supplied instructions, verified CTLE analysis, numerical checks,
+  generated figures, and an anonymous report with editable source.
 - `tests/`: automated numerical checks.
 
 ## Method and provenance

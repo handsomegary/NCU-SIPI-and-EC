@@ -1,0 +1,68 @@
+{
+  "assignment": "HW7: CTLE design and simulation",
+  "instruction_coverage": "All three files supplied in the instruction folder are included byte for byte.",
+  "submission_coverage": "All five submitted file roles are covered below. Identity-bearing originals and compiled caches are not published.",
+  "supplied_instruction_files": [
+    {
+      "path": "instructions/HW7_CTLE.pdf",
+      "bytes": 795073,
+      "sha256": "f989eafacd1a6758b74270dd909196f32837e2fe5f851d015ceec140b2c4f8b7",
+      "status": "all supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW7_CTLE_sample.py",
+      "bytes": 7183,
+      "sha256": "d7f388ceab04486ec2f07d72c28e3c19424725a164bf8e712128f36a6d84f2e3",
+      "status": "all supplied bytes preserved"
+    },
+    {
+      "path": "instructions/HW7_stripline_50cm.s2p",
+      "bytes": 1368346,
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "status": "all supplied bytes preserved"
+    }
+  ],
+  "submitted_file_roles": [
+    {
+      "role": "submitted solver",
+      "source_sha256": "a05f300fe226f348daceeea92391070a06baa8dbda741612730eb9a66ea8ed95",
+      "paths": [
+        "src/hw7.py"
+      ],
+      "status": "replaced by portable verified rewrite"
+    },
+    {
+      "role": "submitted channel reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "paths": [
+        "src/hw7.py"
+      ],
+      "status": "replaced by strict two-port Touchstone reader"
+    },
+    {
+      "role": "submitted report",
+      "source_sha256": "ff862424a235c96b41f9bde1033f2a5264abb1f98db9db22ae70039f442d7928",
+      "paths": [
+        "report/hw07_report.pdf",
+        "report/report.md"
+      ],
+      "status": "replaced by anonymous report generated from verified simulation"
+    },
+    {
+      "role": "submitted tuning notes",
+      "source_sha256": "b63a55eac7411bbfefe960357a871459c4c68ae27a008b136b8be2f5402dcf04",
+      "paths": [
+        "instructions/submitted_tuning_notes.txt"
+      ],
+      "status": "preserved under a neutral filename"
+    },
+    {
+      "role": "submitted duplicate channel data",
+      "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "paths": [
+        "instructions/HW7_stripline_50cm.s2p"
+      ],
+      "status": "identical to supplied data; stored once"
+    }
+  ]
+}
