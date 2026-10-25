@@ -20,6 +20,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
 | [HW8](homework/hw08/) | Transmitter FFE design and simulation | Assignment, template, channel data, five ZF configurations, waveform snapshots, numerical checks, anonymous report |
 | [HW9](homework/hw09/) | Decision-feedback equalization | Complete instructions, channel data, 1/2/3-tap automatic designs, numerical verification, anonymous report |
+| [HW10](homework/hw10/) | Differential channel simulation and equalizer design | Complete instructions, rewritten CTLE/FFE/DFE solver, four eyes, independent full-record verification, anonymous report |
 | [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
 
 ## Reproduce
@@ -39,6 +40,8 @@ python homework/hw07/tests/verify_reference.py
 python homework/hw08/analyze.py
 python homework/hw09/analyze.py
 python homework/hw09/verify_results.py
+python homework/hw10/src/hw10.py --validation
+python homework/hw10/tests/verify_reference.py
 python homework/hw11/analyze.py
 python -m unittest discover -s tests -v
 ```
@@ -119,6 +122,13 @@ all-transmitter comparisons. Verification uses independent circuit equations
 and direct convolution; no ADS execution or BER extrapolation is claimed.
 
 ## Files
+
+HW10's [guide and anonymous report](homework/hw10/) include a reproducible
+two-tap FFE and five-tap DFE design. Three separate 262,144-symbol runs pass
+the required EH > 120 mV and EW > 15 ps; the main run gives 144.871 mV and
+15.811 ps. A separate full-waveform implementation verifies all four stages,
+and halving the time step confirms numerical convergence. These are finite,
+noiseless simulation results; the optional ADS comparison was not run.
 
 - `homework/hw01/instructions/`: supplied assignment, waveform data, reference
   example, and checksums for the uploaded copies.

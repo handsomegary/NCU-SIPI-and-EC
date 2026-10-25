@@ -1,0 +1,210 @@
+{
+  "parameters": {
+    "bit_rate_bps": 40000000000.0,
+    "ui_ps": 25.0,
+    "rise_ps": 5.0,
+    "driver_vpp_v": 2.0,
+    "source_differential_levels_v": [
+      -2.0,
+      2.0
+    ],
+    "single_ended_reference_ohm": 50,
+    "differential_reference_ohm": 100,
+    "common_mode_reference_ohm": 25,
+    "samples_per_ui": 50,
+    "dt_ps": 0.5,
+    "kaiser_alpha": 1.0,
+    "impulse_duration_ns": 20.0,
+    "n_bits": 262144,
+    "seed": 0,
+    "warmup_symbols": 1024,
+    "trailing_guard_symbols": 1024,
+    "total_generated_symbols": 264192,
+    "frequency_step_hz": 10000000.0,
+    "frequency_max_hz": 80000000000.0,
+    "source_sha256": "800283c0ccf4b7495d2fe28e17042fc487394d0d18a4ae5a44f48deb59e7cfd5"
+  },
+  "equalizers": {
+    "ctle": {
+      "poles_ghz": [
+        40.0,
+        40.0,
+        40.0
+      ],
+      "zeros_ghz": [
+        2.523829377920773
+      ],
+      "dc_gain_db": -9.751610265,
+      "numerator_gain_db": 14.248389735,
+      "peak_gain_db": 5.990000170430049,
+      "peak_frequency_ghz": 28.11485879548067
+    },
+    "ffe": {
+      "taps": [
+        -0.222313178938,
+        0.777686821062
+      ],
+      "l1_norm": 1.0
+    },
+    "dfe": {
+      "taps_v": [
+        0.03991074274435683,
+        -0.011069638348435112,
+        -0.003789812475932196,
+        0.002306866993340967,
+        0.0022969840082704657
+      ],
+      "feedback_operation": "subtract",
+      "threshold_v": 0.0,
+      "slicer_levels": [
+        -1,
+        1
+      ],
+      "decision_phase_sample": 38,
+      "clock_sample": 8138,
+      "feedback_hold": "from half a UI before through half a UI after each decision; right endpoint belongs to the next hold"
+    }
+  },
+  "stages": {
+    "channel": {
+      "eye_height_v": -0.8037407412349238,
+      "eye_width_ps": 0.0,
+      "left_crossing_ps": 0.0,
+      "right_crossing_ps": 0.0,
+      "lower_v": -0.4105295971230527,
+      "upper_v": 0.3932111441118711,
+      "decision_errors": 46850,
+      "clock_sample": 8107,
+      "clock_time_ps": 4053.5000000000005,
+      "clock_phase_ps": 3.5000000000000004,
+      "measured_symbols": 262144
+    },
+    "ctle": {
+      "eye_height_v": -0.006779326135843398,
+      "eye_width_ps": 0.0,
+      "left_crossing_ps": 0.0,
+      "right_crossing_ps": 0.0,
+      "lower_v": -0.0030312140709283257,
+      "upper_v": 0.0037481120649150716,
+      "decision_errors": 4,
+      "clock_sample": 8092,
+      "clock_time_ps": 4046.0000000000005,
+      "clock_phase_ps": 21.000000000000004,
+      "measured_symbols": 262144
+    },
+    "ffe": {
+      "eye_height_v": 0.03211896592996433,
+      "eye_width_ps": 13.736284110598802,
+      "left_crossing_ps": -2.5062041338832097,
+      "right_crossing_ps": 11.230079976715594,
+      "lower_v": 0.01447331753100896,
+      "upper_v": -0.01764564839895537,
+      "decision_errors": 0,
+      "clock_sample": 8138,
+      "clock_time_ps": 4069.0,
+      "clock_phase_ps": 19.0,
+      "measured_symbols": 262144
+    },
+    "dfe": {
+      "eye_height_v": 0.14487123800168855,
+      "eye_width_ps": 15.810803359898777,
+      "left_crossing_ps": -7.628918115271023,
+      "right_crossing_ps": 8.181885244627754,
+      "lower_v": 0.07161681652684095,
+      "upper_v": -0.07325442147484762,
+      "decision_errors": 0,
+      "clock_sample": 8138,
+      "clock_time_ps": 4069.0,
+      "clock_phase_ps": 19.0,
+      "measured_symbols": 262144
+    }
+  },
+  "design": {
+    "training_seed": 70,
+    "training_bits": 16384,
+    "method": "Finite-training linear programming of FFE coefficients and clock search, followed by separate full-record verification",
+    "objective": "Maximize the minimum signed central voltage, with signed margins >=4mV at +/-8ps and >=15mV at +/-4ps on the training record",
+    "selected_clock_time_ps": 4069.0,
+    "held_out_seeds": [
+      0,
+      1,
+      2
+    ],
+    "ctle_scaling": "Original -10/14dB numerator settings shifted together to a continuous peak of approximately 5.99dB; zero frequency unchanged",
+    "ffe": "Two nonzero taps after removing zero leading/trailing taps from the five-tap search"
+  },
+  "measurement": {
+    "eye_height": "minimum logic-one voltage minus maximum logic-zero voltage at the selected decision clock; every retained symbol is included, with no percentile clipping",
+    "eye_width": "contiguous interval containing the clock for which min(logic-one)>0 and max(logic-zero)<0; boundaries linearly interpolated from the more restrictive conditional margin",
+    "eye_histogram": "600 voltage bins for each of samples_per_ui+1 offsets spanning one UI",
+    "waveform": "causal linear-ramp samples, real Hermitian channel IDFT with Kaiser1, 20ns causal impulse truncation, polyphase linear convolution",
+    "dfe": "recursive decisions from corrected samples only; transmitted bits used only for error and eye measurement",
+    "scope": "Finite noiseless random-pattern evidence; no BER extrapolation, jitter model, ADS validation, or all-pattern worst-case guarantee"
+  },
+  "validation": {
+    "seed_checks": [
+      {
+        "seed": 1,
+        "n_bits": 262144,
+        "pass": true,
+        "eye_height_v": 0.14115774480886684,
+        "eye_width_ps": 15.966811428922217,
+        "left_crossing_ps": -7.756794457417713,
+        "right_crossing_ps": 8.210016971504505,
+        "lower_v": 0.07040250286680924,
+        "upper_v": -0.07075524194205761,
+        "decision_errors": 0,
+        "clock_sample": 8138,
+        "clock_time_ps": 4069.0,
+        "clock_phase_ps": 19.0,
+        "measured_symbols": 262144
+      },
+      {
+        "seed": 2,
+        "n_bits": 262144,
+        "pass": true,
+        "eye_height_v": 0.14372905126853913,
+        "eye_width_ps": 15.881125545193441,
+        "left_crossing_ps": -7.70564906899697,
+        "right_crossing_ps": 8.175476476196472,
+        "lower_v": 0.0716282505165231,
+        "upper_v": -0.07210080075201603,
+        "decision_errors": 0,
+        "clock_sample": 8138,
+        "clock_time_ps": 4069.0,
+        "clock_phase_ps": 19.0,
+        "measured_symbols": 262144
+      }
+    ],
+    "refinement": {
+      "samples_per_ui": 100,
+      "dt_ps": 0.25,
+      "n_bits": 262144,
+      "pass": true,
+      "eye_height_v": 0.14485162659787104,
+      "eye_width_ps": 15.811108415358513,
+      "left_crossing_ps": -7.629253622438386,
+      "right_crossing_ps": 8.181854792920127,
+      "lower_v": 0.07160693710170433,
+      "upper_v": -0.0732446894961667,
+      "decision_errors": 0,
+      "clock_sample": 16276,
+      "clock_time_ps": 4069.0,
+      "clock_phase_ps": 19.0,
+      "measured_symbols": 262144
+    }
+  },
+  "compliance": {
+    "ctle_poles_pass": true,
+    "ctle_peak_gain_pass": true,
+    "ctle_max_pole_pass": true,
+    "ffe_taps_pass": true,
+    "ffe_l1_pass": true,
+    "dfe_taps_pass": true,
+    "eye_height_pass": true,
+    "eye_width_pass": true,
+    "decision_error_pass": true,
+    "validation_records_pass": true
+  },
+  "runtime_seconds": 14.666639800008852
+}

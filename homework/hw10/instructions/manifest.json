@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "filename": "HW10_complicated_diff_channel.s4p",
+      "bytes": 5417074,
+      "sha256": "800283c0ccf4b7495d2fe28e17042fc487394d0d18a4ae5a44f48deb59e7cfd5",
+      "role": "supplied instruction file"
+    },
+    {
+      "filename": "HW10_diff_signaling.pdf",
+      "bytes": 1239059,
+      "sha256": "79886f0f98a766e29c3e6a87da05022325a4441e20833db5d648b00d058844e4",
+      "role": "supplied instruction file"
+    },
+    {
+      "filename": "HW10_differential_signaling_sample.py",
+      "bytes": 12261,
+      "sha256": "f59bd6f800f0406805afa135d99fde4f5d4dec35273fe83fd8696faaa565df52",
+      "role": "supplied instruction file"
+    },
+    {
+      "filename": "snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "supplementary legacy Touchstone reader supplied with reference solution"
+    }
+  ]
+}

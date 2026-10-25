@@ -30,3 +30,7 @@ jobs:
       - run: python homework/hw09/verify_inputs.py
       - run: python homework/hw09/verify_results.py
       - run: python homework/hw09/analyze.py --bits 4096 --output /tmp/hw09-results
+      - run: python homework/hw10/verify_inputs.py
+      - run: python -m unittest discover -s homework/hw10/tests -v
+      - run: python homework/hw10/tests/verify_reference.py --output /tmp/hw10-independent-checks.json
+      - run: python homework/hw10/src/hw10.py --bits 4096 --validation --output /tmp/hw10-results

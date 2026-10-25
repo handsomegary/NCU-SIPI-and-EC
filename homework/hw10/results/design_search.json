@@ -1,0 +1,217 @@
+{
+  "training_seed": 70,
+  "generated_bits": 16384,
+  "retained_training_bits": 14336,
+  "design_assumes_correct_feedback": true,
+  "candidates": [
+    {
+      "ctle_dc_before_headroom_db": -13.720739332342383,
+      "ctle_numerator_before_headroom_db": 14.279260667657617,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 18.0,
+      "five_tap_vector": [
+        0.019029042937365816,
+        -0.19837667602424647,
+        0.7675099303159102,
+        -0.0,
+        0.01508435072250165
+      ],
+      "minimum_signed_training_voltage_v": 0.07209521888567644
+    },
+    {
+      "ctle_dc_before_headroom_db": -13.720739332342383,
+      "ctle_numerator_before_headroom_db": 14.279260667657617,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 20.0,
+      "five_tap_vector": [
+        0.02947257592117959,
+        -0.24066209779027967,
+        0.6760307260859888,
+        0.032191127391132335,
+        0.0216434728114177
+      ],
+      "minimum_signed_training_voltage_v": 0.06741733345315123
+    },
+    {
+      "ctle_dc_before_headroom_db": -13.720739332342383,
+      "ctle_numerator_before_headroom_db": 14.279260667657617,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 22.0,
+      "five_tap_vector": [
+        0.0351713315701118,
+        -0.23881171207768276,
+        0.5681140459083167,
+        0.0683692241934866,
+        0.08953368625039312
+      ],
+      "minimum_signed_training_voltage_v": 0.05799982652173548
+    },
+    {
+      "ctle_dc_before_headroom_db": -11.728807642977465,
+      "ctle_numerator_before_headroom_db": 14.271192357022535,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 18.5,
+      "five_tap_vector": [
+        0.011327197228526757,
+        -0.2154978749746585,
+        0.773174927796815,
+        -0.0,
+        -1.0343880003203942e-13
+      ],
+      "minimum_signed_training_voltage_v": 0.07421356954502682
+    },
+    {
+      "ctle_dc_before_headroom_db": -11.728807642977465,
+      "ctle_numerator_before_headroom_db": 14.271192357022535,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 20.5,
+      "five_tap_vector": [
+        0.02665934426703685,
+        -0.24867428289981977,
+        0.6836904557566724,
+        0.04097591707647088,
+        -0.0
+      ],
+      "minimum_signed_training_voltage_v": 0.06892462002861116
+    },
+    {
+      "ctle_dc_before_headroom_db": -11.728807642977465,
+      "ctle_numerator_before_headroom_db": 14.271192357022535,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 22.5,
+      "five_tap_vector": [
+        0.03275513709751567,
+        -0.20513956546765513,
+        0.4925854730621067,
+        0.20262001450527592,
+        0.0668998098674457
+      ],
+      "minimum_signed_training_voltage_v": 0.054084531193192315
+    },
+    {
+      "ctle_dc_before_headroom_db": -9.741610265038451,
+      "ctle_numerator_before_headroom_db": 14.258389734961549,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 19.0,
+      "five_tap_vector": [
+        -0.0,
+        -0.2223131789382768,
+        0.7776868210617229,
+        -0.0,
+        -0.0
+      ],
+      "minimum_signed_training_voltage_v": 0.07441621720405624
+    },
+    {
+      "ctle_dc_before_headroom_db": -9.741610265038451,
+      "ctle_numerator_before_headroom_db": 14.258389734961549,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 21.0,
+      "five_tap_vector": [
+        0.02774227863629691,
+        -0.2605943631774137,
+        0.6981627013530847,
+        0.01350065683320623,
+        -0.0
+      ],
+      "minimum_signed_training_voltage_v": 0.06971739919256706
+    },
+    {
+      "ctle_dc_before_headroom_db": -7.761939997909603,
+      "ctle_numerator_before_headroom_db": 14.238060002090396,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 20.0,
+      "five_tap_vector": [
+        -0.0,
+        -0.23658183985233677,
+        0.7634181601476633,
+        -0.0,
+        -9.67106655617358e-13
+      ],
+      "minimum_signed_training_voltage_v": 0.07367355516515484
+    },
+    {
+      "ctle_dc_before_headroom_db": -7.761939997909603,
+      "ctle_numerator_before_headroom_db": 14.238060002090396,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 22.0,
+      "five_tap_vector": [
+        0.03368221994207728,
+        -0.2745885629878833,
+        0.6911822371060117,
+        0.0005469799640276859,
+        -0.0
+      ],
+      "minimum_signed_training_voltage_v": 0.06892196845214733
+    },
+    {
+      "ctle_dc_before_headroom_db": -5.794258305310499,
+      "ctle_numerator_before_headroom_db": 14.205741694689502,
+      "headroom_db_to_subtract": 0.01,
+      "poles_ghz": [
+        40,
+        40,
+        40
+      ],
+      "clock_phase_ps": 21.0,
+      "five_tap_vector": [
+        -0.0,
+        -0.24038343212291696,
+        0.7596165678770833,
+        -0.0,
+        -0.0
+      ],
+      "minimum_signed_training_voltage_v": 0.07306409744080983
+    }
+  ]
+}

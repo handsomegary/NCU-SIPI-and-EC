@@ -1,0 +1,239 @@
+{
+  "checks": [
+    {
+      "name": "source_voltage_divider",
+      "pass": true,
+      "detail": "Matched 50-ohm per-line source/load: Hsource=Sdd21/2, applied once; differential source levels +/-2 V."
+    },
+    {
+      "name": "causal_ramp_pulse_delay",
+      "pass": true,
+      "max_relative_spectrum_error_below_1GHz": 8.215883470461947e-07,
+      "centroid_ps": 15.000000000000004
+    },
+    {
+      "name": "independent_bipolar_DFE_causality",
+      "pass": true,
+      "max_abs_V_error": 0.0,
+      "clock_phase_sample": 25,
+      "detail": "Both slicer signs cancel a known three-postcursor channel; feedback begins half UI after the current decision."
+    },
+    {
+      "name": "mixed_mode_transform",
+      "pass": true,
+      "max_abs_S_error": 3.376611507232129e-16
+    },
+    {
+      "name": "frequency_grid",
+      "pass": true,
+      "points": 8001,
+      "DC_Hz": 0.0,
+      "upper_Hz": 80000000000.0
+    },
+    {
+      "name": "CTLE_constraint",
+      "pass": true,
+      "pole_count": 3,
+      "highest_pole_GHz": 40,
+      "analytic_peak_dB": 5.990000170430093
+    },
+    {
+      "name": "FFE_constraint",
+      "pass": true,
+      "tap_count": 2,
+      "l1_norm": 1.0
+    },
+    {
+      "name": "DFE_constraint",
+      "pass": true,
+      "tap_count": 5
+    },
+    {
+      "name": "independent_record_requirements",
+      "pass": true,
+      "EH_mV": 144.87123800168865,
+      "EW_ps": 15.810803359898761,
+      "errors": 0,
+      "measured_symbols": 262144,
+      "EH_margin_mV": 24.871238001688653,
+      "EW_margin_ps": 0.8108033598987614
+    },
+    {
+      "name": "production_metrics_match_independent_reference",
+      "pass": true,
+      "EH_tolerance_V": 1e-10,
+      "EW_tolerance_ps": 1e-08
+    },
+    {
+      "name": "production_waveform_matches_independent_path",
+      "pass": true,
+      "tolerance_V": 1e-10,
+      "samples_per_stage": 2000
+    },
+    {
+      "name": "all_retained_DFE_decisions_match",
+      "pass": true,
+      "decision_differences": 0,
+      "measured_symbols": 262144
+    }
+  ],
+  "method": "Independent finite-ramp transmitter waveform and overlap-add channel convolution, followed by a serial full-waveform bipolar DFE. No production waveform/eye/DFE functions are used for the reference.",
+  "design": {
+    "ctle_gain_offset_dB": 0.248389735,
+    "ctle_DC_gain_dB": -9.751610265,
+    "ctle_AC_coefficient_dB": 14.248389735,
+    "ctle_poles_GHz": [
+      40,
+      40,
+      40
+    ],
+    "FFE_taps": [
+      -0.222313178938,
+      0.777686821062
+    ],
+    "DFE_feedback_taps_V": [
+      0.039910742744356846,
+      -0.01106963834843511,
+      -0.0037898124759321887,
+      0.002306866993340974,
+      0.0022969840082704696
+    ],
+    "absolute_sample_index": 8138,
+    "clock_phase_ps": 19.0
+  },
+  "frequency": {
+    "points": 8001,
+    "df_Hz": 10000000.0,
+    "fmax_Hz": 80000000000.0,
+    "dc": 0.0
+  },
+  "mixed_mode_closed_form_max_error": 3.376611507232129e-16,
+  "channel_source_dc_gain": 0.4828155889999726,
+  "ctle_peak": {
+    "frequency_GHz": 28.11486133536348,
+    "gain_dB": 5.990000170430093
+  },
+  "ffe_l1": 1.0,
+  "correct_discrete_sbr": {
+    "peak_sample": 8147,
+    "main_sample": 8138,
+    "main_time_ns": 4.069,
+    "sample_phase_ps": 19.0,
+    "cursor_V": [
+      0.11437517126671602,
+      0.039910742744356846,
+      -0.01106963834843511,
+      -0.0037898124759321887,
+      0.002306866993340974,
+      0.0022969840082704696
+    ],
+    "additive_DFE_V": [
+      -0.039910742744356846,
+      0.01106963834843511,
+      0.0037898124759321887,
+      -0.002306866993340974,
+      -0.0022969840082704696
+    ]
+  },
+  "correct_continuous_sbr": {
+    "main_sample": 8147,
+    "cursor_V": [
+      0.11984967734872981,
+      0.019455269334628038,
+      -0.010003269318914225,
+      -0.0026634660540064705,
+      0.002866602360677155,
+      0.001898336438914311
+    ]
+  },
+  "original_sbr_reproduction": {
+    "main_sample": 8114,
+    "main_time_ns": 4.0569999999999995,
+    "cursor_V": [
+      0.2807304940356462,
+      0.05166020663501554,
+      -0.024511385186140707,
+      -0.005634457640431497,
+      0.006634543654328859,
+      0.003146476140949544
+    ],
+    "additive_DFE_V": [
+      -0.02583010331750777,
+      0.012255692593070354,
+      0.0028172288202157484,
+      -0.0033172718271644295,
+      -0.001573238070474772
+    ]
+  },
+  "independent_simulation": {
+    "bits": 262144,
+    "seed": 0,
+    "before_DFE": {
+      "EH_mV": 32.11896592996426,
+      "EW_ps": 13.736284110598787,
+      "errors": 0,
+      "samples": 262144,
+      "lower_1_V": 0.01447331753100898,
+      "upper_0_V": -0.017645648398955285
+    },
+    "after_DFE": {
+      "EH_mV": 144.87123800168865,
+      "EW_ps": 15.810803359898761,
+      "errors": 0,
+      "samples": 262144,
+      "lower_1_V": 0.07161681652684104,
+      "upper_0_V": -0.07325442147484762
+    },
+    "channel": {
+      "EH_mV": -803.7407412349245,
+      "EW_ps": 0.0,
+      "errors": 46850,
+      "samples": 262144,
+      "lower_1_V": -0.4105295971230532,
+      "upper_0_V": 0.3932111441118712
+    },
+    "ctle": {
+      "EH_mV": -6.779326135843391,
+      "EW_ps": 0.0,
+      "errors": 4,
+      "samples": 262144,
+      "lower_1_V": -0.003031214070928436,
+      "upper_0_V": 0.003748112064914955
+    },
+    "correct_sample_phase_ps": 19.0
+  },
+  "production_comparison": {
+    "channel": {
+      "EH_abs_error_V": 6.661338147750939e-16,
+      "EW_abs_error_ps": 0.0,
+      "error_count_difference": 0,
+      "measured_symbol_difference": 0
+    },
+    "ctle": {
+      "EH_abs_error_V": 6.938893903907228e-18,
+      "EW_abs_error_ps": 0.0,
+      "error_count_difference": 0,
+      "measured_symbol_difference": 0
+    },
+    "ffe": {
+      "EH_abs_error_V": 6.245004513516506e-17,
+      "EW_abs_error_ps": 1.5987211554602254e-14,
+      "error_count_difference": 0,
+      "measured_symbol_difference": 0
+    },
+    "dfe": {
+      "EH_abs_error_V": 1.1102230246251565e-16,
+      "EW_abs_error_ps": 1.5987211554602254e-14,
+      "error_count_difference": 0,
+      "measured_symbol_difference": 0
+    }
+  },
+  "waveform_max_abs_errors_V": {
+    "channel": 9.43689570931383e-16,
+    "ctle": 4.996003610813204e-16,
+    "ffe": 4.440892098500626e-16,
+    "dfe": 4.0245584642661925e-16
+  },
+  "all_checks_pass": true,
+  "scope": "Finite noiseless random-record verification under the stated bandwidth, Kaiser window and 20 ns causal impulse truncation; no physical BER or all-pattern guarantee."
+}
