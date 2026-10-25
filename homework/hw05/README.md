@@ -85,3 +85,10 @@ and editable Markdown. Source folders and the original submission are preserved
 at their original locations. Identity-bearing original submissions are not
 published. Rewritten text, filenames, figure metadata, and this contribution's
 commit author omit personal names and student numbers.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

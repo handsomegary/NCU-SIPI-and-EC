@@ -129,3 +129,10 @@ supplied course materials is asserted.
 The rewritten source, report text, report metadata and this contribution's commit
 metadata omit personal names, student IDs, personal email addresses and local
 machine paths. GitHub repository ownership and account activity remain visible.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

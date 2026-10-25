@@ -135,3 +135,10 @@ screening rule; the final eyes determine the conclusion for this experiment.
 The supplied assignment is preserved. Only comments carrying a local path and
 project identity were removed from the exported channel copy; all numerical
 tokens are unchanged. The manifest records that transformation explicitly.
+
+## Course attribution
+
+Course materials and supplied simulation data are credited to **Prof. Chiu-Chih
+Chou (周求致), Department of Electrical Engineering, National Central University,
+Taiwan**. See the [full attribution](../../ATTRIBUTION.md) and
+[input inventory](../../SIMULATION_INPUTS.md).

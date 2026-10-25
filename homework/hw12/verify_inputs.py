@@ -15,7 +15,7 @@ def main() -> None:
         if len(data) != item["bytes"] or hashlib.sha256(data).hexdigest() != item["sha256"]:
             raise SystemExit(f"Input integrity check failed: {item['path']}")
         print(f"OK {item['path']}")
-    print("All three supplied instruction files match the original bytes.")
+    print(f"All {len(manifest['files'])} supplied input files match the original bytes.")
 
 
 if __name__ == "__main__":

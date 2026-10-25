@@ -1,5 +1,5 @@
 {
-  "description": "Complete supplied HW12 instruction files, preserved byte for byte.",
+  "description": "Complete supplied HW12 instruction files and original Touchstone helper, preserved byte for byte.",
   "files": [
     {
       "path": "HW12_channel.s2p",
@@ -15,6 +15,11 @@
       "path": "HW12_jitter_simulation_and_basic_analysis.py",
       "bytes": 13366,
       "sha256": "daaba211e86d3c91c35246b835d9f5ddfe939e78393e929176941c30afb504e0"
+    },
+    {
+      "path": "snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af"
     }
   ]
 }

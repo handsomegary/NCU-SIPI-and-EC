@@ -1,0 +1,705 @@
+{
+  "schema_version": 1,
+  "scope": "HW1-HW14 course inputs and supplied reference helpers. Bundled third-party software examples are outside this inventory.",
+  "attribution": "Original course materials and supplied snpreader.py: Prof. Chiu-Chih Chou (周求致), Department of Electrical Engineering, National Central University, Taiwan. See ATTRIBUTION.md for scope.",
+  "hash_basis": "Stored Git file bytes; lossless compression and documented transformations are explicitly identified.",
+  "homework14_status": "Supplied input package, rewritten solver, generated comparisons, verification records and anonymous report are included.",
+  "files": [
+    {
+      "homework": 1,
+      "path": "homework/hw01/instructions/HW1_Kaiser.txt",
+      "bytes": 53938,
+      "sha256": "f2b700d43e984567797a7e8c6ca9d3a10615d81a50af9543377bd1a428f18d1e",
+      "role": "supplied instruction/input",
+      "source_sha256": "f2b700d43e984567797a7e8c6ca9d3a10615d81a50af9543377bd1a428f18d1e",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 1,
+      "path": "homework/hw01/instructions/HW1_Kaiser_sample.py",
+      "bytes": 1879,
+      "sha256": "c28f7b0995bf2dad1c63d99cee36862a49c27b6199f840e8bea70fe4280bed1b",
+      "role": "supplied instruction/input",
+      "source_sha256": "c28f7b0995bf2dad1c63d99cee36862a49c27b6199f840e8bea70fe4280bed1b",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 1,
+      "path": "homework/hw01/instructions/HW1_time_freq_transf_(1)_Kaiser.pdf",
+      "bytes": 184790,
+      "sha256": "a7591bf1b1cff18700f868e1244b65ba702fb89842157757f3b67763ef24b08a",
+      "role": "supplied instruction/input",
+      "source_sha256": "e495ecf749dcff9ce39d918f4255a7d7f8bd5b5047ae78c4e370f16e645d332c",
+      "source_comparison": "metadata_anonymized_page_text_and_content_stream_unchanged"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/data/chebyshev_lpf.s2p",
+      "bytes": 308325,
+      "sha256": "cc1977f8f617e5fa9d9540b206187fb2ca545593e2898574a29b5001c42d6811",
+      "role": "cleaned channel input for rewritten HW2",
+      "source_sha256": "4a6d7c12f24e7e7baf5aff23266432b766eec3b3f2956665c4aa98a3e288e86d",
+      "source_comparison": "numerical_records_preserved",
+      "numeric_values_checked": 18009
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Chebyshev_LPF_S11_sample.lis",
+      "bytes": 85509,
+      "sha256": "7dd9beb687a105f104b735a2842d8f9966abb28965285b752655e1a973a0e37c",
+      "role": "supplied instruction/input",
+      "source_sha256": "7dd9beb687a105f104b735a2842d8f9966abb28965285b752655e1a973a0e37c",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Chebyshev_LPF_S11_sample.log",
+      "bytes": 1085,
+      "sha256": "ddc1dc5f4c088fe0ca93d06aebc7a5e5cac4b64cf76ab8e8c1f885432b77ba4a",
+      "role": "supplied instruction/input",
+      "source_sha256": "ddc1dc5f4c088fe0ca93d06aebc7a5e5cac4b64cf76ab8e8c1f885432b77ba4a",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Chebyshev_LPF_S11_sample.out",
+      "bytes": 957509,
+      "sha256": "ee5833ae57afd4cd29a957a64aa2f0b87a98a3644e0cf2f7e593a56da13ec551",
+      "role": "supplied instruction/input",
+      "source_sha256": "ee5833ae57afd4cd29a957a64aa2f0b87a98a3644e0cf2f7e593a56da13ec551",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Chebyshev_LPF_S11_sample.sp",
+      "bytes": 595,
+      "sha256": "dcbdd0363cde7db0bceabf9dd3df858272e8649c8a427cc6ea6bddf0e0d36ee1",
+      "role": "supplied instruction/input",
+      "source_sha256": "dcbdd0363cde7db0bceabf9dd3df858272e8649c8a427cc6ea6bddf0e0d36ee1",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Chebyshev_LPF_S11_sample_1.sp",
+      "bytes": 825,
+      "sha256": "7aa3c551054e8a5541db258160bc13deace6d22ccfff157b733fbf4eb5c5227f",
+      "role": "supplied instruction/input",
+      "source_sha256": "7aa3c551054e8a5541db258160bc13deace6d22ccfff157b733fbf4eb5c5227f",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_Kaiser_sample.py",
+      "bytes": 2254,
+      "sha256": "5530113f2ce0d6e1b5a22eceecf123640a176a48c01dcb897fcb7a80b763e1c8",
+      "role": "supplied instruction/input",
+      "source_sha256": "5530113f2ce0d6e1b5a22eceecf123640a176a48c01dcb897fcb7a80b763e1c8",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/HW2_time_freq_transf_(2)_IFT_with_Kaiser.pdf",
+      "bytes": 598810,
+      "sha256": "5cdd9b5f31d1b52168c729eab42defac8955144110aa58b3865968c75ecbe349",
+      "role": "supplied instruction/input",
+      "source_sha256": "5cdd9b5f31d1b52168c729eab42defac8955144110aa58b3865968c75ecbe349",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/instructions/Ngspice_start.pdf",
+      "bytes": 921027,
+      "sha256": "efb98bc25cdc03532a414d9c8abecc88bbb66343a6017655d018d4c276b8a7b4",
+      "role": "supplied instruction/input",
+      "source_sha256": "efb98bc25cdc03532a414d9c8abecc88bbb66343a6017655d018d4c276b8a7b4",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/auxiliary/last.txt",
+      "bytes": 58140,
+      "sha256": "6b80a862ba3be447434d7800f8519f18099727119a9144d6ebf6d04b5077b749",
+      "role": "supplementary supplied reference; not a rewritten solver dependency",
+      "source_sha256": "6b80a862ba3be447434d7800f8519f18099727119a9144d6ebf6d04b5077b749",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/auxiliary/prbs.txt",
+      "bytes": 102034,
+      "sha256": "31c11c026c73407a2ba79bd28089e6a0788dc9867ed195e09d6d07d98994574f",
+      "role": "supplementary supplied reference; not a rewritten solver dependency",
+      "source_sha256": "31c11c026c73407a2ba79bd28089e6a0788dc9867ed195e09d6d07d98994574f",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/auxiliary/raw.py",
+      "bytes": 308,
+      "sha256": "fc21fd1e381d6e6d9e7e841fa47eecd61a7a1302d6117d37ad6ebe63b8d5aabd",
+      "role": "supplementary supplied reference; not a rewritten solver dependency",
+      "source_sha256": "fc21fd1e381d6e6d9e7e841fa47eecd61a7a1302d6117d37ad6ebe63b8d5aabd",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/part2_reference/HW2_Chebyshev_LPF.s2p",
+      "bytes": 484319,
+      "sha256": "4a6d7c12f24e7e7baf5aff23266432b766eec3b3f2956665c4aa98a3e288e86d",
+      "role": "supplied channel data outside instructions",
+      "source_sha256": "4a6d7c12f24e7e7baf5aff23266432b766eec3b3f2956665c4aa98a3e288e86d",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/part2_reference/hw2_part2_ver1/HW2_Chebyshev_LPF.s2p",
+      "bytes": 484319,
+      "sha256": "4a6d7c12f24e7e7baf5aff23266432b766eec3b3f2956665c4aa98a3e288e86d",
+      "role": "supplied channel data outside instructions",
+      "source_sha256": "4a6d7c12f24e7e7baf5aff23266432b766eec3b3f2956665c4aa98a3e288e86d",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/part2_reference/hw2_part2_ver1/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy Touchstone reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/part2_reference/ngspice.txt",
+      "bytes": 58140,
+      "sha256": "6b80a862ba3be447434d7800f8519f18099727119a9144d6ebf6d04b5077b749",
+      "role": "legacy SPICE reference waveform",
+      "source_sha256": "6b80a862ba3be447434d7800f8519f18099727119a9144d6ebf6d04b5077b749",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/reference/part2_reference/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy Touchstone reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/simulation/chebyshev_reflection.cir",
+      "bytes": 641,
+      "sha256": "3f9f8ffa41c5cee65fe12087d8eab057f905f9223949cd26914a467e6548a776",
+      "role": "rewritten SPICE verification circuit",
+      "source_comparison": "generated_reference"
+    },
+    {
+      "homework": 2,
+      "path": "homework/hw02/simulation/spice_reference.csv",
+      "bytes": 458364,
+      "sha256": "75785dd7d5e6dc46cb42c406ebd73a6f5863259ff4dffe6e5342474f3331d80b",
+      "role": "generated SPICE reference for rewritten HW2",
+      "source_comparison": "generated_reference"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/HW3_Rx_waveform_ADS.txt.gz",
+      "bytes": 96088018,
+      "sha256": "6823b4d027423a19c6194f37ee0f5cd9d49ac2c586baaf000847e2c039c4336e",
+      "role": "supplied instruction/input",
+      "source_sha256": "2fe38239edcbd7e1411aa2bf010d85cd2a3620c93f3432f5a220eaca40326322",
+      "source_comparison": "lossless_gzip",
+      "decompressed_bytes": 470400039,
+      "decompressed_sha256": "2fe38239edcbd7e1411aa2bf010d85cd2a3620c93f3432f5a220eaca40326322"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/HW3_bitpattern_1048576.txt",
+      "bytes": 1048576,
+      "sha256": "726ba5eff55b17ae5f7ddf212d33e200ebbb15de5b1aae4ca9ae268f824d0350",
+      "role": "supplied instruction/input",
+      "source_sha256": "726ba5eff55b17ae5f7ddf212d33e200ebbb15de5b1aae4ca9ae268f824d0350",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/HW3_mline_channel.s2p",
+      "bytes": 684346,
+      "sha256": "9243bca6cdb9829680a0b2bb00fc1f84f3eb74053cf713c326f746bb66761769",
+      "role": "supplied instruction/input",
+      "source_sha256": "9243bca6cdb9829680a0b2bb00fc1f84f3eb74053cf713c326f746bb66761769",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/HW3_sectional_convolution_sample.py",
+      "bytes": 4324,
+      "sha256": "87bbbc62384547984d07f02aca572e31b5c3edb0add0ace2ec7fef5aa3906faa",
+      "role": "supplied instruction/input",
+      "source_sha256": "87bbbc62384547984d07f02aca572e31b5c3edb0add0ace2ec7fef5aa3906faa",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/HW3_time_freq_transf_(3)_sectional_convolution.pdf",
+      "bytes": 523101,
+      "sha256": "8f6a1ebffb79d7660130381fea9d8c2b21861231f91d9686473bc540dfaa4bc9",
+      "role": "supplied instruction/input",
+      "source_sha256": "8f6a1ebffb79d7660130381fea9d8c2b21861231f91d9686473bc540dfaa4bc9",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/raw.py",
+      "bytes": 382,
+      "sha256": "242c4b124bcdac401dec266a068fc236bf6dfeccf670ba18c6b54c0c4f010a41",
+      "role": "legacy waveform plot helper",
+      "source_sha256": "242c4b124bcdac401dec266a068fc236bf6dfeccf670ba18c6b54c0c4f010a41",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 3,
+      "path": "homework/hw03/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy Touchstone reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 4,
+      "path": "homework/hw04/instructions/HW4_PSD_of_digital_signal_sample.py",
+      "bytes": 1783,
+      "sha256": "3326dd63a6187a918ddcdcb183f860eb25314452252cb05fa4dd95154ccdc147",
+      "role": "supplied instruction/input",
+      "source_sha256": "3326dd63a6187a918ddcdcb183f860eb25314452252cb05fa4dd95154ccdc147",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 4,
+      "path": "homework/hw04/instructions/HW4_bit_pattern_1.txt",
+      "bytes": 200000,
+      "sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+      "role": "supplied instruction/input",
+      "source_sha256": "0e51f391f90dd9a5b31ddd4b55c226d6a90efe6e56e0e81d5ca084e4d801062f",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 4,
+      "path": "homework/hw04/instructions/HW4_bit_pattern_2.txt",
+      "bytes": 200000,
+      "sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+      "role": "supplied instruction/input",
+      "source_sha256": "747aae432ae8f52be99256b5a2af4afd1869c1526fc0e4a736e040696e758c38",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 4,
+      "path": "homework/hw04/instructions/HW4_bit_pattern_3.txt",
+      "bytes": 200000,
+      "sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+      "role": "supplied instruction/input",
+      "source_sha256": "b81d404fc85c7531a212cf77bb4440eb2c25a15b6b3cca97ac7605e9c8dbb8f0",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 4,
+      "path": "homework/hw04/instructions/HW4_spectrum_of_digital_signals.pdf",
+      "bytes": 207316,
+      "sha256": "6443d5b98eae5a96a445dcbeb5d97f9876f33bd7ae7f1ba850ff7ebd5427790d",
+      "role": "supplied instruction/input",
+      "source_sha256": "6443d5b98eae5a96a445dcbeb5d97f9876f33bd7ae7f1ba850ff7ebd5427790d",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 5,
+      "path": "homework/hw05/instructions/HW5_ADS_waveforms.csv",
+      "bytes": 80340355,
+      "sha256": "5e72b7e14bab20ee171442ae58f01c3594c656d71baf48926378c6d4c297b615",
+      "role": "supplied instruction/input",
+      "source_sha256": "5e72b7e14bab20ee171442ae58f01c3594c656d71baf48926378c6d4c297b615",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 5,
+      "path": "homework/hw05/instructions/HW5_stat_eye_construction.pdf",
+      "bytes": 694045,
+      "sha256": "dff2076e8b70b405da73c4747209ea1edf0eb72b07bed117f85fda584578cb7e",
+      "role": "supplied instruction/input",
+      "source_sha256": "dff2076e8b70b405da73c4747209ea1edf0eb72b07bed117f85fda584578cb7e",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 5,
+      "path": "homework/hw05/instructions/HW5_stateye_construction_sample.py",
+      "bytes": 2044,
+      "sha256": "14bd9cd8f09e027e004b912788869856b4d58603428c530317c55a9209171ddf",
+      "role": "supplied instruction/input",
+      "source_sha256": "14bd9cd8f09e027e004b912788869856b4d58603428c530317c55a9209171ddf",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 6,
+      "path": "homework/hw06/instructions/HW6_PDA.pdf",
+      "bytes": 767899,
+      "sha256": "bead7a0aa7f29f3ac8d1a9682e016398204bb5e4893cd2eeeaaede68b13dc843",
+      "role": "supplied instruction/input",
+      "source_sha256": "bead7a0aa7f29f3ac8d1a9682e016398204bb5e4893cd2eeeaaede68b13dc843",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 6,
+      "path": "homework/hw06/instructions/HW6_PDA_sample.py",
+      "bytes": 4637,
+      "sha256": "a9f75de5d24edb63d1621dec242604e5c502f983de6a8049360dd18f3a3e3b6c",
+      "role": "supplied instruction/input",
+      "source_sha256": "a9f75de5d24edb63d1621dec242604e5c502f983de6a8049360dd18f3a3e3b6c",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 6,
+      "path": "homework/hw06/instructions/HW6_channel.s2p",
+      "bytes": 1368346,
+      "sha256": "67e7883b67e6706bb680872bff8d49aeec8df56e9bdf11ca1538ed16ab7e27da",
+      "role": "supplied instruction/input",
+      "source_sha256": "67e7883b67e6706bb680872bff8d49aeec8df56e9bdf11ca1538ed16ab7e27da",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 6,
+      "path": "homework/hw06/instructions/HW6_wcbitpattern.txt",
+      "bytes": 64802,
+      "sha256": "5796948da110f882c7f236c2f70794141e0be0c1e6ff51188c2cf3f8b9bd8c17",
+      "role": "supplied instruction/input",
+      "source_sha256": "5796948da110f882c7f236c2f70794141e0be0c1e6ff51188c2cf3f8b9bd8c17",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 6,
+      "path": "homework/hw06/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "original course Touchstone helper",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 7,
+      "path": "homework/hw07/instructions/HW7_CTLE.pdf",
+      "bytes": 795073,
+      "sha256": "f989eafacd1a6758b74270dd909196f32837e2fe5f851d015ceec140b2c4f8b7",
+      "role": "supplied instruction/input",
+      "source_sha256": "f989eafacd1a6758b74270dd909196f32837e2fe5f851d015ceec140b2c4f8b7",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 7,
+      "path": "homework/hw07/instructions/HW7_CTLE_sample.py",
+      "bytes": 7183,
+      "sha256": "d7f388ceab04486ec2f07d72c28e3c19424725a164bf8e712128f36a6d84f2e3",
+      "role": "supplied instruction/input",
+      "source_sha256": "d7f388ceab04486ec2f07d72c28e3c19424725a164bf8e712128f36a6d84f2e3",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 7,
+      "path": "homework/hw07/instructions/HW7_stripline_50cm.s2p",
+      "bytes": 1368346,
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "role": "supplied instruction/input",
+      "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 7,
+      "path": "homework/hw07/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "original course Touchstone helper",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 7,
+      "path": "homework/hw07/instructions/submitted_tuning_notes.txt",
+      "bytes": 186,
+      "sha256": "b63a55eac7411bbfefe960357a871459c4c68ae27a008b136b8be2f5402dcf04",
+      "role": "legacy tuning notes",
+      "source_sha256": "b63a55eac7411bbfefe960357a871459c4c68ae27a008b136b8be2f5402dcf04",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 8,
+      "path": "homework/hw08/instructions/HW7_stripline_50cm.s2p",
+      "bytes": 1368346,
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "role": "required channel data",
+      "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 8,
+      "path": "homework/hw08/instructions/HW8_FFE.pdf",
+      "bytes": 687970,
+      "sha256": "1e8ca94907d3014f0464ab3ed0991124b0b05c83ce91338154c100f8eb09d217",
+      "role": "instructor assignment/template",
+      "source_sha256": "1e8ca94907d3014f0464ab3ed0991124b0b05c83ce91338154c100f8eb09d217",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 8,
+      "path": "homework/hw08/instructions/HW8_FFE_sample.py",
+      "bytes": 10300,
+      "sha256": "89dd786406e9d4fcac27a1a7927bcce0aa5d2760348a9c08083e0bd299bdd2aa",
+      "role": "instructor assignment/template",
+      "source_sha256": "89dd786406e9d4fcac27a1a7927bcce0aa5d2760348a9c08083e0bd299bdd2aa",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 8,
+      "path": "homework/hw08/instructions/cautions.txt",
+      "bytes": 55,
+      "sha256": "487fd5bf62adfcc9941f54891f47f89c8986d20f4a8f7fe3fec187e18ee9d956",
+      "role": "legacy execution notes",
+      "source_sha256": "487fd5bf62adfcc9941f54891f47f89c8986d20f4a8f7fe3fec187e18ee9d956",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 8,
+      "path": "homework/hw08/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy support reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 9,
+      "path": "homework/hw09/data/HW7_stripline_50cm.s2p",
+      "bytes": 1368346,
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "role": "required channel data",
+      "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 9,
+      "path": "homework/hw09/instructions/HW9_DFE.pdf",
+      "bytes": 784054,
+      "sha256": "73a3fc8d52c660e0a057d07cbc567c774064e7bc5e10b1a3e29d0f980dcd8e5f",
+      "role": "instructor assignment/template",
+      "source_sha256": "73a3fc8d52c660e0a057d07cbc567c774064e7bc5e10b1a3e29d0f980dcd8e5f",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 9,
+      "path": "homework/hw09/instructions/HW9_DFE_sample.py",
+      "bytes": 3449,
+      "sha256": "2304da9963796a43d72f5fe5bcecda549c1aa4b0cb5234b4acc2ee3145f55fb5",
+      "role": "instructor assignment/template",
+      "source_sha256": "2304da9963796a43d72f5fe5bcecda549c1aa4b0cb5234b4acc2ee3145f55fb5",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 9,
+      "path": "homework/hw09/instructions/cautions.txt",
+      "bytes": 38,
+      "sha256": "f59ee93d15b752e3f82cbbe9db1529b0385c877af51615800ac885a1265accc5",
+      "role": "legacy execution notes",
+      "source_sha256": "f59ee93d15b752e3f82cbbe9db1529b0385c877af51615800ac885a1265accc5",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 9,
+      "path": "homework/hw09/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy support reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 10,
+      "path": "homework/hw10/instructions/HW10_complicated_diff_channel.s4p",
+      "bytes": 5417074,
+      "sha256": "800283c0ccf4b7495d2fe28e17042fc487394d0d18a4ae5a44f48deb59e7cfd5",
+      "role": "required channel data",
+      "source_sha256": "800283c0ccf4b7495d2fe28e17042fc487394d0d18a4ae5a44f48deb59e7cfd5",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 10,
+      "path": "homework/hw10/instructions/HW10_diff_signaling.pdf",
+      "bytes": 1239059,
+      "sha256": "79886f0f98a766e29c3e6a87da05022325a4441e20833db5d648b00d058844e4",
+      "role": "instructor assignment/template",
+      "source_sha256": "79886f0f98a766e29c3e6a87da05022325a4441e20833db5d648b00d058844e4",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 10,
+      "path": "homework/hw10/instructions/HW10_differential_signaling_sample.py",
+      "bytes": 12261,
+      "sha256": "f59bd6f800f0406805afa135d99fde4f5d4dec35273fe83fd8696faaa565df52",
+      "role": "instructor assignment/template",
+      "source_sha256": "f59bd6f800f0406805afa135d99fde4f5d4dec35273fe83fd8696faaa565df52",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 10,
+      "path": "homework/hw10/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy support reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/HW11_crosstalk_8lines.s16p",
+      "bytes": 43044555,
+      "sha256": "07d8ebd6daebc3075ec5a4bb9ea9996c530ea2bdd3b42858e0b2b4cd172e2cdb",
+      "role": "required channel data",
+      "source_sha256": "07d8ebd6daebc3075ec5a4bb9ea9996c530ea2bdd3b42858e0b2b4cd172e2cdb",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/hw11_assignment.pdf",
+      "bytes": 865192,
+      "sha256": "cc38ff8b9751dc576c70d28d722a8c9d69695d52f23d4f10077c195321e2c5f5",
+      "role": "instructor assignment/template/clarification",
+      "source_sha256": "cc38ff8b9751dc576c70d28d722a8c9d69695d52f23d4f10077c195321e2c5f5",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/hw11_clarifications.txt",
+      "bytes": 2503,
+      "sha256": "d8b3b4e1a028ffed0e099c01617a9960371998c5e51872a196cfb47f162fa0d8",
+      "role": "instructor assignment/template/clarification",
+      "source_sha256": "d8b3b4e1a028ffed0e099c01617a9960371998c5e51872a196cfb47f162fa0d8",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/hw11_incomplete_template.py",
+      "bytes": 9149,
+      "sha256": "1510a9780395168e0cd8abed2e09a44afa74ffa902a447d76ad2e328c210c310",
+      "role": "instructor assignment/template/clarification",
+      "source_sha256": "1510a9780395168e0cd8abed2e09a44afa74ffa902a447d76ad2e328c210c310",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/legacy_run_notes.txt",
+      "bytes": 473,
+      "sha256": "810b0ab95f49a5b74d98edb2fa13da972bb8e4cac5b1de4b03c19b9df6cc33ef",
+      "role": "legacy execution notes",
+      "source_sha256": "810b0ab95f49a5b74d98edb2fa13da972bb8e4cac5b1de4b03c19b9df6cc33ef",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 11,
+      "path": "homework/hw11/instructions/legacy_snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "legacy support reader",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 12,
+      "path": "homework/hw12/instructions/HW12_channel.s2p",
+      "bytes": 1368346,
+      "sha256": "6af77b9009b60ed90989b0f471e3f1a567a11c6d76d11d09d1d5a53c1e8d9f3c",
+      "role": "required channel data",
+      "source_sha256": "6af77b9009b60ed90989b0f471e3f1a567a11c6d76d11d09d1d5a53c1e8d9f3c",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 12,
+      "path": "homework/hw12/instructions/HW12_jitter_simulation.pdf",
+      "bytes": 687041,
+      "sha256": "4ecf966917b1f66d74b5bd27d5abab45bc6a5300eff1c2e1a14262bce9a5d525",
+      "role": "instructor assignment/template",
+      "source_sha256": "4ecf966917b1f66d74b5bd27d5abab45bc6a5300eff1c2e1a14262bce9a5d525",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 12,
+      "path": "homework/hw12/instructions/HW12_jitter_simulation_and_basic_analysis.py",
+      "bytes": 13366,
+      "sha256": "daaba211e86d3c91c35246b835d9f5ddfe939e78393e929176941c30afb504e0",
+      "role": "instructor assignment/template",
+      "source_sha256": "daaba211e86d3c91c35246b835d9f5ddfe939e78393e929176941c30afb504e0",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 12,
+      "path": "homework/hw12/instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "original course Touchstone helper",
+      "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 13,
+      "path": "homework/hw13/inputs/hw12_verified_jitter.csv",
+      "bytes": 77827,
+      "sha256": "b5281e7bcc7db937c70d03a62453edb498615b7b95060fc2fe9f556abae52a18",
+      "role": "verified HW12 result used as HW13 input",
+      "source_sha256": "b5281e7bcc7db937c70d03a62453edb498615b7b95060fc2fe9f556abae52a18",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 13,
+      "path": "homework/hw13/inputs/jitter_variables_for_hw13.csv",
+      "bytes": 24823,
+      "sha256": "5750f92a0b0037aa9637d7733f0f60990e6af037ca6c8d92e341389c90713142",
+      "role": "provided legacy numerical CSV",
+      "source_sha256": "5750f92a0b0037aa9637d7733f0f60990e6af037ca6c8d92e341389c90713142",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 13,
+      "path": "homework/hw13/instructions/HW13_BER_extrapolation.pdf",
+      "bytes": 791084,
+      "sha256": "fd7c226cedd4c3f9c0a413ec21f1423e9c595537ba1bcb2ac6a65c83b06d6568",
+      "role": "instructor assignment/template",
+      "source_sha256": "fd7c226cedd4c3f9c0a413ec21f1423e9c595537ba1bcb2ac6a65c83b06d6568",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 13,
+      "path": "homework/hw13/instructions/HW13_BER_extrapolation_sample.py",
+      "bytes": 2829,
+      "sha256": "c48fff4d77e0500b8c6d5847b9cc0db71adbd0b274558c12f4638a764931b360",
+      "role": "instructor assignment/template",
+      "source_sha256": "c48fff4d77e0500b8c6d5847b9cc0db71adbd0b274558c12f4638a764931b360",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 14,
+      "path": "homework/hw14/instructions/HW14_NRZ_vs_PAM4.pdf",
+      "bytes": 1431117,
+      "sha256": "fc3f4133fcb2315a3912c6db805722ae7555a5c994f86093030abbf4c20f7255",
+      "role": "instructor assignment",
+      "source_sha256": "fc3f4133fcb2315a3912c6db805722ae7555a5c994f86093030abbf4c20f7255",
+      "source_comparison": "identical_original_bytes"
+    },
+    {
+      "homework": 14,
+      "path": "homework/hw14/instructions/HW14_diff_channel_50cm.s4p",
+      "bytes": 5659592,
+      "sha256": "a9426e667f89d9750d393829932ac5b7ed984b090bf68b2bb29a3dccd33c15b3",
+      "role": "required channel data",
+      "source_sha256": "8105155f16893980c74de476c37a4a14432bfe5ab41922c4f7acf443bbe274b0",
+      "source_comparison": "export_comments_removed_numeric_tokens_and_option_line_preserved",
+      "numeric_token_count": 264033,
+      "numeric_token_sha256": "1c73a8f6184a6f1ea8a9cf63f5f5d5734150e5ba80069379f8ce0437f04d86ba"
+    }
+  ]
+}

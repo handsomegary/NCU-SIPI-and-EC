@@ -7,7 +7,7 @@ bits per case**, at 200 samples/UI and a 1 mV eye-bin spacing.
 
 ## Files
 
-- `instructions/`: all three supplied assignment files, preserved byte for byte,
+- `instructions/`: the three supplied assignment files and original `snpreader.py` helper, preserved byte for byte,
   plus their SHA-256 manifest. The instructor Python file is an incomplete
   teaching template, not the executable solution.
 - `src/hw12.py`: corrected, portable implementation with a command-line interface.
@@ -120,3 +120,10 @@ verification evidence. See `results/test_results.json` and
 `results/verification.json` for the recorded checks. The additional
 `results/block_size_check.json` records identical eye and crossing counts for
 two different processing block sizes in an independent reproducibility run.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

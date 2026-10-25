@@ -1,0 +1,20 @@
+{
+  "description": "Additional supplied local reference files, retained byte for byte; not used by the verified HW2 solver.",
+  "files": [
+    {
+      "path": "raw.py",
+      "bytes": 308,
+      "sha256": "fc21fd1e381d6e6d9e7e841fa47eecd61a7a1302d6117d37ad6ebe63b8d5aabd"
+    },
+    {
+      "path": "last.txt",
+      "bytes": 58140,
+      "sha256": "6b80a862ba3be447434d7800f8519f18099727119a9144d6ebf6d04b5077b749"
+    },
+    {
+      "path": "prbs.txt",
+      "bytes": 102034,
+      "sha256": "31c11c026c73407a2ba79bd28089e6a0788dc9867ed195e09d6d07d98994574f"
+    }
+  ]
+}

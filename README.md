@@ -179,6 +179,12 @@ python homework/hw12/tests/verify_results.py
 
 ## Method and provenance
 
+Course materials, supplied simulation inputs, and the `snpreader.py` Touchstone
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[attribution and source links](ATTRIBUTION.md) and the
+[simulation input inventory](SIMULATION_INPUTS.md).
+
 The assignments, data, and reference examples were supplied as course materials.
 They are distinguished from the rewritten analyses. Reference templates and legacy
 helpers are retained for comparison; they are not the verified solutions. Source

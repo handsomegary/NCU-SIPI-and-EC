@@ -88,3 +88,10 @@ are course reference material. The verified implementation and report are
 rewritten from those inputs. Historical reference scripts are not used as
 numerical verification or represented as new code. Course and third-party
 material retain their original ownership and license terms.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

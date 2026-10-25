@@ -92,3 +92,10 @@ The originals are preserved in their source locations.
 
 The rewritten report, filenames, generated metadata, and commit authorship
 contain no student name, student number, or personal machine paths.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

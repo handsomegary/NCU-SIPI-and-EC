@@ -8,6 +8,10 @@
 *.pdf binary
 *.png binary
 *.gz binary
+# Preserve supplementary original HW2 reference bytes.
+homework/hw02/reference/auxiliary/raw.py -text -whitespace
+homework/hw02/reference/auxiliary/last.txt -text -whitespace
+homework/hw02/reference/auxiliary/prbs.txt -text -whitespace
 # Supplied references retain their original bytes for manifest verification.
 homework/*/instructions/* -text -whitespace
 # Preserve the supplied reference bytes so the published checksums remain valid.

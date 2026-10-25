@@ -50,3 +50,10 @@ The previous two-tone reconstruction is incomplete. This report and analysis
 correct it by detecting and checking the weak third component against the original
 samples. Supplied course references and the rewritten solution are kept in
 separate directories for clear attribution.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

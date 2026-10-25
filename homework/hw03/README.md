@@ -78,3 +78,10 @@ python homework/hw03/report/build_report.py --refresh
 
 The assignment template and legacy helper scripts in `instructions/` are supplied
 references. Use `analyze.py` for the rewritten executable solution.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

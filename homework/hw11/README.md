@@ -98,3 +98,10 @@ These checks establish numerical consistency for the stated finite-bandwidth mod
 ## Provenance and anonymity
 
 `source_manifest.json` records SHA-256 values for the original and staged reference files without personal source-directory names or absolute local paths. The original assignment PDF was inspected for visible identity and document metadata; it has no author identity and is retained unchanged. The regenerated report has deliberately neutral PDF metadata and no named author, student identifier, email address, or local user path.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

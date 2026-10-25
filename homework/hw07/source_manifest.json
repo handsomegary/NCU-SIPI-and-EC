@@ -35,9 +35,10 @@
       "role": "submitted channel reader",
       "source_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
       "paths": [
+        "instructions/snpreader.py",
         "src/hw7.py"
       ],
-      "status": "replaced by strict two-port Touchstone reader"
+      "status": "original helper preserved; executable solution uses its own strict two-port Touchstone reader"
     },
     {
       "role": "submitted report",
@@ -63,6 +64,14 @@
         "instructions/HW7_stripline_50cm.s2p"
       ],
       "status": "identical to supplied data; stored once"
+    }
+  ],
+  "supplementary_reference_files": [
+    {
+      "path": "instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "original course Touchstone helper; preserved for reference"
     }
   ]
 }

@@ -125,3 +125,10 @@ Report regeneration:
 python -m pip install -r homework/hw13/report/requirements.txt
 python homework/hw13/report/build_report.py --refresh
 ```
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

@@ -143,3 +143,10 @@ The verification establishes finite, noiseless simulation results under the
 stated bandwidth and impulse truncation. It does not establish every possible
 bit pattern, a physical BER, jitter tolerance, or nonlinear receiver behavior.
 The assignment's optional ADS ChannelSim comparison was not run.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

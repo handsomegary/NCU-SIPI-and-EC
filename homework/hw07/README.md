@@ -100,3 +100,10 @@ Source folders outside this repository are not modified.
 The course materials retain their existing provenance; no ownership or blanket
 license is asserted over supplied files. The public repository's owner and
 GitHub activity remain visible separately from the anonymous report content.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

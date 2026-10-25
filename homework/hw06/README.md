@@ -113,3 +113,10 @@ SBR used by the convolution. Extending truncation from 10 to 20 ns changes the
 maximum gap by about 0.218 mV; it does not establish infinite-support accuracy.
 The optional ADS simulation was not run. Noise, jitter, nonlinear I/O behavior,
 and receiver error/threshold models are outside this calculation.
+
+## Course attribution
+
+Course materials, supplied simulation data, and the supplied `snpreader.py`
+helper are credited to **Prof. Chiu-Chih Chou (周求致), Department of Electrical
+Engineering, National Central University, Taiwan**. See the
+[full attribution](../../ATTRIBUTION.md) and [input inventory](../../SIMULATION_INPUTS.md).

@@ -25,5 +25,13 @@
     "HW6_channel.s2p": true,
     "HW6_wcbitpattern.txt": true
   },
-  "reference_policy": "The supplied solution and report were inspected locally. The published implementation and report are rewritten without student identity. The rewritten reader is self-contained, so the legacy snpreader.py helper is not required."
+  "reference_policy": "The supplied solution and report were inspected locally. The published implementation and report are rewritten without student identity. The original course snpreader.py helper is retained in instructions for reference; the rewritten reader is self-contained.",
+  "supplementary_reference_files": [
+    {
+      "path": "instructions/snpreader.py",
+      "bytes": 27828,
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "original course Touchstone helper; preserved for reference"
+    }
+  ]
 }
