@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "scope": "Independent mathematical and saved-artifact checks; no ADS execution.",
+  "retained_bits_per_transmitter": 262144,
+  "loaded_transfer_checked_frequencies": 4001,
+  "loaded_transfer_checked_paths": 64,
+  "max_mna_vs_wave_boundary_abs_error": 5.850233465109031e-15,
+  "max_saved_impulse_vs_direct_trigonometric_sum_error": 4.594261377582898e-10,
+  "max_float64_overlap_add_vs_direct_convolution_error": 5.329070518200751e-15,
+  "max_tx4_snapshot_vs_direct_convolution_error_v": 2.451182015139608e-07,
+  "maximum_absolute_offdiagonal_source_bit_correlation": 0.005073804535848623,
+  "histogram_conservation": {
+    "all_on": {
+      "receivers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "samples_per_receiver": 13107200,
+      "samples_per_phase": 262144
+    },
+    "only_tx0": {
+      "receivers": [
+        0
+      ],
+      "samples_per_receiver": 13107200,
+      "samples_per_phase": 262144
+    },
+    "only_tx4": {
+      "receivers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "samples_per_receiver": 13107200,
+      "samples_per_phase": 262144
+    }
+  },
+  "percentile_openings_recomputed_from_expanded_observations": 10,
+  "source_sha256": "07d8ebd6daebc3075ec5a4bb9ea9996c530ea2bdd3b42858e0b2b4cd172e2cdb",
+  "analysis_source_sha256": "200a311fd6e9b411f9625dcb4fbb9f36f946dadd5c8504967d719b3b909cd042",
+  "metrics_sha256": "1dd58f7191c8ca6415395adc824b8eab2d8dec589a54e6155a6269a43b150589",
+  "audited_artifact_sha256": {
+    "metrics.json": "1dd58f7191c8ca6415395adc824b8eab2d8dec589a54e6155a6269a43b150589",
+    "channel.npz": "7bfd7b6b6761e38e3a5f8edc2ae588cf6f21b4f00575b747524a182714a3498f",
+    "simulation.npz": "37d6a2e86ec69cb6bcb05b371449440e80429e0a52ccea00a1a0577500682c0a"
+  },
+  "limits": [
+    "Empirical voltage-cluster percentile openings are neither BER estimates nor guaranteed worst-case openings.",
+    "Finite measured bandwidth, Kaiser weighting, sample interval and signed impulse support remain numerical model approximations.",
+    "Saved snapshot uses float32 convolution; independent reconstruction uses float64 and the saved float32 impulse coefficients.",
+    "The all-eight full-record histogram counts are conserved; the entire full-record waveform is not stored or independently reconstructed."
+  ],
+  "unit_tests": {
+    "run": 16,
+    "failures": 0,
+    "errors": 0
+  }
+}

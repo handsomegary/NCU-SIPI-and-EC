@@ -20,6 +20,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
 | [HW8](homework/hw08/) | Transmitter FFE design and simulation | Assignment, template, channel data, five ZF configurations, waveform snapshots, numerical checks, anonymous report |
 | [HW9](homework/hw09/) | Decision-feedback equalization | Complete instructions, channel data, 1/2/3-tap automatic designs, numerical verification, anonymous report |
+| [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
 
 ## Reproduce
 
@@ -38,6 +39,7 @@ python homework/hw07/tests/verify_reference.py
 python homework/hw08/analyze.py
 python homework/hw09/analyze.py
 python homework/hw09/verify_results.py
+python homework/hw11/analyze.py
 python -m unittest discover -s tests -v
 ```
 
@@ -99,6 +101,22 @@ python homework/hw05/tests/verify_delivery.py
 
 The [HW5 guide](homework/hw05/) documents the fixed-rate and triggered methods,
 complete input files, regenerated eye diagrams, and anonymous report.
+
+## Run HW11
+
+HW11 can also be verified separately:
+
+```sh
+python -m pip install -r homework/hw11/requirements.txt
+python homework/hw11/verify_inputs.py
+python -m unittest discover -s homework/hw11/tests -v
+```
+
+The [HW11 guide](homework/hw11/) documents the port mapping, external RC
+terminations, independent input streams, numerical approximations, and report
+rebuilding procedure. Its report contains the requested single-transmitter and
+all-transmitter comparisons. Verification uses independent circuit equations
+and direct convolution; no ADS execution or BER extrapolation is claimed.
 
 ## Files
 

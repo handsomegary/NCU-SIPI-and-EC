@@ -1,0 +1,32 @@
+name: Verify HW11 crosstalk
+
+on:
+  push:
+    paths:
+      - 'homework/hw11/**'
+      - '.github/workflows/verify-hw11.yml'
+  pull_request:
+    paths:
+      - 'homework/hw11/**'
+      - '.github/workflows/verify-hw11.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: homework/hw11/requirements.txt
+      - run: python -m pip install -r homework/hw11/requirements.txt
+      - run: python homework/hw11/verify_inputs.py
+      - run: python homework/hw11/tests/verify_results.py
+      - run: python homework/hw11/analyze.py --bits 4096 --output /tmp/hw11-results
+      - run: python homework/hw11/tests/verify_results.py --results /tmp/hw11-results --output /tmp/hw11-verification.json

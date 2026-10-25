@@ -20,4 +20,6 @@ tmp/
 !homework/hw05/results/histograms.npz
 !homework/hw06/results/arrays.npz
 !homework/hw07/results/analysis_data.npz
+!homework/hw11/results/channel.npz
+!homework/hw11/results/simulation.npz
 *.float32

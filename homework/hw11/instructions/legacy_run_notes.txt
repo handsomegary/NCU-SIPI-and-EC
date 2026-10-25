@@ -1,0 +1,10 @@
+2.~5.
+386 #TxOn = np.array([1, 1, 1, 1, 1, 1, 1, 1], dtype=bool) #all open
+387 #TxOn = np.array([1, 0, 0, 0, 0, 0, 0, 0], dtype=bool) #only open Tx0
+388 TxOn = np.array([0, 0, 0, 0, 1, 0, 0, 0], dtype=bool)  #only open Tx4
+
+396 stateye3, extent3 = fixed_rate_unifdt_stateye(Y[:,0],NpUI) 0 or 4 Rx0 or Rx4
+
+6. A 4-ns snapshots (time domain waveform) at Rx1~ Rx4 when only Tx4 is on.
+
+202 rng = np.random.default_rng(seed = i)→rng = np.random.default_rng(seed = 0)

@@ -1,0 +1,75 @@
+{
+  "package": "HW11 eight-channel crosstalk simulation",
+  "manifest_version": 1,
+  "anonymity_note": "Only neutral source names and package-relative paths are recorded. The prior personal report and personal directory names are excluded.",
+  "metadata_review": {
+    "instructions/hw11_assignment.pdf": {
+      "page_count": 3,
+      "author_present": false,
+      "visual_review": "All three pages inspected. No personal identity observed. Original Word application metadata retained.",
+      "modified": false
+    }
+  },
+  "files": [
+    {
+      "source_group": "Instruction",
+      "source_name": "HW11 重點提示.txt",
+      "path": "instructions/hw11_clarifications.txt",
+      "role": "instructor clarification notes",
+      "original_sha256": "d8b3b4e1a028ffed0e099c01617a9960371998c5e51872a196cfb47f162fa0d8",
+      "staged_sha256": "d8b3b4e1a028ffed0e099c01617a9960371998c5e51872a196cfb47f162fa0d8",
+      "bytes": 2503,
+      "modified": false
+    },
+    {
+      "source_group": "Instruction",
+      "source_name": "HW11_crosstalk_8lines.s16p",
+      "path": "instructions/HW11_crosstalk_8lines.s16p",
+      "role": "provided 16-port coupled-channel data",
+      "original_sha256": "07d8ebd6daebc3075ec5a4bb9ea9996c530ea2bdd3b42858e0b2b4cd172e2cdb",
+      "staged_sha256": "07d8ebd6daebc3075ec5a4bb9ea9996c530ea2bdd3b42858e0b2b4cd172e2cdb",
+      "bytes": 43044555,
+      "modified": false
+    },
+    {
+      "source_group": "Instruction",
+      "source_name": "HW11_crosstalk_sim_8lines.pdf",
+      "path": "instructions/hw11_assignment.pdf",
+      "role": "assignment specification and supplied example figures",
+      "original_sha256": "cc38ff8b9751dc576c70d28d722a8c9d69695d52f23d4f10077c195321e2c5f5",
+      "staged_sha256": "cc38ff8b9751dc576c70d28d722a8c9d69695d52f23d4f10077c195321e2c5f5",
+      "bytes": 865192,
+      "modified": false
+    },
+    {
+      "source_group": "Instruction",
+      "source_name": "HW11_crosstalk_simulation_sample.py",
+      "path": "instructions/hw11_incomplete_template.py",
+      "role": "incomplete instructor code template; reference only",
+      "original_sha256": "1510a9780395168e0cd8abed2e09a44afa74ffa902a447d76ad2e328c210c310",
+      "staged_sha256": "1510a9780395168e0cd8abed2e09a44afa74ffa902a447d76ad2e328c210c310",
+      "bytes": 9149,
+      "modified": false
+    },
+    {
+      "source_group": "legacy support material",
+      "source_name": "snpreader.py",
+      "path": "instructions/legacy_snpreader.py",
+      "role": "legacy reader retained as reference; verified solver uses its own reader",
+      "original_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "staged_sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "bytes": 27828,
+      "modified": false
+    },
+    {
+      "source_group": "legacy support material",
+      "source_name": "注意事項.txt",
+      "path": "instructions/legacy_run_notes.txt",
+      "role": "legacy manual-switch notes; includes obsolete same-seed advice",
+      "original_sha256": "810b0ab95f49a5b74d98edb2fa13da972bb8e4cac5b1de4b03c19b9df6cc33ef",
+      "staged_sha256": "810b0ab95f49a5b74d98edb2fa13da972bb8e4cac5b1de4b03c19b9df6cc33ef",
+      "bytes": 473,
+      "modified": false
+    }
+  ]
+}

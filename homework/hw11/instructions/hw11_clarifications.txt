@@ -1,0 +1,11 @@
+Dear Class,
+ 
+HW11 有些共同的問題，在這裡一起說明。
+ 
+1. 這次作業因為要考慮 time delay，所以將 x 的建造提到 convolution 的 for 迴圈外面，一口氣全部造完後，再開始 convolution。這樣 coding 比較簡單。所以要注意 x 的長度為所有 section 的總長度，也就是相當於 Nbp 個 UI 那麼長。下一個作業要放入 jitter，同樣也會把 x 提出來預先建造，coding 比較簡單。
+ 
+2. MNA 求解時，講義裡面是寫 Ax=b，其中 b 為行向量，然後針對每一個 Tx，都要解一次 Ax=b，所以上課中有提到可以對每個頻率的 A 做 LU 分解，然後利用 solve_triangular。不過 coding_sample 裡面，是另外一種寫法：假設有 8 個 Tx 要輪流開啟，相當於有 8 種不同的 b，令其為 b0, b1, ..., b7，每一個都是一行向量。因為 A 矩陣都一樣，所以可以將 8 個 b 排成一個矩陣：B = np.hstack((b0, b1, ..., b7))，然後一次解 AX = B，利用 X=solve(A,B)，此時 X 就會是一個矩陣，其每一行對應某一個 bi 的 Ax = bi 的解。這樣的寫法，記憶體使用較多，但速度更快。解完之後，只需把 X 矩陣中需要的部分取出來 (利用 RxPorts 變數)，就可以換下一個頻率，因此在 sample code 裡面，MNA 的段落只有一個 for 迴圈。
+ 
+3. 關於 H 矩陣，因為我們現在有 Nch 個 Tx，Nch 個 Rx，Nfreq 個頻率點，因此 H 矩陣有三個維度 (dimension)，這裡要大家思考的是，三個維度的順序要怎麼選。有些同學選為 H.shape == (Nfreq, Nch, Nch)，這樣固然OK，但是要考慮後續將 H 送進 sectional convolution 的函數時，要將 H 乘上 x 的 fft 然後做 ifft，在乘上 x 時，就須將 x 做 reshape，然後作 ifft 時必須指定 axis = ??，這樣就OK。另一個選法是：H.shape == (Nch, Nch, Nfreq)，這樣可以利用 numpy array 非常好用的 broadcasting，將 code 簡化。請自行上網了解 array broadcasting rule。此外，H 的兩個 Nch 的維度，必須小心哪一個對應 Tx 哪一個對應 Rx。確定了以後，因為在 sect_conv_SIMO 函數裡面，一次只處理一個 Tx 的計算，因此只須將三維的 H 做 indexing，取出其中的一個 Nch * Nfreq 的 slice 送進去，即可。選用不同的 slice，相當於選擇開啟不同的 Tx。作業要求單看 Tx4 on 的結果，就是在主程式中，只送對應 Tx4 的 H 的 slice 進去函數中計算。
+ 
+加油！

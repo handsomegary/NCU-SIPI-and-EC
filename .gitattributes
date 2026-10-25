@@ -15,6 +15,7 @@ homework/hw01/instructions/HW1_Kaiser.txt -text
 homework/hw01/instructions/HW1_Kaiser_sample.py -text
 # Keep all HW5 instruction files byte-for-byte identical to the supplied files.
 homework/hw05/instructions/** -text -whitespace
-
 # Preserve supplied HW9 channel bytes for manifest verification.
 homework/hw09/data/** -text -whitespace
+# The independent audit binds this generated artifact's exact byte digest.
+homework/hw11/results/metrics.json -text whitespace=cr-at-eol
