@@ -24,6 +24,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
 | [HW12](homework/hw12/) | Jitter simulation and basic analysis | Complete instructions, corrected streaming simulation, four full-length cases, independent checks, anonymous report |
 | [HW13](homework/hw13/) | Jitter fitting and BER extrapolation | Complete instructions, verified HW12 inputs, stable Gaussian tail fits, all eight bathtub curves, sensitivity study, anonymous report |
+| [學期總回顧](homework/semester-review/) | SIPI semester review | 原始重點回顧問題、89 題完整繁體中文解答、公式與講義頁碼對照 |
 
 ## Reproduce
 
@@ -222,3 +223,10 @@ Every saved decision is checked against the source bits at full channel latency.
 Its one-tap worst-case bound is nonpositive even though no errors occur in the
 65,536-bit noiseless record; the report distinguishes this from the positive
 two-/three-tap bounds and from deliberately mistuned error examples.
+
+## 學期總回顧
+
+[89 題完整解答與講義對照](homework/semester-review/)涵蓋 13 個主題，從傅立葉轉換、
+眼圖與等化器，到差動訊號、串音、抖動、PAM4、Scrambler 與 SSC。
+[原始重點回顧問題](homework/semester-review/instructions/重點回顧問題.txt)保留原文，
+解答依原題順序編號，可在完成各次作業後作為學期總複習。

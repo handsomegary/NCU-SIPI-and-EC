@@ -1,0 +1,116 @@
+### Fourier transform ###
+* What is the difference between DFT and FFT?
+* What's the procedure to compute FT via DFT?
+* What's the purpose of zero padding in DFT?
+* What's the relation between dt and df in DFT?
+* What are the effects of time-domain truncation?
+* What's the purpose of using window function in DFT?
+* What is the gain of a window?
+ 
+### Inverse Fourier transform ###
+* What's the spectrum symmetry property?
+* What's the procedure of computing IFT via IDFT?
+* What's the purpose of zero padding in IDFT?
+* What are the effects of spectrum truncation?
+* What's the purpose of using window function in IDFT?
+ 
+### Sectional convolution ###
+* What's the physical meaning of convolution?
+* What's the max span of the convolution of two functions?
+* What's sectional convolution and what's the difference to standard convolution?
+ 
+### Spectra of digital signals ###
+* What's the meaning of saying "spectrum of random signal"?
+* What's the meaning of power spectral density (PSD)?
+* What is the theoretical PSD of random NRZ signal?
+* How to compute the PSD given timing waveform?
+* How to correlate the computed PSD with spectrum analyzer measurements?
+* What is the bandwidth of NRZ signals?
+* What's the difference between the spectrum of random NRZ and clock?
+ 
+### Eye diagram basics ###
+* How is eye diagram constructed in simulation?
+* How is eye diagram constructed in reality?
+* Basic eye metric: EH, EW, jitter
+* What is the 3-sigma definition of EH and EW?
+ 
+### Superposition, ISI, and PDA ###
+* Why is the single-bit response (SBR) important?
+* What information can be deduced from the SBR?
+* What is intersymbol inteference (ISI)?
+* What is the peak distortion analysis (PDA) and why is it useful?
+* What are the limitations of PDA?
+ 
+### Equalizers ###
+* How to estimate the risetime of a channel based on its S21?
+* Why lossy channel cannot transmit high data rate signals?
+* What is the concept of equalization?
+* What is CTLE and how is it realized in circuit?
+ 
+* What is FFE and how is it realized in circuit?
+* What are the meaning of pre-emphasis and de-emphasis?
+* What is the equivalent transfer function of an FFE?
+* What is the maximum-swing constraint of FFE?
+* How to design the FFE tap coefficients?
+ 
+* What is DFE and how is it realized in circuit?
+* Why do we need DFE in addition to CTLE and FFE?
+* How to design the DFE tap coefficients?
+ 
+### Differential signaling (1) ###
+* What are the pros and cons of differential signaling vs single-end?
+* What are differential-mode (DM) and common-mode (CM)?
+* What are the definitions of DM/CM voltages/currents?
+* What is mixed-mode S matrix, and how is it related to single-ended S matrix?
+* How to quickly compute Sdd21, Sdd11, etc from single-ended S parameters?
+* What is the SBR of a differential channel?
+* How does the post-FFE waveform look like in a differential channel?
+* What is the slicer output of a DFE for differential channel?
+ 
+### Crosstalk ###
+* Frequency domain solution of NEXT and FEXT
+* Frequency domain characteristics of NEXT and FEXT
+* Time domain solution of NEXT and FEXT
+* Time domain characteristics of NEXT and FEXT
+* Effect of coupling on insertion loss
+* How to correctly simulate the effects of crosstalk?
+* Why is FEXT of microstrips usually negative?
+* What is LFSR, its length, seed, and tap polynomials?
+ 
+### Jitter basics ###
+* How many different kinds of jitter are there?
+* What is periodic jitter (PJ) and its PDF?
+* What is DCD and its PDF?
+* What is random jitter (RJ) and its PDF?
+* Jitter time function vs jitter PDF
+* Jitter PDF vs jitter CDF
+* CDF of Gaussian distribution
+* What is bit error rate (BER)?
+* How to compute BER from eye?
+* What information can we get from the bathtub (BER) curve?
+* How to extrapolate BER curves down to very low probability?
+* What is the dual-Dirac model and Gaussian mixture model?
+ 
+### Differential signaling (2) ###
+* Inter-pair skew and intra-pair skew
+* Measurement of skew in practice
+* What is the fiber-weave effect?
+* How to mitigate the fiber-weave effect?
+* How to compute the mixed-mode S parameters for multiple diff-pairs?
+* How is crosstalk gauged in USB/PCIe standards?
+* Techniques to reduce differential crosstalk?
+ 
+### PAM4 signaling ###
+* What is PAM4 signaling and why people use it?
+* PSD of PAM4 signals?
+* Eye diagram of PAM signals?
+* When will PAM4 be better than NRZ?
+ 
+### Spectrum control by scrambler and SSC ###
+* Characterization of signal spectra
+* What is scrambler and why people use it?
+* Effect of scrambler on signal spectrum?
+* What is spread-spectrum clocking (SSC)?
+* Spreading rate, modulation rate, spreading waveform, spreading style
+* Estimation of EMI reduction by SSC
+* Simulation of SSC
