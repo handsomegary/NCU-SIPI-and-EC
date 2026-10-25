@@ -1,0 +1,44 @@
+{
+  "successful": true,
+  "assignment_sufficient": true,
+  "evaluated_bits": 1048576,
+  "points_per_ui": 200,
+  "distributions_checked": 16,
+  "per_case": {
+    "case1_no_tx_jitter": {
+      "tx_sigma_ps": 0.0,
+      "rx_sigma_ps": 1.7341869579082305
+    },
+    "case2_sj": {
+      "tx_sigma_ps": 2.125941873660981,
+      "rx_sigma_ps": 2.744404673430441
+    },
+    "case3_rj": {
+      "tx_sigma_ps": 0.9991137901869075,
+      "rx_sigma_ps": 2.068827730220743
+    },
+    "case4_sj_rj": {
+      "tx_sigma_ps": 2.34631035017182,
+      "rx_sigma_ps": 2.9614881117550036
+    }
+  },
+  "tx_theoretical_checks": {
+    "case2_sj": {
+      "measured_ps2": 4.519628850185163,
+      "theoretical_ps2": 4.5,
+      "relative_error": 0.004361966707814031
+    },
+    "case3_rj": {
+      "measured_ps2": 0.9982283657416481,
+      "theoretical_ps2": 1.0,
+      "relative_error": -0.0017716342583519173
+    },
+    "case4_sj_rj": {
+      "measured_ps2": 5.505172259323407,
+      "theoretical_ps2": 5.5,
+      "relative_error": 0.0009404107860740266
+    },
+    "sj_rj_variance_addition_relative_error": -0.002298891781177325
+  },
+  "scope": "Independent saved-artifact consistency, normalization, bit accounting, and Tx physical checks"
+}

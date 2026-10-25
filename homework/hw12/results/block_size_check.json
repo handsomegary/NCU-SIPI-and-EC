@@ -1,0 +1,98 @@
+{
+  "description": "End-to-end metamorphic check: same physical model, seed and evaluated bits; different waveform/filter block sizes.",
+  "bits": 4096,
+  "points_per_ui": 200,
+  "seed": 0,
+  "block_sizes": [
+    1024,
+    997
+  ],
+  "cases": {
+    "case1_no_tx_jitter": {
+      "tx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "rx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "tx_moments_equal_within_tolerance": true,
+      "rx_moments_equal_within_tolerance": true,
+      "crossing_tx_moments_equal_within_tolerance": true,
+      "crossing_rx_moments_equal_within_tolerance": true,
+      "requested_and_applied_jitter_moments_equal": true
+    },
+    "case2_sj": {
+      "tx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "rx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "tx_moments_equal_within_tolerance": true,
+      "rx_moments_equal_within_tolerance": true,
+      "crossing_tx_moments_equal_within_tolerance": true,
+      "crossing_rx_moments_equal_within_tolerance": true,
+      "requested_and_applied_jitter_moments_equal": true
+    },
+    "case3_rj": {
+      "tx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "rx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "tx_moments_equal_within_tolerance": true,
+      "rx_moments_equal_within_tolerance": true,
+      "crossing_tx_moments_equal_within_tolerance": true,
+      "crossing_rx_moments_equal_within_tolerance": true,
+      "requested_and_applied_jitter_moments_equal": true
+    },
+    "case4_sj_rj": {
+      "tx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "rx": {
+        "eye_counts_equal": true,
+        "eye_l1_count_difference": 0,
+        "crossing_counts_equal": true,
+        "crossing_l1_count_difference": 0
+      },
+      "tx_moments_equal_within_tolerance": true,
+      "rx_moments_equal_within_tolerance": true,
+      "crossing_tx_moments_equal_within_tolerance": true,
+      "crossing_rx_moments_equal_within_tolerance": true,
+      "requested_and_applied_jitter_moments_equal": true
+    }
+  },
+  "tolerances": {
+    "integer_eye_counts": "exact equality",
+    "crossing_counts": "exact equality",
+    "floating_moments_relative": 1e-12,
+    "floating_moments_absolute_seconds": 1e-26,
+    "floating_variance_absolute_seconds2": 1e-38
+  },
+  "channel_diagnostics_equal": true,
+  "passed": true,
+  "interpretation": "Integer eye and crossing histograms must match exactly; moment tolerance only allows roundoff from summing per-block scalar moments in a different grouping."
+}

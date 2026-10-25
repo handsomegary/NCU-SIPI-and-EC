@@ -1,0 +1,11 @@
+{
+  "successful": true,
+  "files_checked": 32,
+  "personal_identifiers_found": false,
+  "personal_filesystem_paths_found": false,
+  "report_pages": 8,
+  "report_author_metadata": "",
+  "report_has_attachments": false,
+  "report_sha256": "154c681d152937d4eab7eaaad584ce0345479537720b32c49143d584060066a2",
+  "scope": "HW12 filenames, text files, PDF extracted text and metadata, and PNG metadata; all final report pages also visually inspected."
+}

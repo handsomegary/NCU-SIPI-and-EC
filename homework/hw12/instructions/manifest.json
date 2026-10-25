@@ -1,0 +1,20 @@
+{
+  "description": "Complete supplied HW12 instruction files, preserved byte for byte.",
+  "files": [
+    {
+      "path": "HW12_channel.s2p",
+      "bytes": 1368346,
+      "sha256": "6af77b9009b60ed90989b0f471e3f1a567a11c6d76d11d09d1d5a53c1e8d9f3c"
+    },
+    {
+      "path": "HW12_jitter_simulation.pdf",
+      "bytes": 687041,
+      "sha256": "4ecf966917b1f66d74b5bd27d5abab45bc6a5300eff1c2e1a14262bce9a5d525"
+    },
+    {
+      "path": "HW12_jitter_simulation_and_basic_analysis.py",
+      "bytes": 13366,
+      "sha256": "daaba211e86d3c91c35246b835d9f5ddfe939e78393e929176941c30afb504e0"
+    }
+  ]
+}

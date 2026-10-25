@@ -1,0 +1,9 @@
+{
+  "successful": true,
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "python_version": "3.14.4",
+  "command": "python -m unittest discover -s homework/hw12/tests -v"
+}

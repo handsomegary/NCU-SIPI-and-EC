@@ -1,0 +1,307 @@
+{
+  "parameters": {
+    "bits": 1048576,
+    "points_per_ui": 200,
+    "block_bits": 4096,
+    "seed": 0,
+    "ui_seconds": 2.5e-11,
+    "rise_seconds": 5e-12,
+    "dt_seconds": 1.25e-13,
+    "dv_volts": 0.001,
+    "vpp_volts": 1.0,
+    "sj_peak_seconds": 3e-12,
+    "sj_frequency_hz": 1000000.0,
+    "rj_sigma_seconds": 1e-12,
+    "rs_ohms": 20.0,
+    "rl_ohms": 85.0,
+    "cs_farads": 3e-13,
+    "cl_farads": 3e-13,
+    "kaiser_a": 0.5,
+    "truncation_seconds": 4e-08,
+    "warmup_bits": 1602,
+    "threshold_tx_volts": 0.5,
+    "threshold_rx_volts": 0.40319292088966,
+    "evaluated_sj_cycles": 26.2144,
+    "jitter_model": "nearest-sample displacement of linear-ramp start; np.rint ties-to-even; no clipping",
+    "quantization_error_bound_seconds": 6.25e-14,
+    "guard_bits_each_side": 2,
+    "requested_bits": 1048576,
+    "analyzed_bits": 1048576,
+    "rng": "PCG64, independent SeedSequence([seed,11]) bits and [seed,29] normal jitter",
+    "evaluation": "exact bit count after FIR-length warmup; no padded zero tail",
+    "rms_definition": "standard deviation (RMS after subtracting mean)"
+  },
+  "channel": {
+    "file": "HW12_channel.s2p",
+    "frequency_samples": 8001,
+    "df_hz": 10000000.0,
+    "maximum_frequency_hz": 80000000000.0,
+    "reference_impedance_ohms": 50.0,
+    "dc_gain": 0.80638584177932,
+    "fir_taps": 320000,
+    "fir_dc_gain": 0.8047060931884471,
+    "fir_dc_relative_error": -0.002083058138975401,
+    "fir_last_1ns_l1_fraction": 9.609934006569483e-05,
+    "s_parameter_orientation": "S[receiving_port,incident_port]; no transpose"
+  },
+  "checks": {
+    "exact_evaluated_bits": true,
+    "finite_outputs": true,
+    "pmfs_sum_to_one": true,
+    "pdfs_integrate_to_one": true,
+    "zero_probabilities_preserved": true
+  },
+  "cases": {
+    "case1_no_tx_jitter": {
+      "name": "No Tx jitter",
+      "tx": {
+        "reference_index": 20,
+        "mean_seconds": 0.0,
+        "variance_seconds2": 0.0,
+        "rms_seconds": 0.0,
+        "observation_count": 524108.0,
+        "threshold_volts": 0.5,
+        "voltage_bin_index": 699,
+        "voltage_bin_edges": [
+          0.49900000000000005,
+          0.5
+        ]
+      },
+      "rx": {
+        "reference_index": 86,
+        "mean_seconds": -1.449124888757046e-13,
+        "variance_seconds2": 3.0074044049790027e-24,
+        "rms_seconds": 1.7341869579082305e-12,
+        "observation_count": 134840.0,
+        "threshold_volts": 0.40319292088966,
+        "voltage_bin_index": 603,
+        "voltage_bin_edges": [
+          0.40299999999999997,
+          0.40399999999999997
+        ]
+      },
+      "crossing_tx": {
+        "reference_index": 20,
+        "mean_seconds": 0.0,
+        "variance_seconds2": 0.0,
+        "rms_seconds": 0.0,
+        "observation_count": 524108.0
+      },
+      "crossing_rx": {
+        "reference_index": 85,
+        "mean_seconds": -4.1885132672783725e-14,
+        "variance_seconds2": 2.857037026144642e-24,
+        "rms_seconds": 1.6902772039356863e-12,
+        "observation_count": 524109.0
+      },
+      "input_jitter": {
+        "requested": {
+          "observation_count": 524108,
+          "mean_seconds": 0.0,
+          "variance_seconds2": 0.0,
+          "rms_seconds": 0.0
+        },
+        "applied": {
+          "observation_count": 524108,
+          "mean_seconds": 0.0,
+          "variance_seconds2": 0.0,
+          "rms_seconds": 0.0
+        }
+      },
+      "sj_peak_seconds": 0.0,
+      "rj_sigma_seconds": 0.0,
+      "ideal_tx_sigma_seconds": 0.0
+    },
+    "case2_sj": {
+      "name": "SJ only",
+      "tx": {
+        "reference_index": 20,
+        "mean_seconds": 1.8509782334938618e-14,
+        "variance_seconds2": 4.5196288501851634e-24,
+        "rms_seconds": 2.125941873660981e-12,
+        "observation_count": 524108.0,
+        "threshold_volts": 0.5,
+        "voltage_bin_index": 699,
+        "voltage_bin_edges": [
+          0.49900000000000005,
+          0.5
+        ]
+      },
+      "rx": {
+        "reference_index": 86,
+        "mean_seconds": -1.3008286206231182e-13,
+        "variance_seconds2": 7.531757011546845e-24,
+        "rms_seconds": 2.744404673430441e-12,
+        "observation_count": 134742.0,
+        "threshold_volts": 0.40319292088966,
+        "voltage_bin_index": 603,
+        "voltage_bin_edges": [
+          0.40299999999999997,
+          0.40399999999999997
+        ]
+      },
+      "crossing_tx": {
+        "reference_index": 20,
+        "mean_seconds": 1.8509782334938618e-14,
+        "variance_seconds2": 4.5196288501851634e-24,
+        "rms_seconds": 2.125941873660981e-12,
+        "observation_count": 524108.0
+      },
+      "crossing_rx": {
+        "reference_index": 85,
+        "mean_seconds": -2.340066665521868e-14,
+        "variance_seconds2": 7.368604806011358e-24,
+        "rms_seconds": 2.71451741678173e-12,
+        "observation_count": 524109.0
+      },
+      "input_jitter": {
+        "requested": {
+          "observation_count": 524108,
+          "mean_seconds": 1.8474859665313207e-14,
+          "variance_seconds2": 4.510189899356555e-24,
+          "rms_seconds": 2.1237207677462107e-12
+        },
+        "applied": {
+          "observation_count": 524108,
+          "mean_seconds": 1.8509782334938576e-14,
+          "variance_seconds2": 4.519628850185165e-24,
+          "rms_seconds": 2.1259418736609816e-12
+        }
+      },
+      "sj_peak_seconds": 3e-12,
+      "rj_sigma_seconds": 0.0,
+      "ideal_tx_sigma_seconds": 2.1213203435596427e-12
+    },
+    "case3_rj": {
+      "name": "RJ only",
+      "tx": {
+        "reference_index": 20,
+        "mean_seconds": -1.5421439855907088e-15,
+        "variance_seconds2": 9.98228365741648e-25,
+        "rms_seconds": 9.991137901869075e-13,
+        "observation_count": 524108.0,
+        "threshold_volts": 0.5,
+        "voltage_bin_index": 699,
+        "voltage_bin_edges": [
+          0.49900000000000005,
+          0.5
+        ]
+      },
+      "rx": {
+        "reference_index": 86,
+        "mean_seconds": -1.5152290995896185e-13,
+        "variance_seconds2": 4.280048177330313e-24,
+        "rms_seconds": 2.0688277302207432e-12,
+        "observation_count": 135727.0,
+        "threshold_volts": 0.40319292088966,
+        "voltage_bin_index": 603,
+        "voltage_bin_edges": [
+          0.40299999999999997,
+          0.40399999999999997
+        ]
+      },
+      "crossing_tx": {
+        "reference_index": 20,
+        "mean_seconds": -1.5421439855907088e-15,
+        "variance_seconds2": 9.98228365741648e-25,
+        "rms_seconds": 9.991137901869075e-13,
+        "observation_count": 524108.0
+      },
+      "crossing_rx": {
+        "reference_index": 85,
+        "mean_seconds": -4.450982524627503e-14,
+        "variance_seconds2": 4.0843459204987035e-24,
+        "rms_seconds": 2.020976476978073e-12,
+        "observation_count": 524109.0
+      },
+      "input_jitter": {
+        "requested": {
+          "observation_count": 524108,
+          "mean_seconds": -1.5495435849565086e-15,
+          "variance_seconds2": 9.969756607165794e-25,
+          "rms_seconds": 9.984866852975955e-13
+        },
+        "applied": {
+          "observation_count": 524108,
+          "mean_seconds": -1.542143985590756e-15,
+          "variance_seconds2": 9.98228365741648e-25,
+          "rms_seconds": 9.991137901869075e-13
+        }
+      },
+      "sj_peak_seconds": 0.0,
+      "rj_sigma_seconds": 1e-12,
+      "ideal_tx_sigma_seconds": 1e-12
+    },
+    "case4_sj_rj": {
+      "name": "SJ + RJ",
+      "tx": {
+        "reference_index": 20,
+        "mean_seconds": 1.6858643638334066e-14,
+        "variance_seconds2": 5.5051722593234074e-24,
+        "rms_seconds": 2.34631035017182e-12,
+        "observation_count": 524108.0,
+        "threshold_volts": 0.5,
+        "voltage_bin_index": 699,
+        "voltage_bin_edges": [
+          0.49900000000000005,
+          0.5
+        ]
+      },
+      "rx": {
+        "reference_index": 86,
+        "mean_seconds": -1.264201100814956e-13,
+        "variance_seconds2": 8.770411836066217e-24,
+        "rms_seconds": 2.9614881117550038e-12,
+        "observation_count": 136081.0,
+        "threshold_volts": 0.40319292088966,
+        "voltage_bin_index": 603,
+        "voltage_bin_edges": [
+          0.40299999999999997,
+          0.40399999999999997
+        ]
+      },
+      "crossing_tx": {
+        "reference_index": 20,
+        "mean_seconds": 1.6858643638334066e-14,
+        "variance_seconds2": 5.5051722593234074e-24,
+        "rms_seconds": 2.34631035017182e-12,
+        "observation_count": 524108.0
+      },
+      "crossing_rx": {
+        "reference_index": 85,
+        "mean_seconds": -2.620065673361834e-14,
+        "variance_seconds2": 8.58329790431329e-24,
+        "rms_seconds": 2.9297265920753237e-12,
+        "observation_count": 524109.0
+      },
+      "input_jitter": {
+        "requested": {
+          "observation_count": 524108,
+          "mean_seconds": 1.692531608035667e-14,
+          "variance_seconds2": 5.503714308350567e-24,
+          "rms_seconds": 2.3459996394608774e-12
+        },
+        "applied": {
+          "observation_count": 524108,
+          "mean_seconds": 1.6858643638334082e-14,
+          "variance_seconds2": 5.505172259323407e-24,
+          "rms_seconds": 2.3463103501718194e-12
+        }
+      },
+      "sj_peak_seconds": 3e-12,
+      "rj_sigma_seconds": 1e-12,
+      "ideal_tx_sigma_seconds": 2.3452078799117147e-12
+    }
+  },
+  "notes": [
+    "Horizontal eye slices are voltage occupancy, not exact crossing-event distributions.",
+    "Interpolated crossing diagnostics count actual rising and falling threshold events equally.",
+    "Time references are circular baseline modes, held fixed across cases separately at Tx/Rx.",
+    "A one-UI histogram cannot represent unbounded Gaussian tails without folding; current sigma is far below half UI.",
+    "Ideal SJ sigma assumes full phase coverage. Finite runs, especially smoke tests, need not match it.",
+    "Jitter is rounded to nearest sample, rather than truncated toward zero; continuum theory is a reference, not an exact finite-grid prediction.",
+    "Zero cells are preserved; plotting masks them without adding artificial probability.",
+    "Variance is centered. Fixed channel propagation delay is excluded from centered RMS.",
+    "The source assignment Q4 prints Tx4 on the RHS of an Rx relation; report treats this as a typo."
+  ]
+}

@@ -1,0 +1,689 @@
+
+#%% HW 12: jitter simulation and basic analysis
+
+#%% define functions
+
+# Copy necessary functions from previous homework to here
+
+# In particular, in the StatEye construction function, do 
+# not add 1e-15 to the eye array, because that will affect
+# the subsequent jitter analysis. Instead, you can add
+# 1e-15 to the array when plotting.
+
+#%% define functions: sectional convolution with Tx FFE, for both SE and DP
+
+def sctn_conv_random_NRZ_TxFFEjitter_SEDP(H, df, T2, Tb, Tr, Td, NpUI, 
+            cFFE=[1],Vpp=1,SJamp=0,SJfreq=1e6,RJsigma=0,
+            Nbp:int=2**20, sig:str='SE', a=0.5, seed=0):
+    '''
+    Perform sectional convolution to obtain output response of a given channel
+    with transfer function H, assuming the input is purely random NRZ with the
+    given parameters. 
+    
+    The Tx FFE is specified by the variable 'cFFE'. To consider the effects of 
+    FFE, there are two ways: (1) construct the corresponding time-domain input
+    waveform of FFE and than do sectional convolution. (2) compute the 
+    frequency response of the FFE and multiply with the channel's H to obtain 
+    the overall transfer function, and than assume the input is ideal NRZ. In
+    this homework, we use method (1), because it is more flexible and can be
+    extended to include other nonideal effects such as Tx jitter. The tap 
+    spacing is fixed to be Tb, which is the most common case.
+    
+    This function can be used for both single-ended (SE) case and differential
+    pair (DP), specified by the input parameter 'sig'.
+    
+    Parameters
+    ----------
+    H : Overall channel transfer function. Must have uniform df and include DC
+    df: frequency step of H in Hz
+    T2: truncation time of channel impulse response in seconds
+    Tb: unit interval in seconds
+    Tr: risefall time in seconds
+    Td: initial time delay
+    NpUI: number of points per unit interval
+    Vpp: peak-to-peak voltage of NRZ signal. The post-FFE waveform
+         at Tx still has peak-to-peak voltage of Vpp. It may not be
+         in the range [0,Vpp]. Instead, it may be in the range of
+         [-q,Vpp-q] for some positive number q, depending on cFFE.
+         
+         Important: for differential signaling (sig='DP'), this Vpp
+         is the peak-to-peak voltage of each single-ended driver. 
+         Therefore, the actual p2p voltage of the differential signal
+         at Tx will be 2*Vpp.
+    
+    cFFE: FFE taps, list or numpy 1-dim array,  [c0, c1, c2, ...]
+       Note: c0 is not necessarily the main cursor tap. Instead,
+       c0 is the "left-most" cursor tap. It may be the main cursor
+       or it may be a precursor tap. If it is the 1st precursor, 
+       than c1 is the main cursor, c2 is the 1st post cursor, and
+       so on. If cFFE=[1], then there is no FFE. The absolute values of
+       the elements in cFFE are not important; they will be normalized
+       to meet the Vpp constraint. Only the relative ratios in cFFE are
+       relevant.
+    
+    SJamp: sinusoidal jitter amplitude (in seconds)
+    SJfreq: sinusoidal jitter frequency (in Hertz)
+    RJsigma: random jitter standard deviation (in seconds)
+        RJ will follow the Gaussian distribution
+    
+    Nbp: minimum number of random bits to simulate
+    sig: signaling scheme, a string, must be either 'SE' or 'DP'.
+    a: Kaiser window parameter
+    seed: seed value for random number generator
+
+    Returns
+    -------
+    ty: time vector of y
+    y: total output waveform
+    tx: time vector of x
+    x: total input waveform
+    bp: the overall input bit pattern for validation if needed
+        It is always in {0,1}, regardless of 'sig' (not {1,-1}).
+
+    '''
+    
+    # import necessary modules
+    import numpy as np
+    from numpy import pi, sqrt
+    from scipy.fft import fft, ifft
+    from scipy.special import i0
+    from time import time
+    
+    rng = np.random.default_rng(seed=seed)
+    
+    f = np.arange(0, len(H)) * df # frequency vector of H
+    dt = Tb / NpUI                # output time step
+    M = round(1/dt/df)            # total number of points for DFT
+    NpT2 = NpT2 = int(T2 / dt)    # number of points for duration T2
+    c = 1 - NpT2/M
+    if c < 0:
+        raise ValueError('T2 too long. Use smaller dt or df (interpolation).')
+    Nbps = round(0.8*c/df/Tb) # number of bits per section
+    Ns = Nbp//Nbps + 2 # number of sections
+    NpTr = int(Tr / dt) # number of points per risetime
+    NpTd = int(Td / dt) # number of points for delay Td
+    Npos = NpUI * Nbps + NpT2 # number of points per output section
+    unit_ramp = 1/NpTr * np.arange(NpTr,dtype=float)
+    
+    print('(M,Nbps,Ns,Npos) = (%d,%d,%d,%d)'%(M,Nbps,Ns,Npos))
+    
+    y = np.zeros(Ns * Nbps * NpUI + NpT2, dtype=float) # total output waveform
+    # y will be truncated to length (Ns-1)*Nbps*NpUI after convolution
+    ty = dt * np.arange(y.size,dtype=float)  # time vector for this y
+    
+    F = max(f) * 2
+    W = i0(pi * a * sqrt(1 - (2*f / F)**2)) / i0(pi * a)
+    W[0] /= 2
+    
+    # jitter processing
+    wSJ = 2 * pi * SJfreq # angular frequency of SJ
+    SJ = SJamp * np.sin(wSJ * np.arange(Ns * Nbps) * Tb)
+    # array of SJ at the ideal transition points, size == Ns*Nbps
+    
+    RJ = rng.normal(0, RJsigma, size=Ns * Nbps)
+    # array of RJ, size == Ns*Nbps
+    
+    TJ = SJ + RJ  # TJ value at all transition times, size = Ns*Nbps
+    
+    # === hard limit the TJ to abs(Tb-Tr) === #
+    TJ[TJ > (Tb-Tr)] = (Tb-Tr)
+    TJ[TJ < -(Tb - Tr)] = -(Tb - Tr)
+    NpTJ = (TJ / dt).astype(int)    # express TJ as number of points
+    
+    
+    # === FFE processing === #
+    cFFE = np.array(cFFE)         # in case cFFE is a Python list, not ndarray
+    cFFE = cFFE/np.sum(abs(cFFE)) # normalization
+    NFFE = cFFE.size
+    
+    # Construct the complete input bit pattern in {0,1}.
+    # It is the one that will be returned.
+    bp = rng.integers(0, 2, size=Nbp)
+    
+    # Construct the post-FFE input waveform bpFFE
+    # The effect of risetime will be added to x in the for loop
+    # The effect of Vpp is added to bpFFE now
+    if sig=='SE':
+        # use Vpp*bp for convolution with cFFE
+        bpFFE = np.convolve(Vpp * bp, cFFE, mode='full')[:Nbps*Ns + NFFE]
+    elif sig=='DP':
+        # First convert the {0,1} NRZ signal to {-1,1} form then convolution
+        # The overall p2p voltage of the resulting diff signal becomes 2Vpp.
+        bpFFE = np.convolve(Vpp * (2 * bp - 1), cFFE, mode='full')[:Nbps*Ns + NFFE]
+    else:
+        raise ValueError('Unrecognized signaling scheme.')
+    
+    tic = time()
+        
+    # build x, the total input waveform, including jitter
+    x = np.zeros((Nbps*Ns + NFFE) * NpUI + NpTd, dtype=float) 
+    now = NpTd
+    if bpFFE[0] != 0:
+        if now + NpTJ[0] > 0:
+            x[now + NpTJ[0]:now + NpTJ[0] + NpTr] = unit_ramp * bpFFE[0]
+            x[now + NpTJ[0] + NpTr:now + NpTJ[0] + NpTr + NpUI - NpTr] = bpFFE[0]
+        else:  # start transition at t = 0, not negative time
+            x[0:NpTr + NpTJ[0]] = unit_ramp[NpTr + NpTJ[0]:] * bpFFE[0]
+            x[NpTr + NpTJ[0]:NpUI] = bpFFE[0]
+    now += NpUI
+    for j in range(1, len(bpFFE)):
+        if bpFFE[j] == bpFFE[j - 1]:  # no transition, no jitter
+            x[now:now + NpUI] = bpFFE[j]
+        else:
+            if NpTJ[j] > 0:  # extend the waveform of previous bit
+                x[now:now + NpTJ[j]] = bpFFE[j - 1]
+            x[now + NpTJ[j]:now + NpTJ[j] + NpTr] = unit_ramp * (bpFFE[j] - bpFFE[j - 1]) + bpFFE[j - 1]
+            x[now + NpTJ[j] + NpTr:now + NpUI] = bpFFE[j]
+        now += NpUI
+    tx = dt * np.arange(x.size, dtype=float)
+    
+    
+    print('Sectional convolution progress:     ',end='')
+    
+    for k in range(Ns): # for each section
+        if abs((k%((Ns-1)/10))) < 1:
+            # print(k,Ns,Ns/10)
+            print('\b\b\b\b%3d%%'%(round(10*k/((Ns-1)/10))),end='')
+        
+        xk = x[k * NpUI * Nbps:(k + 1) * NpUI * Nbps]
+        
+        # convolution of one section
+        y[k*Nbps*NpUI : k*Nbps*NpUI + Npos] += np.real(ifft(
+            2 * fft(xk, M)[:f.size] * H * W, M))[0:Npos]
+    
+    y = y[Nbps*NpUI:Nbps*Ns*NpUI] # truncate y
+    ty = ty[Nbps*NpUI:Nbps*Ns*NpUI] # truncate ty
+    # This is why the 'Ns' parameter was set to Nbp//Nbps+2. 
+    # We add two more sections, then truncated.
+    
+    print('\nTotal convolution time: %d sec'%(time()-tic))
+
+    # print(NpTJ[0:30])
+    return ty, y, tx, x
+    # return xk and bp for checking
+
+def imp_resp(freq, H, dt=0.5e-12, a=1):
+    '''
+    Compute the impulse response of a given channel response
+
+    Parameters
+    ----------
+    freq : frequency vector of H. Must be uniform step and include DC.
+    H : 3-dimensional array representing channel transfer function.
+        Shape: [freq:i:j]
+        freq: frequency bins
+        i, j: indices indicating transfer from Vj to Vi
+    dt: output time step
+    a: Kaiser window parameter
+    
+    Returns
+    -------
+    t : time vector of h
+    h : impulse response
+
+    '''
+    
+    from scipy.special import i0
+    from scipy.fft import ifft
+    
+    df = freq[1] - freq[0]    # frequency step
+    M = round(1/dt/df)        # total number of points for IDFT
+    F = freq[-1] * 2
+    
+    W = i0(np.pi * a * np.sqrt(1 - (2 * freq / F)**2)) / i0(np.pi * a)   # Kaiser window
+    W[0] /= 2
+    
+    h = np.zeros((M, H.shape[1], H.shape[2]), dtype='complex')
+    for i in range(H.shape[1]):
+        for j in range(H.shape[2]):
+            h[:, i, j] = 2 * M * df * np.real(ifft(W * H[:, i, j], M))    # impulse response of H
+    
+    t = np.arange(0, M) * dt    # time vector of h
+    
+    return t, h
+
+def fixed_rate_unifdt_stateye(y,NpUI:int, dv):
+    '''
+    Construct the fixed-rate statistical eye assuming y has uniform dt.
+
+    Parameters
+    ----------
+    y : time domain waveform. ndarray with shape (y.size,)
+    NpUI : int. Number of points per unit interval
+
+    Returns
+    -------
+    stateye
+    extent
+
+    '''
+    
+    vmin = np.min(y) - 0.01    # min voltage of stat eye (must be smaller than np.min(y))
+    vmax = np.max(y) + 0.01   # max voltage of stat eye (must be greater than np.max(y))
+    #dv = 1e-4  # size of each voltage bin
+    Nvolt = int((vmax - vmin) / dv)   # number of Vbins
+    
+    # build 2D histogram
+    eyehist = np.zeros((Nvolt,NpUI),dtype= 'int')
+    
+    # integer-array indexing ==> No for-loop needed ==> much faster!!
+    idxt = np.arange(y.size) % NpUI   # array of time-axis indices
+    idxv = ((y - vmin) / dv).astype(int)   # array of volt-axis indices
+    
+    
+    np.add.at(eyehist, (idxv, idxt), 1)       # unbuffered in place addition 
+    # The above line is the key difference in this code. Previously, we
+    # use a for-loop to build the histogram, which is slow. In this code,
+    # the for-loop is removed, resulting in much faster construction.
+              
+    
+    # vertical normalization
+    total_count = np.sum(eyehist, axis=0)
+    stateye = eyehist / total_count       # array broadcasting
+    
+    # construct 2-UI eye
+    stateye = 1e-15 + np.hstack((stateye, stateye))
+    extent=[0,2,vmin,vmax]
+    
+    del eyehist, total_count
+    
+    return stateye, extent
+
+
+#%% HW12: jitter simulation
+import numpy as np
+import matplotlib.pyplot as plt
+from snpreader import snpreader 
+def db(x,power: bool=False): return 20/(int(power)+1)*np.log10(abs(x)+1e-15)
+
+freq, sp, Z0 = snpreader("HW12_channel.s2p", reciproc=False, maxsamplenum = 100000000)
+
+df = freq[1] - freq[0]
+S21 = sp[:, 2]
+
+#%% check S parameters
+plt.rcParams["font.family"] = "Arial"
+plt.figure(dpi = 300, figsize=(6, 4))
+plt.plot(freq * 1e-9, db(S21), label=r'$S_\mathrm{21}$', color = (0, 0, 0.8))
+plt.xlabel('Frequency (GHz)', fontweight='bold')
+plt.ylabel('Magnitude (dB)', fontweight='bold')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+
+#%% define parameters
+# pretty much same as HW11
+
+SJamp = 3e-12
+SJfreq = 1e6
+RJsigma = 1e-12
+
+dv = 1e-3
+
+TxPorts = np.array([1])-1  # -1 because Python index starts from 0
+RxPorts = TxPorts + 1
+
+RS = 20
+CS = 0.3e-12
+RL = 85
+CL = 0.3e-12
+Tb = 25e-12
+Tr = 5e-12
+Td = 0e-12 # shape=(8,) array
+Vpp = 1
+NpUI = 200
+
+dt = Tb / NpUI
+
+
+sig = Vpp
+Nport = int(np.sqrt(sp.shape[1]))# determine number of ports based on sp.shape
+Nch = Nport // 2             # number of channels, determined based on Nport
+Id = np.eye(Nport)          # identity matrix of size Nport x Nport
+
+
+#%% Step 1: solve transfer function by MNA
+
+# define the frequency-independent part of the A matrix
+A0 = np.zeros((Nport * 2,Nport * 2),dtype='complex')
+
+# fill in G matrix
+A0[TxPorts,TxPorts] = 1 / RS
+A0[RxPorts,RxPorts] = 1 / RL
+
+# fill in the Id in the upper-right block
+A0[:Nport, Nport:Nport * 2] = Id
+
+
+# define right-hand side vectors (matrix)
+B = np.zeros((Nport * 2, Nport), dtype='complex')
+B[TxPorts, TxPorts] = sig / RS
+
+
+# allocate transfer function array
+H = np.zeros((freq.size, Nch, Nch), dtype='complex')
+
+for idxf in range(freq.size):  # frequency sweep
+    A = A0.copy()
+    S = np.transpose(sp[idxf].reshape(Nch*2, Nch*2))
+    
+    # fill in C matrix
+    A[TxPorts, TxPorts] += 1j * 2 * np.pi * freq[idxf] * CS 
+    A[RxPorts, RxPorts] += 1j * 2 * np.pi * freq[idxf] * CL
+    
+    # fill in S matrix
+    A[Nport:Nport * 2, :Nport] = Id - S
+    A[Nport:Nport * 2, Nport:Nport * 2] = -Z0 * (Id + S)
+    
+    # solve voltage and currents
+    X = np.linalg.solve(A, B) 
+    
+    # store the required transfer functions
+    H[idxf] = X[RxPorts][:, TxPorts]
+    
+#%% compare H with the original S21
+plt.figure(dpi=250)
+plt.figure(dpi = 300, figsize=(6, 4))
+plt.plot(freq * 1e-9, db(S21), label=r'$S_\mathrm{21}$', color = (0, 0, 0.8))
+plt.plot(freq * 1e-9, db(H[:,0,0]), label=r'$H_\mathrm{21}$', color = (0, 0, 0.8))
+plt.xlabel('Frequency (GHz)', fontweight='bold')
+plt.ylabel('Magnitude (dB)', fontweight='bold')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+#%% compute impulse response and find truncation time (T2)
+
+t, h = imp_resp(freq,H)
+
+#%% check impulse response to determine truncation time (T2)
+# %matplotlib qt
+
+plt.rcParams["font.family"] = "Arial"
+plt.figure(dpi = 300,figsize=(6, 4))
+plt.plot(t * 1e9, db(h[:,0,0]), color = (0, 0, 0.8))
+plt.xlabel('Time (ns)', fontweight='bold')
+plt.ylabel('Impulse response (dB)', fontweight='bold')
+plt.grid(True)
+plt.xlim(0,100)
+plt.show()
+
+
+#%% set truncation time
+T2 = 40e-9
+
+#%% sectional convolution to obtain output responses
+H21 = H[:,0,0]
+
+# Case 1: no Tx PJ & RJ
+ty, y1, tx, x1 = sctn_conv_random_NRZ_TxFFEjitter_SEDP(H21, df, T2, Tb, Tr, Td, NpUI, 
+            [1],Vpp)
+# Case 2: Tx PJ on, no RJ
+_, y2, _, x2 = sctn_conv_random_NRZ_TxFFEjitter_SEDP(H21, df, T2, Tb, Tr, Td, NpUI, 
+            [1],Vpp,SJamp,SJfreq)
+
+# Case 3: Tx RJ on, no PJ
+_, y3, _, x3 = sctn_conv_random_NRZ_TxFFEjitter_SEDP(H21, df, T2, Tb, Tr, Td, NpUI, 
+            [1],Vpp, 0,SJfreq, RJsigma)
+
+# Case 4: Tx PJ & RJ on
+_, y4, _, x4 = sctn_conv_random_NRZ_TxFFEjitter_SEDP(H21, df, T2, Tb, Tr, Td, NpUI, 
+            [1],Vpp,SJamp,SJfreq, RJsigma)
+
+
+#%% build statistical eye
+
+eyes_x1 = fixed_rate_unifdt_stateye(x1, NpUI, dv) # (stateye, extent)
+eyes_y1 = fixed_rate_unifdt_stateye(y1, NpUI, dv)
+
+eyes_x2 = fixed_rate_unifdt_stateye(x2, NpUI, dv)
+eyes_y2 = fixed_rate_unifdt_stateye(y2, NpUI, dv)
+
+eyes_x3 = fixed_rate_unifdt_stateye(x3, NpUI, dv)
+eyes_y3 = fixed_rate_unifdt_stateye(y3, NpUI, dv)
+
+eyes_x4 = fixed_rate_unifdt_stateye(x4, NpUI, dv)
+eyes_y4 = fixed_rate_unifdt_stateye(y4, NpUI, dv)
+
+# Plot all eight eye diagrams
+fig, axs = plt.subplots(1,1,figsize=(7,4),dpi=300)
+# im = axs.imshow(np.log10(eyes_x[0]),interpolation='None',cmap='gist_ncar_r',aspect='auto',origin='lower',vmax=-1,extent=eyes_x[1])
+im = axs.imshow(np.log10(eyes_y1[0]+1e-30),cmap='gist_ncar_r',aspect='auto',origin='lower',
+                vmax=-1,vmin=-15,extent=eyes_y4[1])
+fig.colorbar(im,label=r'$\mathrm{log}_{10}$(probability)')
+axs.set_xlabel('Time (UI)')
+axs.set_ylabel('Voltage (V)')
+axs.set_title('Fixed Rate Statistical Eye (UI = %.1f ps)'%(Tb*1e12))
+axs.grid(color='lightgray')
+axs.set_ylim(-0.2,1)
+
+
+fig, axs = plt.subplots(1,1,figsize=(7,4),dpi=300)
+# im = axs.imshow(np.log10(eyes_x[0]),interpolation='None',cmap='gist_ncar_r',aspect='auto',origin='lower',vmax=-1,extent=eyes_x[1])
+im = axs.imshow(np.log10(eyes_y2[0]+1e-30),cmap='gist_ncar_r',aspect='auto',origin='lower',
+                vmax=-1,vmin=-15,extent=eyes_y4[1])
+fig.colorbar(im,label=r'$\mathrm{log}_{10}$(probability)')
+axs.set_xlabel('Time (UI)')
+axs.set_ylabel('Voltage (V)')
+axs.set_title('Fixed Rate Statistical Eye (UI = %.1f ps)'%(Tb*1e12))
+axs.grid(color='lightgray')
+axs.set_ylim(-0.2,1)
+
+fig, axs = plt.subplots(1,1,figsize=(7,4),dpi=300)
+# im = axs.imshow(np.log10(eyes_x[0]),interpolation='None',cmap='gist_ncar_r',aspect='auto',origin='lower',vmax=-1,extent=eyes_x[1])
+im = axs.imshow(np.log10(eyes_y3[0]+1e-30),cmap='gist_ncar_r',aspect='auto',origin='lower',
+                vmax=-1,vmin=-15,extent=eyes_y4[1])
+fig.colorbar(im,label=r'$\mathrm{log}_{10}$(probability)')
+axs.set_xlabel('Time (UI)')
+axs.set_ylabel('Voltage (V)')
+axs.set_title('Fixed Rate Statistical Eye (UI = %.1f ps)'%(Tb*1e12))
+axs.grid(color='lightgray')
+axs.set_ylim(-0.2,1)
+
+fig, axs = plt.subplots(1,1,figsize=(7,4),dpi=300)
+# im = axs.imshow(np.log10(eyes_x[0]),interpolation='None',cmap='gist_ncar_r',aspect='auto',origin='lower',vmax=-1,extent=eyes_x[1])
+im = axs.imshow(np.log10(eyes_y4[0]+1e-30),cmap='gist_ncar_r',aspect='auto',origin='lower',
+                vmax=-1,vmin=-15,extent=eyes_y4[1])
+fig.colorbar(im,label=r'$\mathrm{log}_{10}$(probability)')
+axs.set_xlabel('Time (UI)')
+axs.set_ylabel('Voltage (V)')
+axs.set_title('Fixed Rate Statistical Eye (UI = %.1f ps)'%(Tb*1e12))
+axs.grid(color='lightgray')
+axs.set_ylim(-0.2,1)
+
+#%% plot time-domain waveform
+'''
+tstart = 145e-9
+tend = tstart + 4e-9
+tidx = (ty>=tstart) & (ty<=tend)
+plt.figure(dpi=300,figsize=(11,3))
+plt.plot(ty[tidx], y1[tidx],'b',linewidth=2,label='Rx waveform')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend(loc='upper right',ncol=1)
+plt.grid(color='lightgray')
+
+
+#%% check input waveform
+
+tstart = 1000e-9
+tend = tstart + 4e-9
+tidx = (tx>=tstart) & (tx<=tend)
+plt.figure(dpi=300,figsize=(11,3))
+plt.plot(tx[tidx]-tstart, x1[tidx],'b',linewidth=2,label='Tx waveform')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend(loc='upper right',ncol=1)
+plt.grid(color='lightgray')
+'''
+
+# Tx jitter
+Vtx = Vpp / 2  # threshold voltage at Tx (hint: depend on Vpp)
+
+# Case 1
+vmin = eyes_x1[1][2]
+Vtidx = int((Vtx - vmin) / dv)   # vertical index of Vtx at the Case 1 eye
+jtx1 = eyes_x1[0][Vtidx, :]
+
+# Case 2
+vmin = eyes_x2[1][2]
+Vtidx = int((Vtx - vmin) / dv)
+jtx2 = eyes_x2[0][Vtidx, :]
+
+# Case 3
+vmin = eyes_x3[1][2]
+Vtidx = int((Vtx - vmin) / dv)
+jtx3 = eyes_x3[0][Vtidx, :]
+
+# Case 4
+vmin = eyes_x4[1][2]
+Vtidx = int((Vtx - vmin) / dv)
+jtx4 = eyes_x4[0][Vtidx, :]
+
+
+# Rx jitter
+Vty = Vpp * H21[0] /2 # threshold voltage at Rx (hint: Vpp and H[0])
+
+# Case 1
+vmin = eyes_y1[1][2]
+Vtidx = int((Vty - vmin) / dv)
+jty1 = eyes_y1[0][Vtidx, :]
+
+# Case 2
+vmin = eyes_y2[1][2]
+Vtidx = int((Vty - vmin) / dv)
+jty2 = eyes_y2[0][Vtidx, :]
+
+# Case 3
+vmin = eyes_y3[1][2]
+Vtidx = int((Vty - vmin) / dv)
+jty3 = eyes_y3[0][Vtidx, :]
+
+# Case 4
+vmin = eyes_y4[1][2]
+Vtidx = int((Vty - vmin) / dv)
+jty4 = eyes_y4[0][Vtidx, :]
+
+# note: these are not jitter PDF (PMF) yet
+plt.figure(dpi=250)
+plt.semilogy(jtx1,label='jtx1')
+plt.semilogy(jtx2,label='jtx2')
+plt.semilogy(jtx3,label='jtx3')
+plt.semilogy(jtx4,label='jtx4')
+plt.semilogy(jty1,label='jty1')
+plt.semilogy(jty2,label='jty2')
+plt.semilogy(jty3,label='jty3')
+plt.semilogy(jty4,label='jty4')
+plt.legend()
+
+jx_max_pos = np.argmax(jtx1) + NpUI//2
+jy_max_pos = np.argmax(jty1) + NpUI//2
+
+
+
+#%% take out only 1 UI of jitter
+jtx1 = jtx1[jx_max_pos :jx_max_pos + NpUI]
+jtx2 = jtx2[jx_max_pos :jx_max_pos + NpUI]
+jtx3 = jtx3[jx_max_pos :jx_max_pos + NpUI]
+jtx4 = jtx4[jx_max_pos :jx_max_pos + NpUI]
+
+jty1 = jty1[jy_max_pos :jy_max_pos + NpUI]
+jty2 = jty2[jy_max_pos :jy_max_pos + NpUI]
+jty3 = jty3[jy_max_pos :jy_max_pos + NpUI]
+jty4 = jty4[jy_max_pos :jy_max_pos + NpUI]
+
+# note: these are not jitter PDF (PMF) yet
+
+plt.figure(dpi=250)
+plt.semilogy(jtx1,label='jtx1')
+
+
+plt.legend()
+
+
+#%% normalize the jitter histogram to make it sum to 1
+jtx1 = jtx1 / np.sum(jtx1)
+jtx2 = jtx2 / np.sum(jtx2)
+jtx3 = jtx3 / np.sum(jtx3)
+jtx4 = jtx4 / np.sum(jtx4)
+
+jty1 = jty1 / np.sum(jty1)
+jty2 = jty2 / np.sum(jty2)
+jty3 = jty3 / np.sum(jty3)
+jty4 = jty4 / np.sum(jty4)
+
+# Note: these are jitter PMF (probability mass function),
+# not PDF (probability density function), because the value
+# at each cell is "probability" of that time bin, not the
+# "probability density". The PMF is convenient for computing
+# the jitter mean, variance, and rms. However, keep in mind
+# that in the next lecture we are going to fit the jitter
+# PDF by the Gaussian PDF. There, we need to convert PMF
+# to PDF. (Search online for the difference of PMF and PDF.)
+
+# time vector for jitter PMF, in ps
+tjp = np.linspace(-0.5, 0.5, NpUI) * Tb * 1e12  # Time vector in ps
+
+plt.figure(dpi=250)
+plt.semilogy(tjp, jtx1, label='jtx1')
+plt.semilogy(tjp, jtx2, label='jtx2')
+plt.semilogy(tjp, jtx3, label='jtx3')
+plt.semilogy(tjp, jtx4, label='jtx4')
+plt.semilogy(tjp, jty1, label='jty1')
+plt.semilogy(tjp, jty2, label='jty2')
+plt.semilogy(tjp, jty3, label='jty3')
+plt.semilogy(tjp, jty4, label='jty4')
+plt.xlabel('Time (ps)')
+plt.ylabel('Probability')
+plt.legend()
+plt.ylim(1e-6, 1)
+plt.show()
+
+
+#%% compute jitter statistics
+
+idx = np.arange(NpUI) + 1
+
+# Compute the mean of each PMF
+jtx1mean = np.sum(idx * jtx1)
+jtx2mean = np.sum(idx * jtx2)
+jtx3mean = np.sum(idx * jtx3)
+jtx4mean = np.sum(idx * jtx4)
+
+jty1mean = np.sum(idx * jty1)
+jty2mean = np.sum(idx * jty2)
+jty3mean = np.sum(idx * jty3)
+jty4mean = np.sum(idx * jty4)
+
+# Compute the variance of each PMF
+jtx1var = np.sum(((idx - jtx1mean) * dt)**2 * jtx1)
+jtx2var = np.sum(((idx - jtx2mean) * dt)**2 * jtx2)
+jtx3var = np.sum(((idx - jtx3mean) * dt)**2 * jtx3)
+jtx4var = np.sum(((idx - jtx4mean) * dt)**2 * jtx4)
+
+jty1var = np.sum(((idx - jty1mean) * dt)**2 * jty1)
+jty2var = np.sum(((idx - jty2mean) * dt)**2 * jty2)
+jty3var = np.sum(((idx - jty3mean) * dt)**2 * jty3)
+jty4var = np.sum(((idx - jty4mean) * dt)**2 * jty4)
+
+print('jtx1var =', jtx1var)
+print('jtx2var =', jtx2var)
+print('jtx3var =', jtx3var)
+print('jtx4var =', jtx4var)
+
+print('jty1var =', jty1var)
+print('jty2var =', jty2var)
+print('jty3var =', jty3var)
+print('jty4var =', jty4var)
+
+# Print RMS values
+print('jtx1rms =', np.sqrt(jtx1var))
+print('jtx2rms =', np.sqrt(jtx2var))
+print('jtx3rms =', np.sqrt(jtx3var))
+print('jtx4rms =', np.sqrt(jtx4var))
+
+print('jty1rms =', np.sqrt(jty1var))
+print('jty2rms =', np.sqrt(jty2var))
+print('jty3rms =', np.sqrt(jty3var))
+print('jty4rms =', np.sqrt(jty4var))

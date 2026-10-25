@@ -22,6 +22,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW9](homework/hw09/) | Decision-feedback equalization | Complete instructions, channel data, 1/2/3-tap automatic designs, numerical verification, anonymous report |
 | [HW10](homework/hw10/) | Differential channel simulation and equalizer design | Complete instructions, rewritten CTLE/FFE/DFE solver, four eyes, independent full-record verification, anonymous report |
 | [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
+| [HW12](homework/hw12/) | Jitter simulation and basic analysis | Complete instructions, corrected streaming simulation, four full-length cases, independent checks, anonymous report |
 
 ## Reproduce
 
@@ -43,6 +44,7 @@ python homework/hw09/verify_results.py
 python homework/hw10/src/hw10.py --validation
 python homework/hw10/tests/verify_reference.py
 python homework/hw11/analyze.py
+python homework/hw12/src/hw12.py
 python -m unittest discover -s tests -v
 ```
 
@@ -129,6 +131,15 @@ the required EH > 120 mV and EW > 15 ps; the main run gives 144.871 mV and
 15.811 ps. A separate full-waveform implementation verifies all four stages,
 and halving the time step confirms numerical convergence. These are finite,
 noiseless simulation results; the optional ADS comparison was not run.
+
+HW12 is documented in [its guide](homework/hw12/). Its full baseline evaluates
+2^20 bits per case at 200 samples/UI using bounded-memory filtering. Independent
+tests and saved-result checks can be run with:
+
+```sh
+python -m unittest discover -s homework/hw12/tests -v
+python homework/hw12/tests/verify_results.py
+```
 
 - `homework/hw01/instructions/`: supplied assignment, waveform data, reference
   example, and checksums for the uploaded copies.
