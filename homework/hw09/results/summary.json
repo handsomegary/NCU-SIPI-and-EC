@@ -1,0 +1,309 @@
+{
+  "assignment": "HW9 DFE simulation and design",
+  "model": {
+    "data_rate_gbps": 40,
+    "ui_ps": 25,
+    "rise_time_ps": 5,
+    "source_vpp_v": 2,
+    "sample_step_ps": 0.5,
+    "samples_per_ui": 50,
+    "channel_transfer": "S21/2",
+    "reference_impedance_ohm": 50.0,
+    "frequency_points": 8001,
+    "frequency_step_mhz": 10.0,
+    "max_frequency_ghz": 80.0,
+    "kaiser_alpha": 0.5,
+    "impulse_truncation_ns": 20,
+    "payload_bits": 65536,
+    "guard_bits_each_side": 810,
+    "seed": 20261025,
+    "sequence": "Seeded independent Bernoulli(0.5) bits, not an LFSR PRBS",
+    "decision_alphabet": [
+      0,
+      1
+    ],
+    "initial_history": 0,
+    "noise": "None; no jitter or component nonidealities modeled"
+  },
+  "method": {
+    "phase_search": "Exactly 50 consecutive sample latencies centered near the SBR maximum; first maximum wins",
+    "threshold": "Midpoint between correct-history worst-case 0 upper bound and 1 lower bound",
+    "tap_units": "V per logical 1; additive feedback c_j=-a_j; no tap normalization",
+    "truth_alignment": "Source bit k sampled at k*50 + full_latency; phase alone is insufficient",
+    "eye_node": "Summer output, before slicer"
+  },
+  "verification": {
+    "sectional_vs_whole_fft_max_abs_v": 5.551115123125783e-16,
+    "analytic_vs_discrete_sbr_peak_region_max_abs_v": 4.762901927196639e-05,
+    "finite_fir_dc_gain": 0.4834345494104648,
+    "frequency_dc_gain": 0.484733287,
+    "finite_fir_dc_difference": -0.0012987375895351927,
+    "input_data_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+    "truncation_20_to_40_ns": {
+      "1": {
+        "fixed_latency_threshold_change_v": 0.0002498956507391292,
+        "fixed_latency_eye_bound_change_v": -0.0004997162656013576,
+        "max_tap_change_v": 2.7755575615628914e-17
+      },
+      "2": {
+        "fixed_latency_threshold_change_v": 0.0002498956507390737,
+        "fixed_latency_eye_bound_change_v": -0.0004997063443157312,
+        "max_tap_change_v": 1.3877787807814457e-17
+      },
+      "3": {
+        "fixed_latency_threshold_change_v": 0.0002498956507390182,
+        "fixed_latency_eye_bound_change_v": -0.000499700682752402,
+        "max_tap_change_v": 0.0
+      }
+    }
+  },
+  "cases": [
+    {
+      "design": {
+        "tap_count": 1,
+        "latency_samples": 5801,
+        "phase_samples": 1,
+        "main_cursor_v": 0.3889769178448912,
+        "taps_v": [
+          -0.18809123882788684
+        ],
+        "threshold_v": 0.38938892999652136,
+        "low_upper_v": 0.38980098905684935,
+        "high_lower_v": 0.3889768709361934,
+        "worst_case_eye_v": -0.00082411812065597,
+        "residual_abs_sum_v": 0.38980103596554716,
+        "residual_sum_v": 0.38980094214815153,
+        "cursor_offset_min": -116,
+        "cursor_offset_max": 685
+      },
+      "metrics": {
+        "evaluated_bits": 65536,
+        "errors": 0,
+        "observed_error_fraction": 0.0,
+        "observed_low_max_v": 0.3544100722175781,
+        "observed_high_min_v": 0.42813361084013696,
+        "observed_eye_v": 0.07372353862255887,
+        "minimum_signed_margin_v": 0.03497885777894327,
+        "first_error_payload_bit": null
+      },
+      "raw_channel": {
+        "evaluated_bits": 65536,
+        "errors": 1162,
+        "observed_error_fraction": 0.017730712890625,
+        "observed_low_max_v": 0.5364176864203518,
+        "observed_high_min_v": 0.42813361084013696,
+        "observed_eye_v": -0.10828407558021486,
+        "minimum_signed_margin_v": -0.05530093857032781,
+        "first_error_payload_bit": 77
+      },
+      "raw_channel_threshold_v": 0.48343454941046476,
+      "verification": {
+        "waveform_vs_scalar_max_abs_v": 0.0,
+        "waveform_vs_scalar_decision_mismatches": 0,
+        "source_bits_cursor_reconstruction_max_abs_v": 9.992007221626409e-16,
+        "correct_history_bound_available": false,
+        "observed_gap_minus_bound_v": 0.07454765674321484,
+        "histogram_samples": 3276800,
+        "column_normalization_max_error": 0.0,
+        "voltage_bins": 420
+      },
+      "snapshot": {
+        "file": "waveform_1tap.png",
+        "csv": "waveform_1tap.csv",
+        "start_sample": 71376,
+        "start_time_s": 3.5688e-08,
+        "samples": 2001,
+        "duration_ns": 1.0,
+        "scored_decisions_in_snapshot": 40,
+        "errors_in_snapshot": 0
+      },
+      "eye_file": "eye_1tap.png"
+    },
+    {
+      "design": {
+        "tap_count": 2,
+        "latency_samples": 5800,
+        "phase_samples": 0,
+        "main_cursor_v": 0.38708161741421715,
+        "taps_v": [
+          -0.19158650146514328,
+          -0.08750247459206367
+        ],
+        "threshold_v": 0.3438900613818613,
+        "low_upper_v": 0.3006985656943861,
+        "high_lower_v": 0.3870815570693365,
+        "worst_case_eye_v": 0.08638299137495042,
+        "residual_abs_sum_v": 0.3006986260392667,
+        "residual_sum_v": 0.30069850534950543,
+        "cursor_offset_min": -116,
+        "cursor_offset_max": 685
+      },
+      "metrics": {
+        "evaluated_bits": 65536,
+        "errors": 0,
+        "observed_error_fraction": 0.0,
+        "observed_low_max_v": 0.26529611698837385,
+        "observed_high_min_v": 0.42624251346617387,
+        "observed_eye_v": 0.1609463964778,
+        "minimum_signed_margin_v": 0.07859394439348744,
+        "first_error_payload_bit": null
+      },
+      "raw_channel": {
+        "evaluated_bits": 65536,
+        "errors": 1360,
+        "observed_error_fraction": 0.020751953125,
+        "observed_low_max_v": 0.5383117951498706,
+        "observed_high_min_v": 0.42624251346617387,
+        "observed_eye_v": -0.11206928168369673,
+        "minimum_signed_margin_v": -0.05719203594429084,
+        "first_error_payload_bit": 77
+      },
+      "raw_channel_threshold_v": 0.4834345494104647,
+      "verification": {
+        "waveform_vs_scalar_max_abs_v": 1.1102230246251565e-16,
+        "waveform_vs_scalar_decision_mismatches": 0,
+        "source_bits_cursor_reconstruction_max_abs_v": 1.1102230246251565e-15,
+        "correct_history_bound_available": true,
+        "observed_gap_minus_bound_v": 0.07456340510284959,
+        "histogram_samples": 3276800,
+        "column_normalization_max_error": 0.0,
+        "voltage_bins": 420
+      },
+      "snapshot": {
+        "file": "waveform_2tap.png",
+        "csv": "waveform_2tap.csv",
+        "start_sample": 71375,
+        "start_time_s": 3.56875e-08,
+        "samples": 2001,
+        "duration_ns": 1.0,
+        "scored_decisions_in_snapshot": 40,
+        "errors_in_snapshot": 0
+      },
+      "eye_file": "eye_2tap.png"
+    },
+    {
+      "design": {
+        "tap_count": 3,
+        "latency_samples": 5799,
+        "phase_samples": 49,
+        "main_cursor_v": 0.3846242249658489,
+        "taps_v": [
+          -0.19516902797115115,
+          -0.0886552802033861,
+          -0.05047009370153971
+        ],
+        "threshold_v": 0.3162873484724264,
+        "low_upper_v": 0.24795054531581678,
+        "high_lower_v": 0.384624151629036,
+        "worst_case_eye_v": 0.13667360631321923,
+        "residual_abs_sum_v": 0.24795061865262966,
+        "residual_sum_v": 0.2479504719790039,
+        "cursor_offset_min": -115,
+        "cursor_offset_max": 685
+      },
+      "metrics": {
+        "evaluated_bits": 65536,
+        "errors": 0,
+        "observed_error_fraction": 0.0,
+        "observed_low_max_v": 0.21253592714969965,
+        "observed_high_min_v": 0.4192189387107181,
+        "observed_eye_v": 0.20668301156101843,
+        "minimum_signed_margin_v": 0.10293159023829168,
+        "first_error_payload_bit": null
+      },
+      "raw_channel": {
+        "evaluated_bits": 65536,
+        "errors": 1606,
+        "observed_error_fraction": 0.024505615234375,
+        "observed_low_max_v": 0.5407672104455926,
+        "observed_high_min_v": 0.4237900567084109,
+        "observed_eye_v": -0.1169771537371817,
+        "minimum_signed_margin_v": -0.05964449270205391,
+        "first_error_payload_bit": 77
+      },
+      "raw_channel_threshold_v": 0.4834345494104648,
+      "verification": {
+        "waveform_vs_scalar_max_abs_v": 1.1102230246251565e-16,
+        "waveform_vs_scalar_decision_mismatches": 0,
+        "source_bits_cursor_reconstruction_max_abs_v": 9.992007221626409e-16,
+        "correct_history_bound_available": true,
+        "observed_gap_minus_bound_v": 0.0700094052477992,
+        "histogram_samples": 3276800,
+        "column_normalization_max_error": 0.0,
+        "voltage_bins": 420
+      },
+      "snapshot": {
+        "file": "waveform_3tap.png",
+        "csv": "waveform_3tap.csv",
+        "start_sample": 71374,
+        "start_time_s": 3.5687e-08,
+        "samples": 2001,
+        "duration_ns": 1.0,
+        "scored_decisions_in_snapshot": 40,
+        "errors_in_snapshot": 0
+      },
+      "eye_file": "eye_3tap.png"
+    }
+  ],
+  "stress": {
+    "label": "Deliberate threshold mistuning, separate from baseline",
+    "threshold_v": 0.5470618834519357,
+    "metrics": {
+      "evaluated_bits": 65536,
+      "errors": 14439,
+      "observed_error_fraction": 0.2203216552734375,
+      "observed_low_max_v": 0.3846185322889965,
+      "observed_high_min_v": 0.4237900567084109,
+      "observed_eye_v": 0.039171524419414405,
+      "minimum_signed_margin_v": -0.12327182674352483,
+      "first_error_payload_bit": 1
+    },
+    "first_error": {
+      "payload_bit": 1,
+      "true_bit": 1,
+      "decision": 0,
+      "post_channel_v": 0.508835021825935,
+      "summer_v": 0.508835021825935,
+      "threshold_v": 0.5470618834519357,
+      "source_context_start": 0,
+      "source_context": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "snapshot": {
+      "file": "stress_threshold.png",
+      "csv": "stress_threshold.csv",
+      "start_sample": 46274,
+      "start_time_s": 2.3137e-08,
+      "samples": 2001,
+      "duration_ns": 1.0,
+      "scored_decisions_in_snapshot": 40,
+      "errors_in_snapshot": 11
+    }
+  },
+  "injected_error": {
+    "label": "One forced decision flip; artificial diagnostic",
+    "payload_bit": 512,
+    "forced_from": 0,
+    "forced_to": 1,
+    "extra_decision_changes_after_injection": 0,
+    "next_three_voltage_changes_v": [
+      -0.19516902797115115,
+      -0.08865528020338609,
+      -0.05047009370153971
+    ],
+    "csv": "injected_error.csv"
+  },
+  "limitations": [
+    "Worst-case bounds are conditional on correct previous decisions.",
+    "Observed error fraction is a finite noiseless record result, not a physical BER estimate.",
+    "FIR is truncated at 20 ns; spectrum above 80 GHz is zero; Kaiser alpha is 0.5.",
+    "No ADS ChannelSim comparison was performed (optional assignment part)."
+  ]
+}

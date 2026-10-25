@@ -19,6 +19,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW6](homework/hw06/) | Peak distortion analysis | Complete instructions, rewritten solver, random and supplied-pattern eyes, independent full-record verification, anonymous report |
 | [HW7](homework/hw07/) | CTLE design and simulation | All supplied instruction files, portable rewritten solver, independently checked eye height, three waveform comparisons, anonymous report |
 | [HW8](homework/hw08/) | Transmitter FFE design and simulation | Assignment, template, channel data, five ZF configurations, waveform snapshots, numerical checks, anonymous report |
+| [HW9](homework/hw09/) | Decision-feedback equalization | Complete instructions, channel data, 1/2/3-tap automatic designs, numerical verification, anonymous report |
 
 ## Reproduce
 
@@ -35,6 +36,8 @@ python homework/hw06/src/hw6.py
 python homework/hw07/src/hw7.py
 python homework/hw07/tests/verify_reference.py
 python homework/hw08/analyze.py
+python homework/hw09/analyze.py
+python homework/hw09/verify_results.py
 python -m unittest discover -s tests -v
 ```
 
@@ -119,6 +122,8 @@ complete input files, regenerated eye diagrams, and anonymous report.
 - `homework/hw08/analyze.py`: rewritten five-case transmitter FFE simulation.
 - `homework/hw08/results/`: eye diagrams, waveform snapshots, tap values, and checks.
 - `homework/hw08/report/`: anonymous report and its reproducible source.
+- `homework/hw09/`: supplied DFE instructions and channel data, automatic tap/phase/threshold design,
+  three verified summer-output eyes, 1 ns snapshots, independent checks and an anonymous report.
 - `tests/`: automated numerical checks.
 - `homework/hw02/`: complete HW2 material, its verified implementation and tests,
   numerical results, and anonymous report with a full source appendix.
@@ -167,5 +172,11 @@ repository ownership. Original course materials retain their existing provenance
 no ownership or blanket license is claimed over supplied reference materials.
 
 Use **NCU-SIPI-and-EC** as the consolidated course repository. The combined
-verification includes the coursework workflow for HW1, HW3, HW6, HW7, and HW8, plus
+verification includes the coursework workflow for HW1, HW3, HW6, HW7, HW8, and HW9, plus
 the dedicated HW2, HW4, and HW5 workflows.
+
+HW9 evaluates one-, two- and three-tap 0/1 DFE with matched S21/2 scaling.
+Every saved decision is checked against the source bits at full channel latency.
+Its one-tap worst-case bound is nonpositive even though no errors occur in the
+65,536-bit noiseless record; the report distinguishes this from the positive
+two-/three-tap bounds and from deliberately mistuned error examples.

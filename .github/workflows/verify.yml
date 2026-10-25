@@ -27,3 +27,6 @@ jobs:
       - run: python homework/hw07/tests/verify_reference.py
       - run: python homework/hw07/src/hw7.py --output /tmp/hw07-results
       - run: python homework/hw08/analyze.py --bits 4096 --output /tmp/hw08-results
+      - run: python homework/hw09/verify_inputs.py
+      - run: python homework/hw09/verify_results.py
+      - run: python homework/hw09/analyze.py --bits 4096 --output /tmp/hw09-results

@@ -1,0 +1,10 @@
+{
+  "successful": true,
+  "tests_run": 66,
+  "hw09_tests": 20,
+  "failures": 0,
+  "errors": 0,
+  "command": "python -m unittest discover -s tests -v",
+  "python_version": "3.12.14",
+  "scope": "Repository root numerical suite, including 20 independent HW9 tests"
+}

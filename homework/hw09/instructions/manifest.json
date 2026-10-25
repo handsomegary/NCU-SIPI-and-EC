@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "path": "instructions/HW9_DFE.pdf",
+      "sha256": "73a3fc8d52c660e0a057d07cbc567c774064e7bc5e10b1a3e29d0f980dcd8e5f",
+      "role": "Supplied assignment material, unchanged"
+    },
+    {
+      "path": "instructions/HW9_DFE_sample.py",
+      "sha256": "2304da9963796a43d72f5fe5bcecda549c1aa4b0cb5234b4acc2ee3145f55fb5",
+      "role": "Supplied assignment material, unchanged"
+    },
+    {
+      "path": "data/HW7_stripline_50cm.s2p",
+      "sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+      "role": "Supplied channel data, unchanged"
+    },
+    {
+      "path": "instructions/snpreader.py",
+      "sha256": "3b6fc0f1fe080c94cca21e5d3dc9afae9d671e462884b0482d03d8597dac02af",
+      "role": "Supplied legacy helper; reference only"
+    },
+    {
+      "path": "instructions/cautions.txt",
+      "sha256": "f59ee93d15b752e3f82cbbe9db1529b0385c877af51615800ac885a1265accc5",
+      "role": "Supplied legacy note; reference only"
+    }
+  ],
+  "privacy": "Original identifying student source and report are replaced by anonymous rewritten deliverables. Original local files are preserved."
+}

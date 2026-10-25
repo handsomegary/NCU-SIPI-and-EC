@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "source_sha256": "564560062e750405e89cadbb8be73cc7a40ad3188d19383ebbfe1e22723f5efc",
+  "oracle": "Independent NumPy inverse FFT, direct pulse convolution, source-bit polyphase convolution, scalar history decisions, and local held-feedback reconstruction; no production solver imports",
+  "tolerances": {
+    "voltage_abs_v": 2e-10,
+    "time_abs_ps": 1e-09
+  },
+  "payload_bits_per_case": 65536,
+  "pre_payload_history_verified": true,
+  "cases": [
+    {
+      "tap_count": 1,
+      "decisions_verified": 65536,
+      "post_channel_samples_max_abs_v": 8.881784197001252e-16,
+      "post_dfe_samples_max_abs_v": 7.771561172376096e-16,
+      "errors_verified": 0,
+      "raw_errors_verified": 1162,
+      "phase_candidates_verified": 50,
+      "snapshot": {
+        "file": "waveform_1tap.csv",
+        "samples_verified": 2001,
+        "post_channel_max_abs_v": 7.771561172376096e-16,
+        "post_dfe_max_abs_v": 6.661338147750939e-16,
+        "errors_verified": 0
+      }
+    },
+    {
+      "tap_count": 2,
+      "decisions_verified": 65536,
+      "post_channel_samples_max_abs_v": 8.881784197001252e-16,
+      "post_dfe_samples_max_abs_v": 9.992007221626409e-16,
+      "errors_verified": 0,
+      "raw_errors_verified": 1360,
+      "phase_candidates_verified": 50,
+      "snapshot": {
+        "file": "waveform_2tap.csv",
+        "samples_verified": 2001,
+        "post_channel_max_abs_v": 7.771561172376096e-16,
+        "post_dfe_max_abs_v": 6.661338147750939e-16,
+        "errors_verified": 0
+      }
+    },
+    {
+      "tap_count": 3,
+      "decisions_verified": 65536,
+      "post_channel_samples_max_abs_v": 9.992007221626409e-16,
+      "post_dfe_samples_max_abs_v": 9.992007221626409e-16,
+      "errors_verified": 0,
+      "raw_errors_verified": 1606,
+      "phase_candidates_verified": 50,
+      "snapshot": {
+        "file": "waveform_3tap.csv",
+        "samples_verified": 2001,
+        "post_channel_max_abs_v": 6.661338147750939e-16,
+        "post_dfe_max_abs_v": 6.661338147750939e-16,
+        "errors_verified": 0
+      }
+    }
+  ],
+  "stress": {
+    "errors_verified": 14439,
+    "snapshot": {
+      "file": "stress_threshold.csv",
+      "samples_verified": 2001,
+      "post_channel_max_abs_v": 6.661338147750939e-16,
+      "post_dfe_max_abs_v": 5.551115123125783e-16,
+      "errors_verified": 11
+    }
+  },
+  "injected_error": {
+    "rows_verified": 12,
+    "maximum_abs_v": 5.551115123125783e-16,
+    "subsequent_decision_changes_verified": 0
+  },
+  "limitations": [
+    "Finite noiseless model verification; observed error fractions are not physical BER estimates.",
+    "Worst-case residual bounds assume correct previous decisions.",
+    "Eye image existence and complete sample count are checked; raster pixels and every histogram bin are not independently regenerated."
+  ]
+}
