@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "path_base": "parent of instructions directory",
+  "description": "SHA-256 integrity manifest for course instructions, provided legacy inputs, verified HW12 inputs and neutral reference copies.",
+  "files": {
+    "instructions/HW13_BER_extrapolation.pdf": {
+      "sha256": "fd7c226cedd4c3f9c0a413ec21f1423e9c595537ba1bcb2ac6a65c83b06d6568",
+      "bytes": 791084
+    },
+    "instructions/HW13_BER_extrapolation_sample.py": {
+      "sha256": "c48fff4d77e0500b8c6d5847b9cc0db71adbd0b274558c12f4638a764931b360",
+      "bytes": 2829
+    },
+    "inputs/hw12_source_summary.json": {
+      "sha256": "8137f22790dd3df93d3f944ced008bbb3ee526518c4d76c0969b406f0a8fc920",
+      "bytes": 3787
+    },
+    "inputs/hw12_verified_jitter.csv": {
+      "sha256": "b5281e7bcc7db937c70d03a62453edb498615b7b95060fc2fe9f556abae52a18",
+      "bytes": 77827
+    },
+    "inputs/jitter_variables_for_hw13.csv": {
+      "sha256": "5750f92a0b0037aa9637d7733f0f60990e6af037ca6c8d92e341389c90713142",
+      "bytes": 24823
+    },
+    "reference/legacy_adjacent_analysis.py.txt": {
+      "sha256": "128c27f8b1dfb626e3e91422601e800ca26773805dc4711dad7259b35818eecf",
+      "bytes": 7114
+    },
+    "reference/legacy_archived_analysis.py.txt": {
+      "sha256": "ef64746b284355b252de88cd6c34d93bfaee873cd4ed7d8e46b9858b9cfedf51",
+      "bytes": 7032
+    },
+    "reference/README.md": {
+      "sha256": "3629f027ba83156991ac2673d8cbf32cf25a01fea806d1d60107690470da0728",
+      "bytes": 1767
+    }
+  }
+}

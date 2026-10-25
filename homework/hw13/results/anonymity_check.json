@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "scope": "Staged HW13 names, text, PDF extracted text and PDF metadata; report pages also visually reviewed.",
+  "files_checked": 30,
+  "pdfs": [
+    {
+      "file": "instructions/HW13_BER_extrapolation.pdf",
+      "pages": 4,
+      "author": "",
+      "sha256": "fd7c226cedd4c3f9c0a413ec21f1423e9c595537ba1bcb2ac6a65c83b06d6568"
+    },
+    {
+      "file": "report/report.pdf",
+      "pages": 6,
+      "author": "",
+      "sha256": "efbfc7bf925cbb343754769a66d2a124b3a8017444ba2f123a7b6699c6d62048"
+    }
+  ],
+  "identity_matches": 0,
+  "notes": [
+    "Original identifying reports and archive names are excluded.",
+    "GitHub repository ownership remains visible."
+  ]
+}

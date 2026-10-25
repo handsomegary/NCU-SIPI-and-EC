@@ -1,0 +1,221 @@
+{
+  "passed": true,
+  "python": "3.14.4",
+  "independent_oracles": [
+    "math.erfc Gaussian tails",
+    "analytic uniform-cell mass integration",
+    "golden-section minima and bisection roots"
+  ],
+  "production_module_imported": false,
+  "checks": [
+    {
+      "check": "primary provenance and PMF/PDF units",
+      "groups": 8,
+      "sha256": "b5281e7bcc7db937c70d03a62453edb498615b7b95060fc2fe9f556abae52a18"
+    },
+    {
+      "check": "all primary and corrected legacy empirical exports",
+      "groups": 16,
+      "bins": 3200
+    },
+    {
+      "check": "all saved model minima, stationarity, roots and widths with math.erfc",
+      "models": 26,
+      "details": [
+        {
+          "model": "primary/case3_rj",
+          "minimum_ber_erfc": 2.945528382498686e-13,
+          "optimal_time_ps_erfc": 24.00379075366419,
+          "relative_stationarity_residual": 1.5086588637901408e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "primary/case4_sj_rj",
+          "minimum_ber_erfc": 2.3040829419108633e-08,
+          "optimal_time_ps_erfc": 24.23098368885769,
+          "relative_stationarity_residual": 4.379598400765584e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/0/case3_rj",
+          "minimum_ber_erfc": 2.0928334110344757e-11,
+          "optimal_time_ps_erfc": 24.288459208814274,
+          "relative_stationarity_residual": 6.094647989795156e-08,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/1/case3_rj",
+          "minimum_ber_erfc": 1.958102720906419e-11,
+          "optimal_time_ps_erfc": 24.302425838884915,
+          "relative_stationarity_residual": 5.240577983294954e-08,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/2/case3_rj",
+          "minimum_ber_erfc": 2.2028850278104935e-11,
+          "optimal_time_ps_erfc": 24.288191824419343,
+          "relative_stationarity_residual": 5.368071008354017e-09,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/3/case3_rj",
+          "minimum_ber_erfc": 3.5479335060889133e-13,
+          "optimal_time_ps_erfc": 24.048138299600517,
+          "relative_stationarity_residual": 6.910657448558534e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/4/case3_rj",
+          "minimum_ber_erfc": 2.945528382498686e-13,
+          "optimal_time_ps_erfc": 24.00379075366419,
+          "relative_stationarity_residual": 1.5086588637901408e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/5/case3_rj",
+          "minimum_ber_erfc": 2.4407165543899286e-13,
+          "optimal_time_ps_erfc": 24.001904628085356,
+          "relative_stationarity_residual": 3.867784083316512e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/6/case3_rj",
+          "minimum_ber_erfc": 1.5725331468374324e-14,
+          "optimal_time_ps_erfc": 24.504234638713754,
+          "relative_stationarity_residual": 1.029880492960874e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/7/case3_rj",
+          "minimum_ber_erfc": 1.8190897756896733e-13,
+          "optimal_time_ps_erfc": 23.942975917188058,
+          "relative_stationarity_residual": 6.121334492750502e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/8/case3_rj",
+          "minimum_ber_erfc": 1.93038181715879e-13,
+          "optimal_time_ps_erfc": 23.934578310632453,
+          "relative_stationarity_residual": 1.3253619939036905e-06,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/9/case4_sj_rj",
+          "minimum_ber_erfc": 1.7092969993995823e-08,
+          "optimal_time_ps_erfc": 23.785741188299077,
+          "relative_stationarity_residual": 5.632848623842995e-09,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/10/case4_sj_rj",
+          "minimum_ber_erfc": 2.0660702209979137e-08,
+          "optimal_time_ps_erfc": 24.132753373436714,
+          "relative_stationarity_residual": 5.767972609419133e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/11/case4_sj_rj",
+          "minimum_ber_erfc": 3.293659451297506e-08,
+          "optimal_time_ps_erfc": 24.120686983822985,
+          "relative_stationarity_residual": 5.258573066304887e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/12/case4_sj_rj",
+          "minimum_ber_erfc": 1.3473727966863527e-08,
+          "optimal_time_ps_erfc": 24.371973608286815,
+          "relative_stationarity_residual": 4.990157432033948e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/13/case4_sj_rj",
+          "minimum_ber_erfc": 2.3040829419108633e-08,
+          "optimal_time_ps_erfc": 24.23098368885769,
+          "relative_stationarity_residual": 4.379598400765584e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/14/case4_sj_rj",
+          "minimum_ber_erfc": 4.324168182641717e-08,
+          "optimal_time_ps_erfc": 24.175388591787225,
+          "relative_stationarity_residual": 5.20710375349872e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/15/case4_sj_rj",
+          "minimum_ber_erfc": 4.5027412023902074e-08,
+          "optimal_time_ps_erfc": 23.960481695275142,
+          "relative_stationarity_residual": 5.96245820773074e-08,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/16/case4_sj_rj",
+          "minimum_ber_erfc": 4.620395469446389e-08,
+          "optimal_time_ps_erfc": 23.934323046917797,
+          "relative_stationarity_residual": 1.6570132728607105e-08,
+          "targets_checked": 4
+        },
+        {
+          "model": "sensitivity/17/case4_sj_rj",
+          "minimum_ber_erfc": 7.626037632136676e-08,
+          "optimal_time_ps_erfc": 23.72270233483875,
+          "relative_stationarity_residual": 2.1709943295710783e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "legacy_refit/case3_rj",
+          "minimum_ber_erfc": 3.49804838761269e-13,
+          "optimal_time_ps_erfc": 24.284320174909816,
+          "relative_stationarity_residual": 7.631500106571216e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "legacy_refit/case4_sj_rj",
+          "minimum_ber_erfc": 9.38723025724475e-09,
+          "optimal_time_ps_erfc": 24.46633164119526,
+          "relative_stationarity_residual": 1.8872368772448329e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "historical/archive_case3",
+          "minimum_ber_erfc": 2.0670451028602304e-12,
+          "optimal_time_ps_erfc": 24.01888896983911,
+          "relative_stationarity_residual": 1.7778042525391597e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "historical/archive_case4",
+          "minimum_ber_erfc": 2.65110657394502e-08,
+          "optimal_time_ps_erfc": 24.187197687283124,
+          "relative_stationarity_residual": 4.789780270003513e-07,
+          "targets_checked": 4
+        },
+        {
+          "model": "historical/standalone_case3",
+          "minimum_ber_erfc": 6.261213124498002e-14,
+          "optimal_time_ps_erfc": 23.722223211394315,
+          "relative_stationarity_residual": 1.018083415213307e-06,
+          "targets_checked": 4
+        },
+        {
+          "model": "historical/standalone_case4",
+          "minimum_ber_erfc": 2.5286050744104946e-08,
+          "optimal_time_ps_erfc": 23.64576995996056,
+          "relative_stationarity_residual": 9.018995662174579e-07,
+          "targets_checked": 4
+        }
+      ]
+    },
+    {
+      "check": "independent audit baselines and explicit closed-eye semantics"
+    },
+    {
+      "check": "every saved bathtub ordinate",
+      "sampled_curves": 8,
+      "model_curves": 2,
+      "time_points": 4001,
+      "maximum_sampled_absolute_error": 3.3306690738754696e-16,
+      "maximum_model_relative_error": 1.7494294002355655e-14
+    }
+  ]
+}

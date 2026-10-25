@@ -1,0 +1,116 @@
+{
+  "source": {
+    "repository_path": "homework/hw12/results/jitter_distributions.csv",
+    "sha256": "b5281e7bcc7db937c70d03a62453edb498615b7b95060fc2fe9f556abae52a18",
+    "summary_repository_path": "homework/hw12/results/summary.json",
+    "summary_sha256": "5c8dd23774be585fe5ea5e3530a056329bc81d224235a46605b8150ed7f0a4ec",
+    "copied_input": "inputs/hw12_verified_jitter.csv"
+  },
+  "parameters": {
+    "bits": 1048576,
+    "points_per_ui": 200,
+    "block_bits": 4096,
+    "seed": 0,
+    "ui_seconds": 2.5e-11,
+    "rise_seconds": 5e-12,
+    "dt_seconds": 1.25e-13,
+    "dv_volts": 0.001,
+    "vpp_volts": 1.0,
+    "sj_peak_seconds": 3e-12,
+    "sj_frequency_hz": 1000000.0,
+    "rj_sigma_seconds": 1e-12,
+    "rs_ohms": 20.0,
+    "rl_ohms": 85.0,
+    "cs_farads": 3e-13,
+    "cl_farads": 3e-13,
+    "kaiser_a": 0.5,
+    "truncation_seconds": 4e-08,
+    "warmup_bits": 1602,
+    "threshold_tx_volts": 0.5,
+    "threshold_rx_volts": 0.40319292088966,
+    "evaluated_sj_cycles": 26.2144,
+    "jitter_model": "nearest-sample displacement of linear-ramp start; np.rint ties-to-even; no clipping",
+    "quantization_error_bound_seconds": 6.25e-14,
+    "guard_bits_each_side": 2,
+    "requested_bits": 1048576,
+    "analyzed_bits": 1048576,
+    "rng": "PCG64, independent SeedSequence([seed,11]) bits and [seed,29] normal jitter",
+    "evaluation": "exact bit count after FIR-length warmup; no padded zero tail",
+    "rms_definition": "standard deviation (RMS after subtracting mean)"
+  },
+  "checks": {
+    "exact_evaluated_bits": true,
+    "finite_outputs": true,
+    "pmfs_sum_to_one": true,
+    "pdfs_integrate_to_one": true,
+    "zero_probabilities_preserved": true
+  },
+  "cases": {
+    "case1_no_tx_jitter": {
+      "name": "No Tx jitter",
+      "sj_peak_seconds": 0.0,
+      "rj_sigma_seconds": 0.0,
+      "tx": {
+        "observation_count": 524108.0,
+        "reference_index": 20,
+        "threshold_volts": 0.5
+      },
+      "rx": {
+        "observation_count": 134840.0,
+        "reference_index": 86,
+        "threshold_volts": 0.40319292088966
+      }
+    },
+    "case2_sj": {
+      "name": "SJ only",
+      "sj_peak_seconds": 3e-12,
+      "rj_sigma_seconds": 0.0,
+      "tx": {
+        "observation_count": 524108.0,
+        "reference_index": 20,
+        "threshold_volts": 0.5
+      },
+      "rx": {
+        "observation_count": 134742.0,
+        "reference_index": 86,
+        "threshold_volts": 0.40319292088966
+      }
+    },
+    "case3_rj": {
+      "name": "RJ only",
+      "sj_peak_seconds": 0.0,
+      "rj_sigma_seconds": 1e-12,
+      "tx": {
+        "observation_count": 524108.0,
+        "reference_index": 20,
+        "threshold_volts": 0.5
+      },
+      "rx": {
+        "observation_count": 135727.0,
+        "reference_index": 86,
+        "threshold_volts": 0.40319292088966
+      }
+    },
+    "case4_sj_rj": {
+      "name": "SJ + RJ",
+      "sj_peak_seconds": 3e-12,
+      "rj_sigma_seconds": 1e-12,
+      "tx": {
+        "observation_count": 524108.0,
+        "reference_index": 20,
+        "threshold_volts": 0.5
+      },
+      "rx": {
+        "observation_count": 136081.0,
+        "reference_index": 86,
+        "threshold_volts": 0.40319292088966
+      }
+    }
+  },
+  "notes": [
+    "Primary inputs are the verified HW12 horizontal eye-slice distributions, not crossing-event distributions.",
+    "The verified simulation analyzed exactly 1048576 bits and preserved zero-probability cells.",
+    "Each side has 200 fixed-rate time samples with 0.125 ps spacing; baseline mode references are held fixed across cases.",
+    "Observation counts are threshold-voltage occupancy counts, not the total number of transmitted bits."
+  ]
+}

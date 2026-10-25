@@ -1,0 +1,35 @@
+name: Verify HW13 BER extrapolation
+
+on:
+  push:
+    paths:
+      - 'homework/hw13/**'
+      - '.github/workflows/verify-hw13.yml'
+      - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'homework/hw13/**'
+      - '.github/workflows/verify-hw13.yml'
+      - 'requirements.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-hw13:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python homework/hw13/verify_inputs.py
+      - run: python -m unittest discover -s homework/hw13/tests -v
+      - run: python homework/hw13/tests/verify_results.py
+      - name: Reproduce all fits and figures in a clean directory
+        run: python homework/hw13/src/hw13.py --output "$RUNNER_TEMP/hw13-clean"
+      - name: Verify freshly regenerated results
+        run: python homework/hw13/tests/verify_results.py --results "$RUNNER_TEMP/hw13-clean"

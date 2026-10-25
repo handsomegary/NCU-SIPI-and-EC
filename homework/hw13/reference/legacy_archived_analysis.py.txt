@@ -1,0 +1,243 @@
+import numpy as np
+import csv
+import matplotlib.pyplot as plt
+
+#%% Copy the code of the last homework here
+def read_csv(filename):
+    data = []  # 創建一個空列表來存儲讀取的數據
+    with open(filename, "r", newline="") as csvfile:
+        reader = csv.reader(csvfile)
+        headers = next(reader)  # 讀取第一行作為列標題
+        for row in reader:
+            data.append(row)  # 將每一行數據添加到列表中
+    return headers, data
+
+# 要讀取的 CSV 文件名稱
+filename = "jitter_variables_for_hw13.csv"
+
+# 調用函數並打印數據
+headers, data = read_csv(filename)
+
+data = np.array(data)
+
+
+# 將數據轉換為一維數組
+jtx1 = list(map(float, data[:, 0]))
+jtx2 = list(map(float, data[:, 1]))
+jtx3 = list(map(float, data[:, 2]))
+jtx4 = list(map(float, data[:, 3]))
+jty1 = list(map(float, data[:, 4]))
+jty2 = list(map(float, data[:, 5]))
+jty3 = list(map(float, data[:, 6]))
+jty4 = list(map(float, data[:, 7]))
+
+
+#%% normalize the jitter histogram to make it sum to 1 (PMF)
+jtx1 = jtx1 / np.sum(jtx1)
+jtx2 = jtx2 / np.sum(jtx2)
+jtx3 = jtx3 / np.sum(jtx3)
+jtx4 = jtx4 / np.sum(jtx4)
+jty1 = jty1 / np.sum(jty1)
+jty2 = jty2 / np.sum(jty2)
+jty3 = jty3 / np.sum(jty3)
+jty4 = jty4 / np.sum(jty4)
+
+
+# compute sampled jitter cdf (non-extrapolated)
+cdfx1 = np.cumsum(jtx1)
+cdfx2 = np.cumsum(jtx2)
+cdfx3 = np.cumsum(jtx3)
+cdfx4 = np.cumsum(jtx4)
+cdfy1 = np.cumsum(jty1)
+cdfy2 = np.cumsum(jty2)
+cdfy3 = np.cumsum(jty3)
+cdfy4 = np.cumsum(jty4)
+
+Tb = 25e-12
+NpUI = 200
+dt = Tb / NpUI
+
+
+tj = np.linspace(-Tb/2, Tb/2, len(jtx1))  # Assume the length of jtx1 as reference
+tjp = tj * 1e12  # tj in ps
+
+plt.figure(dpi=250)
+plt.semilogy(tjp, cdfx1, label='cdfx1')
+plt.semilogy(tjp, cdfx2, label='cdfx2')
+plt.semilogy(tjp, cdfx3, label='cdfx3')
+plt.semilogy(tjp, cdfx4, label='cdfx4')
+plt.semilogy(tjp, cdfy1, label='cdfy1')
+plt.semilogy(tjp, cdfy2, label='cdfy2')
+plt.semilogy(tjp, cdfy3, label='cdfy3')
+plt.semilogy(tjp, cdfy4, label='cdfy4')
+plt.xlabel('Time (ps)')
+plt.ylabel('CDF')
+plt.title("Time bin = UI/200")
+plt.ylim(1e-6, 1)
+plt.grid(True)
+plt.legend()
+plt.show()
+
+
+#%% compute sampled bathtub curve (non-extrapolated)
+
+# First, expand the sampled cdf to 3UI wide
+cdfx1_3UI = np.hstack((np.zeros(NpUI), cdfx1, np.ones(NpUI)))
+cdfx2_3UI = np.hstack((np.zeros(NpUI), cdfx2, np.ones(NpUI)))
+cdfx3_3UI = np.hstack((np.zeros(NpUI), cdfx3, np.ones(NpUI)))
+cdfx4_3UI = np.hstack((np.zeros(NpUI), cdfx4, np.ones(NpUI)))
+cdfy1_3UI = np.hstack((np.zeros(NpUI), cdfy1, np.ones(NpUI)))
+cdfy2_3UI = np.hstack((np.zeros(NpUI), cdfy2, np.ones(NpUI)))
+cdfy3_3UI = np.hstack((np.zeros(NpUI), cdfy3, np.ones(NpUI)))
+cdfy4_3UI = np.hstack((np.zeros(NpUI), cdfy4, np.ones(NpUI)))
+
+# Next, compute the BER cufve
+rhoT = 0.5 # assume transition density = 0.5
+tBER = np.arange(2*NpUI)*dt # time vector for BER bath
+tBERps = tBER*1e12
+
+BER_x1 = rhoT*(1-cdfx1_3UI[NpUI:]) + rhoT*cdfx1_3UI[:2*NpUI]
+BER_x2 = rhoT * (1 - cdfx2_3UI[NpUI:]) + rhoT * cdfx2_3UI[:2 * NpUI]
+BER_x3 = rhoT * (1 - cdfx3_3UI[NpUI:]) + rhoT * cdfx3_3UI[:2 * NpUI]
+BER_x4 = rhoT * (1 - cdfx4_3UI[NpUI:]) + rhoT * cdfx4_3UI[:2 * NpUI]
+BER_y1 = rhoT * (1 - cdfy1_3UI[NpUI:]) + rhoT * cdfy1_3UI[:2 * NpUI]
+BER_y2 = rhoT * (1 - cdfy2_3UI[NpUI:]) + rhoT * cdfy2_3UI[:2 * NpUI]
+BER_y3 = rhoT * (1 - cdfy3_3UI[NpUI:]) + rhoT * cdfy3_3UI[:2 * NpUI]
+BER_y4 = rhoT * (1 - cdfy4_3UI[NpUI:]) + rhoT * cdfy4_3UI[:2 * NpUI]
+
+plt.figure(dpi=250)
+plt.semilogy(tBERps, BER_x1, label='BERx1')
+plt.semilogy(tBERps, BER_x2, label='BERx2')
+plt.semilogy(tBERps, BER_x3, label='BERx3')
+plt.semilogy(tBERps, BER_x4, label='BERx4')
+plt.semilogy(tBERps, BER_y1, label='BERy1')
+plt.semilogy(tBERps, BER_y2, label='BERy2')
+plt.semilogy(tBERps, BER_y3, label='BERy3')
+plt.semilogy(tBERps, BER_y4, label='BERy4')
+plt.xlabel('Time (ps)')
+plt.ylabel('BER')
+plt.grid(True)
+plt.title("Time bin = UI/200")
+plt.ylim(1e-6, 1)
+plt.legend()
+plt.show()
+
+
+#%% convert PMF to PDF, with unit [probability/ps]
+dt *= 1e12
+
+jtx1 /= dt
+jtx2 /= dt
+jtx3 /= dt
+jtx4 /= dt
+jty1 /= dt
+jty2 /= dt
+jty3 /= dt
+jty4 /= dt
+
+plt.figure(dpi=250)
+plt.semilogy(tjp, jtx1, label='jtx1')
+plt.semilogy(tjp, jtx2, label='jtx2')
+plt.semilogy(tjp, jtx3, label='jtx3')
+plt.semilogy(tjp, jtx4, label='jtx4')
+plt.semilogy(tjp, jty1, label='jty1')
+plt.semilogy(tjp, jty2, label='jty2')
+plt.semilogy(tjp, jty3, label='jty3')
+plt.semilogy(tjp, jty4, label='jty4')
+plt.xlabel('Time (ps)')
+plt.ylabel('PDF [probability/ps]')
+plt.ylim(1e-8, 0)
+plt.grid(True)
+plt.legend()
+plt.show()
+
+#%% define function: Gaussian mixture model, PDF
+
+# PDF
+def PDF2G(t, mu1, s1, tau1, mu2, s2, tau2):
+    return (tau1 / (s1 * np.sqrt(2 * np.pi)) * np.exp(-(t - mu1)**2 / (2 * s1**2)) + 
+            tau2 / (s2 * np.sqrt(2 * np.pi)) * np.exp(-(t - mu2)**2 / (2 * s2**2)))
+
+#%% define function Gaussian mixture model, CDF
+from scipy.special import erfc
+def CDF2G(t, mu1, s1, tau1, mu2, s2, tau2):
+    return tau1 * (1 - 0.5 * erfc((t - mu1) / (s1 * np.sqrt(2)))) + tau2 * (
+        1 - 0.5 * erfc((t - mu2) / (s2 * np.sqrt(2))))
+
+#%% tail fitting for jty3
+mu1 = -1.2
+mu2 = 1.2
+s1 =  1.8  # sigma1
+s2 =  1.5  # sigma2
+tau1 = 0.5
+tau2 = 1 - tau1
+
+
+PDF2G_y3_ps = PDF2G(tjp, mu1, s1, tau1, mu2, s2, tau2)# use PDF2G function and tj as time vector
+
+
+ti = Tb/2 * 1e12
+tip1 = ti + Tb * 1e12   # T(i+1)
+
+
+BER_y3fit = 0.5 * (1 - CDF2G(tBERps - ti, mu1, s1, tau1, mu2, s2, tau2)
+                   ) + 0.5 * CDF2G(tBERps - tip1, mu1, s1, tau1, mu2, s2, tau2) # use CDF2G function and tBER, with ti and tip1
+
+plt.figure(dpi=250, figsize=(10,4))
+plt.subplot(121)
+plt.semilogy(tjp, jty3, label='Sampled PDF')
+plt.semilogy(tjp, PDF2G_y3_ps, '--', label='2 Gaussians')
+plt.xlabel('Time (ps)')
+plt.ylabel('PDF [probability/ps]')
+plt.legend()
+plt.grid(True)
+plt.ylim(1e-8, 1)
+
+
+plt.subplot(122)
+plt.semilogy(tBERps, BER_y3, label='Sampled BER')
+plt.semilogy(tBERps, BER_y3fit, '--', label='Fitted BER')
+plt.xlabel('Time (ps)')
+plt.ylabel('BER')
+plt.grid(True)
+plt.ylim(1e-14, 1)
+plt.legend()
+plt.show()
+
+
+#%% tail fitting for jty4
+mu1 = -2.7
+mu2 = 2.1
+s1 =  2  # sigma1
+s2 =  1.8  # sigma2
+tau1 = 0.5
+tau2 = 1 - tau1
+
+
+PDF2G_y4_ps = PDF2G(tjp, mu1, s1, tau1, mu2, s2, tau2)
+
+BER_y4fit = 0.5 * (1 - CDF2G(tBERps - ti, mu1, s1, tau1, mu2, s2, tau2)
+                   ) + 0.5 * CDF2G(tBERps - tip1, mu1, s1, tau1, mu2, s2, tau2)
+
+
+plt.figure(dpi=250, figsize=(10,4))
+plt.subplot(121)
+plt.semilogy(tjp, jty4, label='Sampled PDF')
+plt.semilogy(tjp, PDF2G_y4_ps, '--', label='2 Gaussians')
+plt.xlabel('Time (ps)')
+plt.ylabel('PDF [probability/ps]')
+plt.legend()
+plt.grid(True)
+plt.ylim(1e-8, 1)
+
+
+plt.subplot(122)
+plt.semilogy(tBERps, BER_y4, label='Sampled BER')
+plt.semilogy(tBERps, BER_y4fit, '--', label='Fitted BER')
+plt.xlabel('Time (ps)')
+plt.ylabel('BER')
+plt.grid(True)
+plt.ylim(1e-14, 1)
+plt.legend()
+plt.show()
+

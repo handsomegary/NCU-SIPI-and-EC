@@ -19,3 +19,6 @@ homework/hw05/instructions/** -text -whitespace
 homework/hw09/data/** -text -whitespace
 # The independent audit binds this generated artifact's exact byte digest.
 homework/hw11/results/metrics.json -text whitespace=cr-at-eol
+# HW13 checksums bind the copied input/provenance and anonymous legacy bytes.
+homework/hw13/inputs/** -text -whitespace
+homework/hw13/reference/** -text -whitespace

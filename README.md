@@ -23,6 +23,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW10](homework/hw10/) | Differential channel simulation and equalizer design | Complete instructions, rewritten CTLE/FFE/DFE solver, four eyes, independent full-record verification, anonymous report |
 | [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
 | [HW12](homework/hw12/) | Jitter simulation and basic analysis | Complete instructions, corrected streaming simulation, four full-length cases, independent checks, anonymous report |
+| [HW13](homework/hw13/) | Jitter fitting and BER extrapolation | Complete instructions, verified HW12 inputs, stable Gaussian tail fits, all eight bathtub curves, sensitivity study, anonymous report |
 
 ## Reproduce
 
@@ -45,6 +46,8 @@ python homework/hw10/src/hw10.py --validation
 python homework/hw10/tests/verify_reference.py
 python homework/hw11/analyze.py
 python homework/hw12/src/hw12.py
+python homework/hw13/src/hw13.py
+python homework/hw13/tests/verify_results.py
 python -m unittest discover -s tests -v
 ```
 
