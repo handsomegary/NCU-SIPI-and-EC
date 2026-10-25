@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "channel": {
+    "file": "HW14_diff_channel_50cm.s4p",
+    "original_sha256": "8105155f16893980c74de476c37a4a14432bfe5ab41922c4f7acf443bbe274b0",
+    "published_sha256": "a9426e667f89d9750d393829932ac5b7ed984b090bf68b2bb29a3dccd33c15b3",
+    "numeric_token_sha256": "1c73a8f6184a6f1ea8a9cf63f5f5d5734150e5ba80069379f8ce0437f04d86ba",
+    "numeric_token_count": 264033,
+    "privacy_processing": "Removed original Touchstone export comments containing local paths and project identifiers; option line and all numerical tokens preserved exactly."
+  },
+  "assignment": {
+    "file": "HW14_NRZ_vs_PAM4.pdf",
+    "sha256": "fc3f4133fcb2315a3912c6db805722ae7555a5c994f86093030abbf4c20f7255",
+    "processing": "Byte-identical supplied assignment. No author or personal identity metadata present."
+  }
+}

@@ -6,8 +6,8 @@ Integrity and Electromagnetic Compatibility**.
 Verified coursework for the assignments listed below. Each completed homework
 includes supplied reference material, portable rewritten code, numerical checks,
 and an anonymous report. HW1-HW8 are consolidated here from both course
-repositories, preserving their Git histories. The same repository is intended
-to hold HW1-HW14 as the remaining assignments are completed.
+repositories, preserving their Git histories. The repository includes HW1-HW14
+and a semester review.
 
 | Homework | Topic | Contents |
 | --- | --- | --- |
@@ -24,6 +24,7 @@ to hold HW1-HW14 as the remaining assignments are completed.
 | [HW11](homework/hw11/) | Crosstalk across eight coupled channels | Complete supplied inputs, corrected multi-input simulation, all eight receive eyes, independent numerical checks, anonymous report |
 | [HW12](homework/hw12/) | Jitter simulation and basic analysis | Complete instructions, corrected streaming simulation, four full-length cases, independent checks, anonymous report |
 | [HW13](homework/hw13/) | Jitter fitting and BER extrapolation | Complete instructions, verified HW12 inputs, stable Gaussian tail fits, all eight bathtub curves, sensitivity study, anonymous report |
+| [HW14](homework/hw14/) | NRZ versus PAM4 | Supplied channel and assignment, reproducible equalized-link simulation, four final eyes, independent checks, anonymous report |
 | [學期總回顧](homework/semester-review/) | SIPI semester review | 原始重點回顧問題、89 題完整繁體中文解答、公式與講義頁碼對照 |
 
 ## Reproduce
@@ -49,6 +50,9 @@ python homework/hw11/analyze.py
 python homework/hw12/src/hw12.py
 python homework/hw13/src/hw13.py
 python homework/hw13/tests/verify_results.py
+python homework/hw14/src/hw14.py
+python homework/hw14/verify_inputs.py
+python -m unittest discover -s homework/hw14/tests -v
 python -m unittest discover -s tests -v
 ```
 

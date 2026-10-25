@@ -1,0 +1,1197 @@
+{
+  "successful": true,
+  "passed": true,
+  "unit_test_count": 25,
+  "check_count": 236,
+  "failed_checks": [],
+  "checks": {
+    "independent_unit_tests": true,
+    "parameter_source_vpp_v": true,
+    "parameter_rise_time_ps": true,
+    "parameter_sj_amplitude_ps": true,
+    "parameter_sj_frequency_mhz": true,
+    "parameter_rj_sigma_ps": true,
+    "parameter_ffe_taps": true,
+    "parameter_dfe_taps": true,
+    "parameter_ctle_maximum_absolute_gain_db": true,
+    "input_sha256": true,
+    "source_frequency_hz": true,
+    "source_odd_mode": true,
+    "channel_grid": true,
+    "nrz_20gbps/record_metadata": true,
+    "nrz_20gbps/physical_ui_ps": true,
+    "nrz_20gbps/clock_ps": true,
+    "nrz_20gbps/payload_encoding": true,
+    "nrz_20gbps/ffe_on_symbols": true,
+    "nrz_20gbps/ffe_l1_and_source_range": true,
+    "nrz_20gbps/sinusoidal_jitter_seconds": true,
+    "nrz_20gbps/jittered_boundaries_seconds": true,
+    "nrz_20gbps/reproducible_absolute_rj_seconds": true,
+    "nrz_20gbps/retained_rj_std_ps": true,
+    "nrz_20gbps/ramp_spacing": true,
+    "nrz_20gbps/ctle_reported_corners_and_peak": true,
+    "nrz_20gbps/equalizer_complexity": true,
+    "nrz_20gbps/h_channel": true,
+    "nrz_20gbps/h_channel_idft_real": true,
+    "nrz_20gbps/h_channel_full_dc": true,
+    "nrz_20gbps/h_equalized": true,
+    "nrz_20gbps/h_equalized_idft_real": true,
+    "nrz_20gbps/h_equalized_full_dc": true,
+    "nrz_20gbps/end_to_end_every_decision_input_v": true,
+    "nrz_20gbps/end_to_end_all_phase_minima_v": true,
+    "nrz_20gbps/end_to_end_all_phase_maxima_v": true,
+    "nrz_20gbps/end_to_end_every_histogram_cell": true,
+    "nrz_20gbps/source_pulse_v": true,
+    "nrz_20gbps/sbr_channel_v": true,
+    "nrz_20gbps/sbr_equalized_v": true,
+    "nrz_20gbps/ffe_single_symbol_response": true,
+    "nrz_20gbps/main_cursor_v": true,
+    "nrz_20gbps/dfe_postcursors_v": true,
+    "nrz_20gbps/threshold_scale_v": true,
+    "nrz_20gbps/recovered_decision_feedback_v": true,
+    "nrz_20gbps/corrected_decision_voltage_v": true,
+    "nrz_20gbps/slicer_decisions": true,
+    "nrz_20gbps/bit_and_symbol_error_counts": true,
+    "nrz_20gbps/empirical_ber": true,
+    "nrz_20gbps/empirical_ser": true,
+    "nrz_20gbps/center_conditional_min_v": true,
+    "nrz_20gbps/center_conditional_max_v": true,
+    "nrz_20gbps/finite_record_eye_heights_v": true,
+    "nrz_20gbps/worst_eye_height_v": true,
+    "nrz_20gbps/phase_axis_ps": true,
+    "nrz_20gbps/fixed_threshold_eye_widths_ps": true,
+    "nrz_20gbps/worst_eye_width_ps": true,
+    "nrz_20gbps/normalized_eye_width_ui": true,
+    "nrz_20gbps/exact_histogram_exposure": true,
+    "nrz_20gbps/all_three_or_one_eyes_at_same_clock": true,
+    "nrz_20gbps/jittered_ffe_source_excerpt_v": true,
+    "nrz_20gbps/coherent_dfe_waveform_hold_v": true,
+    "nrz_20gbps/plotted_decision_voltage_v": true,
+    "pam4_20gbps/record_metadata": true,
+    "pam4_20gbps/physical_ui_ps": true,
+    "pam4_20gbps/clock_ps": true,
+    "pam4_20gbps/payload_encoding": true,
+    "pam4_20gbps/ffe_on_symbols": true,
+    "pam4_20gbps/ffe_l1_and_source_range": true,
+    "pam4_20gbps/sinusoidal_jitter_seconds": true,
+    "pam4_20gbps/jittered_boundaries_seconds": true,
+    "pam4_20gbps/reproducible_absolute_rj_seconds": true,
+    "pam4_20gbps/retained_rj_std_ps": true,
+    "pam4_20gbps/ramp_spacing": true,
+    "pam4_20gbps/ctle_reported_corners_and_peak": true,
+    "pam4_20gbps/equalizer_complexity": true,
+    "pam4_20gbps/h_channel": true,
+    "pam4_20gbps/h_channel_idft_real": true,
+    "pam4_20gbps/h_channel_full_dc": true,
+    "pam4_20gbps/h_equalized": true,
+    "pam4_20gbps/h_equalized_idft_real": true,
+    "pam4_20gbps/h_equalized_full_dc": true,
+    "pam4_20gbps/end_to_end_every_decision_input_v": true,
+    "pam4_20gbps/end_to_end_all_phase_minima_v": true,
+    "pam4_20gbps/end_to_end_all_phase_maxima_v": true,
+    "pam4_20gbps/end_to_end_every_histogram_cell": true,
+    "pam4_20gbps/source_pulse_v": true,
+    "pam4_20gbps/sbr_channel_v": true,
+    "pam4_20gbps/sbr_equalized_v": true,
+    "pam4_20gbps/ffe_single_symbol_response": true,
+    "pam4_20gbps/main_cursor_v": true,
+    "pam4_20gbps/dfe_postcursors_v": true,
+    "pam4_20gbps/threshold_scale_v": true,
+    "pam4_20gbps/recovered_decision_feedback_v": true,
+    "pam4_20gbps/corrected_decision_voltage_v": true,
+    "pam4_20gbps/slicer_decisions": true,
+    "pam4_20gbps/bit_and_symbol_error_counts": true,
+    "pam4_20gbps/empirical_ber": true,
+    "pam4_20gbps/empirical_ser": true,
+    "pam4_20gbps/center_conditional_min_v": true,
+    "pam4_20gbps/center_conditional_max_v": true,
+    "pam4_20gbps/finite_record_eye_heights_v": true,
+    "pam4_20gbps/worst_eye_height_v": true,
+    "pam4_20gbps/phase_axis_ps": true,
+    "pam4_20gbps/fixed_threshold_eye_widths_ps": true,
+    "pam4_20gbps/worst_eye_width_ps": true,
+    "pam4_20gbps/normalized_eye_width_ui": true,
+    "pam4_20gbps/exact_histogram_exposure": true,
+    "pam4_20gbps/all_three_or_one_eyes_at_same_clock": true,
+    "pam4_20gbps/jittered_ffe_source_excerpt_v": true,
+    "pam4_20gbps/coherent_dfe_waveform_hold_v": true,
+    "pam4_20gbps/plotted_decision_voltage_v": true,
+    "nrz_50gbps/record_metadata": true,
+    "nrz_50gbps/physical_ui_ps": true,
+    "nrz_50gbps/clock_ps": true,
+    "nrz_50gbps/payload_encoding": true,
+    "nrz_50gbps/ffe_on_symbols": true,
+    "nrz_50gbps/ffe_l1_and_source_range": true,
+    "nrz_50gbps/sinusoidal_jitter_seconds": true,
+    "nrz_50gbps/jittered_boundaries_seconds": true,
+    "nrz_50gbps/reproducible_absolute_rj_seconds": true,
+    "nrz_50gbps/retained_rj_std_ps": true,
+    "nrz_50gbps/ramp_spacing": true,
+    "nrz_50gbps/ctle_reported_corners_and_peak": true,
+    "nrz_50gbps/equalizer_complexity": true,
+    "nrz_50gbps/h_channel": true,
+    "nrz_50gbps/h_channel_idft_real": true,
+    "nrz_50gbps/h_channel_full_dc": true,
+    "nrz_50gbps/h_equalized": true,
+    "nrz_50gbps/h_equalized_idft_real": true,
+    "nrz_50gbps/h_equalized_full_dc": true,
+    "nrz_50gbps/end_to_end_every_decision_input_v": true,
+    "nrz_50gbps/end_to_end_all_phase_minima_v": true,
+    "nrz_50gbps/end_to_end_all_phase_maxima_v": true,
+    "nrz_50gbps/end_to_end_every_histogram_cell": true,
+    "nrz_50gbps/source_pulse_v": true,
+    "nrz_50gbps/sbr_channel_v": true,
+    "nrz_50gbps/sbr_equalized_v": true,
+    "nrz_50gbps/ffe_single_symbol_response": true,
+    "nrz_50gbps/main_cursor_v": true,
+    "nrz_50gbps/dfe_postcursors_v": true,
+    "nrz_50gbps/threshold_scale_v": true,
+    "nrz_50gbps/recovered_decision_feedback_v": true,
+    "nrz_50gbps/corrected_decision_voltage_v": true,
+    "nrz_50gbps/slicer_decisions": true,
+    "nrz_50gbps/bit_and_symbol_error_counts": true,
+    "nrz_50gbps/empirical_ber": true,
+    "nrz_50gbps/empirical_ser": true,
+    "nrz_50gbps/center_conditional_min_v": true,
+    "nrz_50gbps/center_conditional_max_v": true,
+    "nrz_50gbps/finite_record_eye_heights_v": true,
+    "nrz_50gbps/worst_eye_height_v": true,
+    "nrz_50gbps/phase_axis_ps": true,
+    "nrz_50gbps/fixed_threshold_eye_widths_ps": true,
+    "nrz_50gbps/worst_eye_width_ps": true,
+    "nrz_50gbps/normalized_eye_width_ui": true,
+    "nrz_50gbps/exact_histogram_exposure": true,
+    "nrz_50gbps/all_three_or_one_eyes_at_same_clock": true,
+    "nrz_50gbps/jittered_ffe_source_excerpt_v": true,
+    "nrz_50gbps/coherent_dfe_waveform_hold_v": true,
+    "nrz_50gbps/plotted_decision_voltage_v": true,
+    "pam4_50gbps/record_metadata": true,
+    "pam4_50gbps/physical_ui_ps": true,
+    "pam4_50gbps/clock_ps": true,
+    "pam4_50gbps/payload_encoding": true,
+    "pam4_50gbps/ffe_on_symbols": true,
+    "pam4_50gbps/ffe_l1_and_source_range": true,
+    "pam4_50gbps/sinusoidal_jitter_seconds": true,
+    "pam4_50gbps/jittered_boundaries_seconds": true,
+    "pam4_50gbps/reproducible_absolute_rj_seconds": true,
+    "pam4_50gbps/retained_rj_std_ps": true,
+    "pam4_50gbps/ramp_spacing": true,
+    "pam4_50gbps/ctle_reported_corners_and_peak": true,
+    "pam4_50gbps/equalizer_complexity": true,
+    "pam4_50gbps/h_channel": true,
+    "pam4_50gbps/h_channel_idft_real": true,
+    "pam4_50gbps/h_channel_full_dc": true,
+    "pam4_50gbps/h_equalized": true,
+    "pam4_50gbps/h_equalized_idft_real": true,
+    "pam4_50gbps/h_equalized_full_dc": true,
+    "pam4_50gbps/end_to_end_every_decision_input_v": true,
+    "pam4_50gbps/end_to_end_all_phase_minima_v": true,
+    "pam4_50gbps/end_to_end_all_phase_maxima_v": true,
+    "pam4_50gbps/end_to_end_every_histogram_cell": true,
+    "pam4_50gbps/source_pulse_v": true,
+    "pam4_50gbps/sbr_channel_v": true,
+    "pam4_50gbps/sbr_equalized_v": true,
+    "pam4_50gbps/ffe_single_symbol_response": true,
+    "pam4_50gbps/main_cursor_v": true,
+    "pam4_50gbps/dfe_postcursors_v": true,
+    "pam4_50gbps/threshold_scale_v": true,
+    "pam4_50gbps/recovered_decision_feedback_v": true,
+    "pam4_50gbps/corrected_decision_voltage_v": true,
+    "pam4_50gbps/slicer_decisions": true,
+    "pam4_50gbps/bit_and_symbol_error_counts": true,
+    "pam4_50gbps/empirical_ber": true,
+    "pam4_50gbps/empirical_ser": true,
+    "pam4_50gbps/center_conditional_min_v": true,
+    "pam4_50gbps/center_conditional_max_v": true,
+    "pam4_50gbps/finite_record_eye_heights_v": true,
+    "pam4_50gbps/worst_eye_height_v": true,
+    "pam4_50gbps/phase_axis_ps": true,
+    "pam4_50gbps/fixed_threshold_eye_widths_ps": true,
+    "pam4_50gbps/worst_eye_width_ps": true,
+    "pam4_50gbps/normalized_eye_width_ui": true,
+    "pam4_50gbps/exact_histogram_exposure": true,
+    "pam4_50gbps/all_three_or_one_eyes_at_same_clock": true,
+    "pam4_50gbps/jittered_ffe_source_excerpt_v": true,
+    "pam4_50gbps/coherent_dfe_waveform_hold_v": true,
+    "pam4_50gbps/plotted_decision_voltage_v": true,
+    "20gbps/same_bit_record": true,
+    "20gbps/shared_rj_clock_seconds": true,
+    "20gbps/shared_sj_clock_seconds": true,
+    "50gbps/same_bit_record": true,
+    "50gbps/shared_rj_clock_seconds": true,
+    "50gbps/shared_sj_clock_seconds": true,
+    "validation_records_available": true,
+    "nrz_20gbps/independent_seed_finite_counts": true,
+    "pam4_20gbps/independent_seed_finite_counts": true,
+    "nrz_50gbps/independent_seed_finite_counts": true,
+    "pam4_50gbps/independent_seed_finite_counts": true,
+    "nrz_20gbps/time_refinement_finite_counts": true,
+    "nrz_20gbps/time_refinement_grid": true,
+    "pam4_20gbps/time_refinement_finite_counts": true,
+    "pam4_20gbps/time_refinement_grid": true,
+    "nrz_50gbps/time_refinement_finite_counts": true,
+    "nrz_50gbps/time_refinement_grid": true,
+    "pam4_50gbps/time_refinement_finite_counts": true,
+    "pam4_50gbps/time_refinement_grid": true,
+    "nrz_20gbps/impulse_extension_finite_counts": true,
+    "nrz_20gbps/impulse_extension_duration": true,
+    "pam4_20gbps/impulse_extension_finite_counts": true,
+    "pam4_20gbps/impulse_extension_duration": true,
+    "nrz_50gbps/impulse_extension_finite_counts": true,
+    "nrz_50gbps/impulse_extension_duration": true,
+    "pam4_50gbps/impulse_extension_finite_counts": true,
+    "pam4_50gbps/impulse_extension_duration": true
+  },
+  "evidence": {
+    "independent_unit_tests": {
+      "tests_run": 25,
+      "failures": 0,
+      "errors": 0
+    },
+    "source_frequency_hz": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 0.0001
+    },
+    "source_odd_mode": {
+      "maximum_absolute_error": 3.376611507232129e-16,
+      "tolerance": 2e-15
+    },
+    "nrz_20gbps/physical_ui_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_20gbps/clock_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_20gbps/payload_encoding": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "nrz_20gbps/ffe_on_symbols": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "nrz_20gbps/sinusoidal_jitter_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-21
+    },
+    "nrz_20gbps/jittered_boundaries_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-20
+    },
+    "nrz_20gbps/reproducible_absolute_rj_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "nrz_20gbps/retained_rj_std_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-12
+    },
+    "nrz_20gbps/ctle_reported_corners_and_peak": {
+      "maximum_absolute_error": 2.808666774861361e-15,
+      "tolerance": 8e-12
+    },
+    "nrz_20gbps/h_channel": {
+      "maximum_absolute_error": 8.673617379884035e-19,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/h_channel_full_dc": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "tolerance": 5e-13
+    },
+    "nrz_20gbps/h_equalized": {
+      "maximum_absolute_error": 1.0408340855860843e-17,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/h_equalized_full_dc": {
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "tolerance": 5e-13
+    },
+    "nrz_20gbps/end_to_end_every_decision_input_v": {
+      "maximum_absolute_error": 2.0065893391318923e-12,
+      "tolerance": 8e-11
+    },
+    "nrz_20gbps/end_to_end_all_phase_minima_v": {
+      "maximum_absolute_error": 2.137068300100964e-12,
+      "tolerance": 8e-11
+    },
+    "nrz_20gbps/end_to_end_all_phase_maxima_v": {
+      "maximum_absolute_error": 2.2939983246317297e-12,
+      "tolerance": 8e-11
+    },
+    "nrz_20gbps/end_to_end_every_histogram_cell": {
+      "differing_cells": 0,
+      "l1_count_difference": 0,
+      "tested_cells": 39000
+    },
+    "nrz_20gbps/source_pulse_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "nrz_20gbps/sbr_channel_v": {
+      "maximum_absolute_error": 4.163336342344337e-17,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/sbr_equalized_v": {
+      "maximum_absolute_error": 3.3306690738754696e-16,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/ffe_single_symbol_response": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/main_cursor_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/dfe_postcursors_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/threshold_scale_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/recovered_decision_feedback_v": {
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/corrected_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/slicer_decisions": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "nrz_20gbps/empirical_ber": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "nrz_20gbps/empirical_ser": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "nrz_20gbps/center_conditional_min_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/center_conditional_max_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/finite_record_eye_heights_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/worst_eye_height_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/phase_axis_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_20gbps/fixed_threshold_eye_widths_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "nrz_20gbps/worst_eye_width_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "nrz_20gbps/normalized_eye_width_ui": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-11
+    },
+    "nrz_20gbps/jittered_ffe_source_excerpt_v": {
+      "maximum_absolute_error": 1.0346168366481834e-12,
+      "tolerance": 8e-11
+    },
+    "nrz_20gbps/coherent_dfe_waveform_hold_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_20gbps/plotted_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/physical_ui_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_20gbps/clock_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_20gbps/payload_encoding": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "pam4_20gbps/ffe_on_symbols": {
+      "maximum_absolute_error": 2.7755575615628914e-17,
+      "tolerance": 2e-15
+    },
+    "pam4_20gbps/sinusoidal_jitter_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-21
+    },
+    "pam4_20gbps/jittered_boundaries_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-20
+    },
+    "pam4_20gbps/reproducible_absolute_rj_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "pam4_20gbps/retained_rj_std_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-12
+    },
+    "pam4_20gbps/ctle_reported_corners_and_peak": {
+      "maximum_absolute_error": 2.808666774861361e-15,
+      "tolerance": 8e-12
+    },
+    "pam4_20gbps/h_channel": {
+      "maximum_absolute_error": 1.734723475976807e-18,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/h_channel_full_dc": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 5e-13
+    },
+    "pam4_20gbps/h_equalized": {
+      "maximum_absolute_error": 2.0816681711721685e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/h_equalized_full_dc": {
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "tolerance": 5e-13
+    },
+    "pam4_20gbps/end_to_end_every_decision_input_v": {
+      "maximum_absolute_error": 8.001377338473503e-13,
+      "tolerance": 8e-11
+    },
+    "pam4_20gbps/end_to_end_all_phase_minima_v": {
+      "maximum_absolute_error": 1.877054067733752e-12,
+      "tolerance": 8e-11
+    },
+    "pam4_20gbps/end_to_end_all_phase_maxima_v": {
+      "maximum_absolute_error": 1.7619239400801234e-12,
+      "tolerance": 8e-11
+    },
+    "pam4_20gbps/end_to_end_every_histogram_cell": {
+      "differing_cells": 0,
+      "l1_count_difference": 0,
+      "tested_cells": 39000
+    },
+    "pam4_20gbps/source_pulse_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "pam4_20gbps/sbr_channel_v": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/sbr_equalized_v": {
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/ffe_single_symbol_response": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/main_cursor_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/dfe_postcursors_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/threshold_scale_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/recovered_decision_feedback_v": {
+      "maximum_absolute_error": 1.3877787807814457e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/corrected_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/slicer_decisions": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "pam4_20gbps/empirical_ber": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "pam4_20gbps/empirical_ser": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "pam4_20gbps/center_conditional_min_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/center_conditional_max_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/finite_record_eye_heights_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/worst_eye_height_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/phase_axis_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_20gbps/fixed_threshold_eye_widths_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "pam4_20gbps/worst_eye_width_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "pam4_20gbps/normalized_eye_width_ui": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-11
+    },
+    "pam4_20gbps/jittered_ffe_source_excerpt_v": {
+      "maximum_absolute_error": 9.587886040662852e-13,
+      "tolerance": 8e-11
+    },
+    "pam4_20gbps/coherent_dfe_waveform_hold_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_20gbps/plotted_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/physical_ui_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_50gbps/clock_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_50gbps/payload_encoding": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "nrz_50gbps/ffe_on_symbols": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "nrz_50gbps/sinusoidal_jitter_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-21
+    },
+    "nrz_50gbps/jittered_boundaries_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-20
+    },
+    "nrz_50gbps/reproducible_absolute_rj_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "nrz_50gbps/retained_rj_std_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-12
+    },
+    "nrz_50gbps/ctle_reported_corners_and_peak": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 8e-12
+    },
+    "nrz_50gbps/h_channel": {
+      "maximum_absolute_error": 4.336808689942018e-19,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/h_channel_full_dc": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 5e-13
+    },
+    "nrz_50gbps/h_equalized": {
+      "maximum_absolute_error": 1.734723475976807e-18,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/h_equalized_full_dc": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 5e-13
+    },
+    "nrz_50gbps/end_to_end_every_decision_input_v": {
+      "maximum_absolute_error": 3.7423536491942855e-13,
+      "tolerance": 8e-11
+    },
+    "nrz_50gbps/end_to_end_all_phase_minima_v": {
+      "maximum_absolute_error": 2.9339031204500543e-13,
+      "tolerance": 8e-11
+    },
+    "nrz_50gbps/end_to_end_all_phase_maxima_v": {
+      "maximum_absolute_error": 2.9003188739551433e-13,
+      "tolerance": 8e-11
+    },
+    "nrz_50gbps/end_to_end_every_histogram_cell": {
+      "differing_cells": 0,
+      "l1_count_difference": 0,
+      "tested_cells": 39000
+    },
+    "nrz_50gbps/source_pulse_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "nrz_50gbps/sbr_channel_v": {
+      "maximum_absolute_error": 1.3877787807814457e-17,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/sbr_equalized_v": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/ffe_single_symbol_response": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/main_cursor_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/dfe_postcursors_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/threshold_scale_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/recovered_decision_feedback_v": {
+      "maximum_absolute_error": 1.3877787807814457e-17,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/corrected_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/slicer_decisions": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "nrz_50gbps/empirical_ber": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "nrz_50gbps/empirical_ser": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "nrz_50gbps/center_conditional_min_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/center_conditional_max_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/finite_record_eye_heights_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/worst_eye_height_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/phase_axis_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "nrz_50gbps/fixed_threshold_eye_widths_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "nrz_50gbps/worst_eye_width_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "nrz_50gbps/normalized_eye_width_ui": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-11
+    },
+    "nrz_50gbps/jittered_ffe_source_excerpt_v": {
+      "maximum_absolute_error": 8.576472865229334e-13,
+      "tolerance": 8e-11
+    },
+    "nrz_50gbps/coherent_dfe_waveform_hold_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "nrz_50gbps/plotted_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/physical_ui_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_50gbps/clock_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_50gbps/payload_encoding": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "pam4_50gbps/ffe_on_symbols": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "pam4_50gbps/sinusoidal_jitter_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-21
+    },
+    "pam4_50gbps/jittered_boundaries_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-20
+    },
+    "pam4_50gbps/reproducible_absolute_rj_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "pam4_50gbps/retained_rj_std_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-12
+    },
+    "pam4_50gbps/ctle_reported_corners_and_peak": {
+      "maximum_absolute_error": 1.9860273225978185e-15,
+      "tolerance": 8e-12
+    },
+    "pam4_50gbps/h_channel": {
+      "maximum_absolute_error": 8.673617379884035e-19,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/h_channel_full_dc": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "tolerance": 5e-13
+    },
+    "pam4_50gbps/h_equalized": {
+      "maximum_absolute_error": 1.734723475976807e-18,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/h_equalized_full_dc": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 5e-13
+    },
+    "pam4_50gbps/end_to_end_every_decision_input_v": {
+      "maximum_absolute_error": 3.194666753358888e-13,
+      "tolerance": 8e-11
+    },
+    "pam4_50gbps/end_to_end_all_phase_minima_v": {
+      "maximum_absolute_error": 4.980182932712296e-13,
+      "tolerance": 8e-11
+    },
+    "pam4_50gbps/end_to_end_all_phase_maxima_v": {
+      "maximum_absolute_error": 4.832106936802916e-13,
+      "tolerance": 8e-11
+    },
+    "pam4_50gbps/end_to_end_every_histogram_cell": {
+      "differing_cells": 0,
+      "l1_count_difference": 0,
+      "tested_cells": 39000
+    },
+    "pam4_50gbps/source_pulse_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 2e-15
+    },
+    "pam4_50gbps/sbr_channel_v": {
+      "maximum_absolute_error": 2.7755575615628914e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/sbr_equalized_v": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/ffe_single_symbol_response": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/main_cursor_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/dfe_postcursors_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/threshold_scale_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/recovered_decision_feedback_v": {
+      "maximum_absolute_error": 1.3877787807814457e-17,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/corrected_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/slicer_decisions": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-15
+    },
+    "pam4_50gbps/empirical_ber": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "pam4_50gbps/empirical_ser": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-18
+    },
+    "pam4_50gbps/center_conditional_min_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/center_conditional_max_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/finite_record_eye_heights_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/worst_eye_height_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/phase_axis_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10
+    },
+    "pam4_50gbps/fixed_threshold_eye_widths_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "pam4_50gbps/worst_eye_width_ps": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-09
+    },
+    "pam4_50gbps/normalized_eye_width_ui": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-11
+    },
+    "pam4_50gbps/jittered_ffe_source_excerpt_v": {
+      "maximum_absolute_error": 1.1292078383462467e-12,
+      "tolerance": 8e-11
+    },
+    "pam4_50gbps/coherent_dfe_waveform_hold_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "pam4_50gbps/plotted_decision_voltage_v": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 3e-13
+    },
+    "20gbps/shared_rj_clock_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "20gbps/shared_sj_clock_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "50gbps/shared_rj_clock_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    },
+    "50gbps/shared_sj_clock_seconds": {
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-25
+    }
+  },
+  "cases": {
+    "nrz_20gbps": {
+      "successful": true,
+      "bit_rate_gbps": 20.0,
+      "modulation": "nrz",
+      "measured_bits": 65536,
+      "measured_symbols": 65536,
+      "samples_per_ui": 64,
+      "dt_ps": 0.78125,
+      "bit_errors": 0,
+      "symbol_errors": 0,
+      "eye_heights_v": [
+        0.8404671937119768
+      ],
+      "eye_widths_ps": [
+        35.40072993973439
+      ],
+      "kernel_max_error_v_per_v": {
+        "h_channel": 8.673617379884035e-19,
+        "h_equalized": 1.0408340855860843e-17
+      },
+      "source_excerpt_max_error_v": 1.0346168366481834e-12,
+      "end_to_end_source_samples": 5242880,
+      "end_to_end_decisions_checked": 81920,
+      "end_to_end_max_decision_voltage_error_v": 2.0065893391318923e-12,
+      "end_to_end_max_conditional_envelope_error_v": 2.2939983246317297e-12,
+      "end_to_end_histogram_cells_checked": 39000
+    },
+    "pam4_20gbps": {
+      "successful": true,
+      "bit_rate_gbps": 20.0,
+      "modulation": "pam4",
+      "measured_bits": 65536,
+      "measured_symbols": 32768,
+      "samples_per_ui": 64,
+      "dt_ps": 1.5625,
+      "bit_errors": 0,
+      "symbol_errors": 0,
+      "eye_heights_v": [
+        0.45986644895122686,
+        0.4572977589784503,
+        0.444135703470547
+      ],
+      "eye_widths_ps": [
+        35.00075424586021,
+        47.339471550947316,
+        36.74973100823436
+      ],
+      "kernel_max_error_v_per_v": {
+        "h_channel": 1.734723475976807e-18,
+        "h_equalized": 2.0816681711721685e-17
+      },
+      "source_excerpt_max_error_v": 9.587886040662852e-13,
+      "end_to_end_source_samples": 2621440,
+      "end_to_end_decisions_checked": 40960,
+      "end_to_end_max_decision_voltage_error_v": 8.001377338473503e-13,
+      "end_to_end_max_conditional_envelope_error_v": 1.877054067733752e-12,
+      "end_to_end_histogram_cells_checked": 39000
+    },
+    "nrz_50gbps": {
+      "successful": true,
+      "bit_rate_gbps": 50.0,
+      "modulation": "nrz",
+      "measured_bits": 65536,
+      "measured_symbols": 65536,
+      "samples_per_ui": 64,
+      "dt_ps": 0.3125,
+      "bit_errors": 0,
+      "symbol_errors": 0,
+      "eye_heights_v": [
+        0.01653243531037981
+      ],
+      "eye_widths_ps": [
+        6.88271213880113
+      ],
+      "kernel_max_error_v_per_v": {
+        "h_channel": 4.336808689942018e-19,
+        "h_equalized": 1.734723475976807e-18
+      },
+      "source_excerpt_max_error_v": 8.576472865229334e-13,
+      "end_to_end_source_samples": 5242880,
+      "end_to_end_decisions_checked": 81920,
+      "end_to_end_max_decision_voltage_error_v": 3.7423536491942855e-13,
+      "end_to_end_max_conditional_envelope_error_v": 2.9339031204500543e-13,
+      "end_to_end_histogram_cells_checked": 39000
+    },
+    "pam4_50gbps": {
+      "successful": true,
+      "bit_rate_gbps": 50.0,
+      "modulation": "pam4",
+      "measured_bits": 65536,
+      "measured_symbols": 32768,
+      "samples_per_ui": 64,
+      "dt_ps": 0.625,
+      "bit_errors": 0,
+      "symbol_errors": 0,
+      "eye_heights_v": [
+        0.06733425616018532,
+        0.0764663455400564,
+        0.0726593537062066
+      ],
+      "eye_widths_ps": [
+        7.664209874336235,
+        10.585086374671537,
+        7.48967758693282
+      ],
+      "kernel_max_error_v_per_v": {
+        "h_channel": 8.673617379884035e-19,
+        "h_equalized": 1.734723475976807e-18
+      },
+      "source_excerpt_max_error_v": 1.1292078383462467e-12,
+      "end_to_end_source_samples": 2621440,
+      "end_to_end_decisions_checked": 40960,
+      "end_to_end_max_decision_voltage_error_v": 3.194666753358888e-13,
+      "end_to_end_max_conditional_envelope_error_v": 4.980182932712296e-13,
+      "end_to_end_histogram_cells_checked": 39000
+    }
+  },
+  "validation": {
+    "independent_seed": [
+      {
+        "case": "nrz_20gbps",
+        "eye_height_change_mv": 30.067095560920798,
+        "eye_width_change_ps": -0.06523688705881625,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_20gbps",
+        "eye_height_change_mv": 9.926782724404614,
+        "eye_width_change_ps": 0.45804450364323657,
+        "bit_errors": 0
+      },
+      {
+        "case": "nrz_50gbps",
+        "eye_height_change_mv": 4.607507445518327,
+        "eye_width_change_ps": -1.4530497040526678,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_50gbps",
+        "eye_height_change_mv": -2.176461569278393,
+        "eye_width_change_ps": -0.8307737556277015,
+        "bit_errors": 0
+      }
+    ],
+    "time_refinement": [
+      {
+        "case": "nrz_20gbps",
+        "eye_height_change_mv": 0.01150663548099562,
+        "eye_width_change_ps": 0.006603765652648974,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_20gbps",
+        "eye_height_change_mv": -0.05057281222842214,
+        "eye_width_change_ps": -0.01364508748799409,
+        "bit_errors": 0
+      },
+      {
+        "case": "nrz_50gbps",
+        "eye_height_change_mv": 0.004950214551220633,
+        "eye_width_change_ps": 0.0010593541000938345,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_50gbps",
+        "eye_height_change_mv": 0.007454584706884093,
+        "eye_width_change_ps": 0.004036065630314667,
+        "bit_errors": 0
+      }
+    ],
+    "impulse_extension": [
+      {
+        "case": "nrz_20gbps",
+        "eye_height_change_mv": -0.1218236279461049,
+        "eye_width_change_ps": 0.003773195866493495,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_20gbps",
+        "eye_height_change_mv": -0.10402000746034812,
+        "eye_width_change_ps": -0.0023791213348118845,
+        "bit_errors": 0
+      },
+      {
+        "case": "nrz_50gbps",
+        "eye_height_change_mv": 0.008821906801202706,
+        "eye_width_change_ps": 0.005577975523769041,
+        "bit_errors": 0
+      },
+      {
+        "case": "pam4_50gbps",
+        "eye_height_change_mv": -0.0032946243916504026,
+        "eye_width_change_ps": 0.00013504871731040424,
+        "bit_errors": 0
+      }
+    ]
+  },
+  "comparison_sensitivity": [
+    {
+      "bit_rate_gbps": 20.0,
+      "variant": "baseline",
+      "pam4_minus_nrz_minimum_eye_height_mv": -396.3314902414298,
+      "pam4_minus_nrz_minimum_eye_width_ps": -0.3999756938741825,
+      "larger_minimum_eye_height": "nrz",
+      "larger_minimum_eye_width_ps": "nrz"
+    },
+    {
+      "bit_rate_gbps": 20.0,
+      "variant": "independent_seed",
+      "pam4_minus_nrz_minimum_eye_height_mv": -416.47180307794594,
+      "pam4_minus_nrz_minimum_eye_width_ps": 0.12330569682787029,
+      "larger_minimum_eye_height": "nrz",
+      "larger_minimum_eye_width_ps": "pam4"
+    },
+    {
+      "bit_rate_gbps": 20.0,
+      "variant": "time_refinement",
+      "pam4_minus_nrz_minimum_eye_height_mv": -396.3935696891392,
+      "pam4_minus_nrz_minimum_eye_width_ps": -0.4202245470148256,
+      "larger_minimum_eye_height": "nrz",
+      "larger_minimum_eye_width_ps": "nrz"
+    },
+    {
+      "bit_rate_gbps": 20.0,
+      "variant": "impulse_extension",
+      "pam4_minus_nrz_minimum_eye_height_mv": -396.313686620944,
+      "pam4_minus_nrz_minimum_eye_width_ps": -0.4061280110754879,
+      "larger_minimum_eye_height": "nrz",
+      "larger_minimum_eye_width_ps": "nrz"
+    },
+    {
+      "bit_rate_gbps": 50.0,
+      "variant": "baseline",
+      "pam4_minus_nrz_minimum_eye_height_mv": 50.80182084980551,
+      "pam4_minus_nrz_minimum_eye_width_ps": 0.6069654481316897,
+      "larger_minimum_eye_height": "pam4",
+      "larger_minimum_eye_width_ps": "pam4"
+    },
+    {
+      "bit_rate_gbps": 50.0,
+      "variant": "independent_seed",
+      "pam4_minus_nrz_minimum_eye_height_mv": 44.01785183500879,
+      "pam4_minus_nrz_minimum_eye_width_ps": 1.229241396556656,
+      "larger_minimum_eye_height": "pam4",
+      "larger_minimum_eye_width_ps": "pam4"
+    },
+    {
+      "bit_rate_gbps": 50.0,
+      "variant": "time_refinement",
+      "pam4_minus_nrz_minimum_eye_height_mv": 50.80432521996117,
+      "pam4_minus_nrz_minimum_eye_width_ps": 0.6099421596619106,
+      "larger_minimum_eye_height": "pam4",
+      "larger_minimum_eye_width_ps": "pam4"
+    },
+    {
+      "bit_rate_gbps": 50.0,
+      "variant": "impulse_extension",
+      "pam4_minus_nrz_minimum_eye_height_mv": 50.78970431861266,
+      "pam4_minus_nrz_minimum_eye_width_ps": 0.6015225213252311,
+      "larger_minimum_eye_height": "pam4",
+      "larger_minimum_eye_width_ps": "pam4"
+    }
+  ],
+  "verified_file_sha256": {
+    "metrics.json": "a2d3a57c30376e4a413fac2867648e539eabb4dc4398e992ed377923e4a0e2d0",
+    "src/hw14.py": "af1a8dc7b324097a5e7abf2f61c74106fa2b0f08c16d1eb30e290ef7f5be6429",
+    "nrz_20gbps.npz": "e61055eb661cdab1b29a20b6cf25e96171991adf01ee219ffdf396c1bbef252c",
+    "pam4_20gbps.npz": "dd6ffbdc213e9e06caed0abdb64a9ae2608f9e2473a90aa8dfcf5d0194095c1d",
+    "nrz_50gbps.npz": "af53873bb0be2a26d51fca85c7d05d534ccf576db4971118ed8b757698609694",
+    "pam4_50gbps.npz": "e06087892663c63abb6c3551d2b22b296bb498bc7cc35002fadee60a8ea11e9b"
+  },
+  "limitations": [
+    "Finite-record bit-error counts are not a low-BER guarantee.",
+    "Saved validation metrics are consistency-checked; their full waveforms are not persisted.",
+    "Eye widths use the documented fixed-threshold DFE hold convention."
+  ]
+}

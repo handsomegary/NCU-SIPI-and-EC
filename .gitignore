@@ -24,4 +24,5 @@ tmp/
 !homework/hw11/results/channel.npz
 !homework/hw11/results/simulation.npz
 !homework/hw12/results/*_eyes.npz
+!homework/hw14/results/*.npz
 *.float32

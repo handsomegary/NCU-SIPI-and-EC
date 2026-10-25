@@ -22,3 +22,5 @@ homework/hw11/results/metrics.json -text whitespace=cr-at-eol
 # HW13 checksums bind the copied input/provenance and anonymous legacy bytes.
 homework/hw13/inputs/** -text -whitespace
 homework/hw13/reference/** -text -whitespace
+# Preserve the exact HW14 metrics bytes bound by its independent verification.
+homework/hw14/results/metrics.json -text whitespace=cr-at-eol

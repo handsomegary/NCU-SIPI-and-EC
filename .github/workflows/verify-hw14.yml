@@ -1,0 +1,33 @@
+name: Verify HW14 NRZ and PAM4
+
+on:
+  push:
+    paths:
+      - 'homework/hw14/**'
+      - '.github/workflows/verify-hw14.yml'
+      - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'homework/hw14/**'
+      - '.github/workflows/verify-hw14.yml'
+      - 'requirements.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-hw14:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r homework/hw14/requirements.txt
+      - run: python homework/hw14/verify_inputs.py
+      - run: python -m unittest discover -s homework/hw14/tests -v
+      - run: python homework/hw14/tests/verify_results.py --output /tmp/hw14-verification.json
+      - name: Reproduce a short independent payload
+        run: python homework/hw14/src/hw14.py --bits 4096 --output /tmp/hw14-smoke

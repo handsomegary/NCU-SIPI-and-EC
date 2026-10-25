@@ -1,0 +1,1095 @@
+{
+  "schema_version": 1,
+  "software": {
+    "solver_sha256": "af1a8dc7b324097a5e7abf2f61c74106fa2b0f08c16d1eb30e290ef7f5be6429",
+    "numpy_version": "2.5.4",
+    "frozen_design_source": null
+  },
+  "parameters": {
+    "source_vpp_v": 1.0,
+    "source_plane": "Open-circuit differential Thevenin source; matched transfer Sdd21/2",
+    "rise_time_ps": 10.0,
+    "rise_definition": "0%-100% linear transition, identical duration for every transition height",
+    "sj_amplitude_ps": 1.5,
+    "sj_frequency_mhz": 10.0,
+    "rj_sigma_ps": 1.0,
+    "seed": 2025,
+    "bits": 65536,
+    "samples_per_ui": 64,
+    "impulse_ns": 40.0,
+    "ctle_maximum_absolute_gain_db": 18.0,
+    "ffe_taps": 3,
+    "dfe_taps": 5
+  },
+  "channel": {
+    "input_filename": "HW14_diff_channel_50cm.s4p",
+    "input_sha256": "a9426e667f89d9750d393829932ac5b7ed984b090bf68b2bb29a3dccd33c15b3",
+    "frequency_points": 8001,
+    "frequency_min_ghz": 0.0,
+    "frequency_max_ghz": 80.0,
+    "frequency_step_mhz": 10.0,
+    "idft_period_ns": 100.0,
+    "sdd21_dc_real": 0.9781260312753762,
+    "sdd21_dc_imag": -2.5770854212721802e-08,
+    "single_ended_reference_ohm": 50.0,
+    "differential_reference_ohm": 100.0
+  },
+  "measurement": {
+    "eye_height": "Minimum voltage of adjacent upper transmitted level minus maximum voltage of adjacent lower level at one shared fixed clock; all retained symbols, no clipping or percentiles",
+    "eye_width": "Contiguous interval containing the fixed clock where both conditional boundaries straddle their fixed noiseless midpoint threshold; crossings linearly interpolated",
+    "pam4_summary": "Worst of the three openings; report each opening as well",
+    "dfe": "Recovered normalized decisions only; correction held on clock_n-UI/2 <= t < clock_n+UI/2; right endpoint uses the next hold",
+    "band_limit": "Measured response is used directly through 80 GHz and set to zero above it; real Hermitian IDFT and causal truncation; no DC renormalization",
+    "scope": "Finite random-record experiment with Tx timing jitter; no added voltage noise, no CDR, no FEC, no low-BER extrapolation or hardware validation"
+  },
+  "cases": {
+    "nrz_20gbps": {
+      "modulation": "nrz",
+      "bit_rate_gbps": 20.0,
+      "symbol_rate_gbaud": 20.0,
+      "ui_ps": 50.0,
+      "dt_ps": 0.78125,
+      "measured_bits": 65536,
+      "measured_symbols": 65536,
+      "equalizers": {
+        "ctle": {
+          "zero_ghz": 8.0,
+          "poles_ghz": [
+            10.0,
+            40.0
+          ],
+          "peak_gain_db": 18.0,
+          "peak_frequency_ghz": 13.08246977092571,
+          "dc_gain_db": 17.12179960484094
+        },
+        "ffe": {
+          "taps": [
+            -0.04255136994863389,
+            0.9574486300513662,
+            -0.0
+          ],
+          "l1_norm": 1.0,
+          "tap_count": 3
+        },
+        "dfe": {
+          "taps_v": [
+            0.3805213776204056,
+            0.1666297600400833,
+            0.08497480666835039,
+            0.049442809826300865,
+            0.0323277294986487
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "main_cursor_v": 0.6358611805157429,
+          "tap_count": 5
+        }
+      },
+      "design": {
+        "method": "Noiseless single-symbol response and conservative worst-pattern LP with fixed DFE coefficients and fixed thresholds at nominal clock and +/-3 ps stress; payload is not used for fitting",
+        "ctle_grid_candidates": 20,
+        "clock_sample": 4116,
+        "clock_time_ps": 3215.625,
+        "pda_eye_height_v": 0.7254140332282788,
+        "robust_design_half_margin_v": 0.3192383977147766,
+        "design_clock_stress_ps": 3.0,
+        "uncancelled_isi_sum_v": 0.2731541639016035,
+        "channel_kernel_dc": 0.48803209375668016,
+        "channel_expected_dc": 0.4890630156376881,
+        "equalized_kernel_dc": 3.5037924031232546,
+        "equalized_expected_dc": 3.5111938058973333,
+        "equalized_dc_relative_error": -0.0021079448139967364,
+        "channel_discarded_l1": 0.0010309218810078727,
+        "equalized_discarded_l1": 0.007401402774078714
+      },
+      "metrics": {
+        "eye_heights_v": [
+          0.8404671937119768
+        ],
+        "eye_widths_ps": [
+          35.40072993973439
+        ],
+        "eye_widths_ui": [
+          0.7080145987946878
+        ],
+        "worst_eye_height_v": 0.8404671937119768,
+        "worst_eye_width_ps": 35.40072993973439,
+        "worst_eye_width_ui": 0.7080145987946878,
+        "crossings_ps": [
+          [
+            -17.226604297243362,
+            18.174125642491028
+          ]
+        ],
+        "measured_symbols": 65536,
+        "level_counts": [
+          32703,
+          32833
+        ],
+        "thresholds_v": [
+          0.0
+        ],
+        "bit_errors": 0,
+        "symbol_errors": 0,
+        "empirical_ber": 0.0,
+        "empirical_ser": 0.0,
+        "measured_bits": 65536
+      },
+      "jitter": {
+        "sj_amplitude_ps": 1.5,
+        "sj_frequency_mhz": 10.0,
+        "rj_sigma_ps": 1.0,
+        "measured_rj_mean_ps": 1.8326333470505906e-05,
+        "measured_rj_std_ps": 0.9943010583938041,
+        "sj_cycles_in_payload": 32.768,
+        "minimum_boundary_spacing_ps": 43.80069496603481,
+        "maximum_source_magnitude_v": 0.5
+      },
+      "archive": "nrz_20gbps.npz",
+      "eye_figure": "eye_nrz_20gbps.png"
+    },
+    "pam4_20gbps": {
+      "modulation": "pam4",
+      "bit_rate_gbps": 20.0,
+      "symbol_rate_gbaud": 10.0,
+      "ui_ps": 100.0,
+      "dt_ps": 1.5625,
+      "measured_bits": 65536,
+      "measured_symbols": 32768,
+      "equalizers": {
+        "ctle": {
+          "zero_ghz": 8.0,
+          "poles_ghz": [
+            10.0,
+            40.0
+          ],
+          "peak_gain_db": 18.0,
+          "peak_frequency_ghz": 13.08246977092571,
+          "dc_gain_db": 17.12179960484094
+        },
+        "ffe": {
+          "taps": [
+            -0.014806091200856318,
+            0.8202032110260181,
+            -0.16499069777312558
+          ],
+          "l1_norm": 1.0,
+          "tap_count": 3
+        },
+        "dfe": {
+          "taps_v": [
+            0.055057743967988154,
+            0.0271738342210618,
+            0.021720247276044588,
+            0.009807863847935548,
+            0.014160900444405884
+          ],
+          "thresholds_v": [
+            -0.5894518663642423,
+            0.0,
+            0.5894518663642423
+          ],
+          "main_cursor_v": 0.8841777995463634,
+          "tap_count": 5
+        }
+      },
+      "design": {
+        "method": "Noiseless single-symbol response and conservative worst-pattern LP with fixed DFE coefficients and fixed thresholds at nominal clock and +/-3 ps stress; payload is not used for fitting",
+        "ctle_grid_candidates": 20,
+        "clock_sample": 2119,
+        "clock_time_ps": 3310.9375,
+        "pda_eye_height_v": 0.33399584681709277,
+        "robust_design_half_margin_v": 0.14164011312396296,
+        "design_clock_stress_ps": 3.0,
+        "uncancelled_isi_sum_v": 0.12772800977357476,
+        "channel_kernel_dc": 0.4880320863081481,
+        "channel_expected_dc": 0.4890630156376881,
+        "equalized_kernel_dc": 3.503792350724341,
+        "equalized_expected_dc": 3.5111938058973333,
+        "equalized_dc_relative_error": -0.002107959737386486,
+        "channel_discarded_l1": 0.001030929329539953,
+        "equalized_discarded_l1": 0.00740145517299217
+      },
+      "metrics": {
+        "eye_heights_v": [
+          0.45986644895122686,
+          0.4572977589784503,
+          0.444135703470547
+        ],
+        "eye_widths_ps": [
+          35.00075424586021,
+          47.339471550947316,
+          36.74973100823436
+        ],
+        "eye_widths_ui": [
+          0.35000754245860205,
+          0.47339471550947315,
+          0.36749731008234365
+        ],
+        "worst_eye_height_v": 0.444135703470547,
+        "worst_eye_width_ps": 35.00075424586021,
+        "worst_eye_width_ui": 0.35000754245860205,
+        "crossings_ps": [
+          [
+            -21.382377883596273,
+            13.618376362263934
+          ],
+          [
+            -28.348371591971443,
+            18.991099958975873
+          ],
+          [
+            -21.98672232548106,
+            14.763008682753302
+          ]
+        ],
+        "measured_symbols": 32768,
+        "level_counts": [
+          8105,
+          8175,
+          8170,
+          8318
+        ],
+        "thresholds_v": [
+          -0.5894518663642423,
+          0.0,
+          0.5894518663642423
+        ],
+        "bit_errors": 0,
+        "symbol_errors": 0,
+        "empirical_ber": 0.0,
+        "empirical_ser": 0.0,
+        "measured_bits": 65536
+      },
+      "jitter": {
+        "sj_amplitude_ps": 1.5,
+        "sj_frequency_mhz": 10.0,
+        "rj_sigma_ps": 1.0,
+        "measured_rj_mean_ps": -0.0018289609934674124,
+        "measured_rj_std_ps": 0.992849231989113,
+        "sj_cycles_in_payload": 32.768,
+        "minimum_boundary_spacing_ps": 93.416221326162,
+        "maximum_source_magnitude_v": 0.5
+      },
+      "archive": "pam4_20gbps.npz",
+      "eye_figure": "eye_pam4_20gbps.png"
+    },
+    "nrz_50gbps": {
+      "modulation": "nrz",
+      "bit_rate_gbps": 50.0,
+      "symbol_rate_gbaud": 50.0,
+      "ui_ps": 20.0,
+      "dt_ps": 0.3125,
+      "measured_bits": 65536,
+      "measured_symbols": 65536,
+      "equalizers": {
+        "ctle": {
+          "zero_ghz": 2.0,
+          "poles_ghz": [
+            20.0,
+            40.0
+          ],
+          "peak_gain_db": 18.0,
+          "peak_frequency_ghz": 28.124621590387495,
+          "dc_gain_db": 1.5000422628127112
+        },
+        "ffe": {
+          "taps": [
+            -0.08242811201315446,
+            0.762424896847517,
+            -0.15514699113932856
+          ],
+          "l1_norm": 1.0,
+          "tap_count": 3
+        },
+        "dfe": {
+          "taps_v": [
+            0.056982801054091425,
+            0.00276371125934749,
+            -0.007364531115243857,
+            -0.0048635641757326905,
+            -0.0025656570181031534
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "main_cursor_v": 0.0836434726635553,
+          "tap_count": 5
+        }
+      },
+      "design": {
+        "method": "Noiseless single-symbol response and conservative worst-pattern LP with fixed DFE coefficients and fixed thresholds at nominal clock and +/-3 ps stress; payload is not used for fitting",
+        "ctle_grid_candidates": 20,
+        "clock_sample": 10084,
+        "clock_time_ps": 3151.25,
+        "pda_eye_height_v": 0.0819836032696344,
+        "robust_design_half_margin_v": 0.019814653336365014,
+        "design_clock_stress_ps": 3.0,
+        "uncancelled_isi_sum_v": 0.042651671028738104,
+        "channel_kernel_dc": 0.4880320982816769,
+        "channel_expected_dc": 0.4890630156376881,
+        "equalized_kernel_dc": 0.5800316607093259,
+        "equalized_expected_dc": 0.5812553116414831,
+        "equalized_dc_relative_error": -0.002105186666942677,
+        "channel_discarded_l1": 0.0010309173560113386,
+        "equalized_discarded_l1": 0.0012236509321570121
+      },
+      "metrics": {
+        "eye_heights_v": [
+          0.01653243531037981
+        ],
+        "eye_widths_ps": [
+          6.88271213880113
+        ],
+        "eye_widths_ui": [
+          0.3441356069400565
+        ],
+        "worst_eye_height_v": 0.01653243531037981,
+        "worst_eye_width_ps": 6.88271213880113,
+        "worst_eye_width_ui": 0.3441356069400565,
+        "crossings_ps": [
+          [
+            -2.764531381601382,
+            4.118180757199749
+          ]
+        ],
+        "measured_symbols": 65536,
+        "level_counts": [
+          32703,
+          32833
+        ],
+        "thresholds_v": [
+          0.0
+        ],
+        "bit_errors": 0,
+        "symbol_errors": 0,
+        "empirical_ber": 0.0,
+        "empirical_ser": 0.0,
+        "measured_bits": 65536
+      },
+      "jitter": {
+        "sj_amplitude_ps": 1.5,
+        "sj_frequency_mhz": 10.0,
+        "rj_sigma_ps": 1.0,
+        "measured_rj_mean_ps": 1.8326333470505906e-05,
+        "measured_rj_std_ps": 0.9943010583938041,
+        "sj_cycles_in_payload": 13.107199999999999,
+        "minimum_boundary_spacing_ps": 13.801998407034509,
+        "maximum_source_magnitude_v": 0.5
+      },
+      "archive": "nrz_50gbps.npz",
+      "eye_figure": "eye_nrz_50gbps.png"
+    },
+    "pam4_50gbps": {
+      "modulation": "pam4",
+      "bit_rate_gbps": 50.0,
+      "symbol_rate_gbaud": 25.0,
+      "ui_ps": 40.0,
+      "dt_ps": 0.625,
+      "measured_bits": 65536,
+      "measured_symbols": 32768,
+      "equalizers": {
+        "ctle": {
+          "zero_ghz": 1.0,
+          "poles_ghz": [
+            20.0,
+            40.0
+          ],
+          "peak_gain_db": 18.0,
+          "peak_frequency_ghz": 28.244462251691857,
+          "dc_gain_db": -4.504207659567916
+        },
+        "ffe": {
+          "taps": [
+            -0.030830400053491937,
+            0.9691695999465081,
+            -0.0
+          ],
+          "l1_norm": 1.0,
+          "tap_count": 3
+        },
+        "dfe": {
+          "taps_v": [
+            -0.006616351660441263,
+            -0.037401413439744464,
+            -0.017415607416066993,
+            -0.007675222995558848,
+            -0.0032898738152774224
+          ],
+          "thresholds_v": [
+            -0.1299322712441432,
+            0.0,
+            0.1299322712441432
+          ],
+          "main_cursor_v": 0.19489840686621482,
+          "tap_count": 5
+        }
+      },
+      "design": {
+        "method": "Noiseless single-symbol response and conservative worst-pattern LP with fixed DFE coefficients and fixed thresholds at nominal clock and +/-3 ps stress; payload is not used for fitting",
+        "ctle_grid_candidates": 20,
+        "clock_sample": 5099,
+        "clock_time_ps": 3186.8749999999995,
+        "pda_eye_height_v": 0.062059658056959885,
+        "robust_design_half_margin_v": 0.009221186045544314,
+        "design_clock_stress_ps": 3.0,
+        "uncancelled_isi_sum_v": 0.03393630659359167,
+        "channel_kernel_dc": 0.4880320952604165,
+        "channel_expected_dc": 0.4890630156376881,
+        "equalized_kernel_dc": 0.2905632011348162,
+        "equalized_expected_dc": 0.29117523756535646,
+        "equalized_dc_relative_error": -0.002101952197782191,
+        "channel_discarded_l1": 0.0010309203772716385,
+        "equalized_discarded_l1": 0.0006135374490651583
+      },
+      "metrics": {
+        "eye_heights_v": [
+          0.06733425616018532,
+          0.0764663455400564,
+          0.0726593537062066
+        ],
+        "eye_widths_ps": [
+          7.664209874336235,
+          10.585086374671537,
+          7.48967758693282
+        ],
+        "eye_widths_ui": [
+          0.19160524685840588,
+          0.26462715936678843,
+          0.1872419396733205
+        ],
+        "worst_eye_height_v": 0.06733425616018532,
+        "worst_eye_width_ps": 7.48967758693282,
+        "worst_eye_width_ui": 0.1872419396733205,
+        "crossings_ps": [
+          [
+            -3.480166858711919,
+            4.184043015624316
+          ],
+          [
+            -5.78302609313568,
+            4.802060281535858
+          ],
+          [
+            -3.9667173614121105,
+            3.5229602255207095
+          ]
+        ],
+        "measured_symbols": 32768,
+        "level_counts": [
+          8105,
+          8175,
+          8170,
+          8318
+        ],
+        "thresholds_v": [
+          -0.1299322712441432,
+          0.0,
+          0.1299322712441432
+        ],
+        "bit_errors": 0,
+        "symbol_errors": 0,
+        "empirical_ber": 0.0,
+        "empirical_ser": 0.0,
+        "measured_bits": 65536
+      },
+      "jitter": {
+        "sj_amplitude_ps": 1.5,
+        "sj_frequency_mhz": 10.0,
+        "rj_sigma_ps": 1.0,
+        "measured_rj_mean_ps": -0.0018289609934674124,
+        "measured_rj_std_ps": 0.992849231989113,
+        "sj_cycles_in_payload": 13.107199999999999,
+        "minimum_boundary_spacing_ps": 33.40388439275528,
+        "maximum_source_magnitude_v": 0.5
+      },
+      "archive": "pam4_50gbps.npz",
+      "eye_figure": "eye_pam4_50gbps.png"
+    }
+  },
+  "comparison": [
+    {
+      "bit_rate_gbps": 20.0,
+      "nrz_nyquist_ghz": 10.0,
+      "pam4_nyquist_ghz": 5.0,
+      "nrz_nyquist_loss_db": 16.896857385130872,
+      "pam4_nyquist_loss_db": 9.601452980838495,
+      "nyquist_loss_difference_db": 7.295404404292377,
+      "larger_minimum_eye_height": "nrz",
+      "larger_minimum_eye_width_ps": "nrz",
+      "larger_minimum_eye_width_ui": "nrz"
+    },
+    {
+      "bit_rate_gbps": 50.0,
+      "nrz_nyquist_ghz": 25.0,
+      "pam4_nyquist_ghz": 12.5,
+      "nrz_nyquist_loss_db": 37.90455236955269,
+      "pam4_nyquist_loss_db": 20.803950198636393,
+      "nyquist_loss_difference_db": 17.100602170916297,
+      "larger_minimum_eye_height": "pam4",
+      "larger_minimum_eye_width_ps": "pam4",
+      "larger_minimum_eye_width_ui": "nrz"
+    }
+  ],
+  "validation": {
+    "nrz_20gbps": {
+      "independent_seed": {
+        "seed": 2026,
+        "metrics": {
+          "eye_heights_v": [
+            0.8705342892728976
+          ],
+          "eye_widths_ps": [
+            35.335493052675574
+          ],
+          "eye_widths_ui": [
+            0.7067098610535115
+          ],
+          "worst_eye_height_v": 0.8705342892728976,
+          "worst_eye_width_ps": 35.335493052675574,
+          "worst_eye_width_ui": 0.7067098610535115,
+          "crossings_ps": [
+            [
+              -17.292000519469568,
+              18.043492533206003
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32618,
+            32918
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "time_refinement": {
+        "samples_per_ui": 128,
+        "metrics": {
+          "eye_heights_v": [
+            0.8404787003474578
+          ],
+          "eye_widths_ps": [
+            35.40733370538704
+          ],
+          "eye_widths_ui": [
+            0.7081466741077408
+          ],
+          "worst_eye_height_v": 0.8404787003474578,
+          "worst_eye_width_ps": 35.40733370538704,
+          "worst_eye_width_ui": 0.7081466741077408,
+          "crossings_ps": [
+            [
+              -17.2295398524792,
+              18.17779385290784
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32703,
+            32833
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "impulse_extension": {
+        "impulse_ns": 80.0,
+        "metrics": {
+          "eye_heights_v": [
+            0.8403453700840307
+          ],
+          "eye_widths_ps": [
+            35.40450313560088
+          ],
+          "eye_widths_ui": [
+            0.7080900627120177
+          ],
+          "worst_eye_height_v": 0.8403453700840307,
+          "worst_eye_width_ps": 35.40450313560088,
+          "worst_eye_width_ui": 0.7080900627120177,
+          "crossings_ps": [
+            [
+              -17.229276836947786,
+              18.175226298653097
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32703,
+            32833
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      }
+    },
+    "pam4_20gbps": {
+      "independent_seed": {
+        "seed": 2026,
+        "metrics": {
+          "eye_heights_v": [
+            0.465158933386298,
+            0.46341678312433454,
+            0.4540624861949516
+          ],
+          "eye_widths_ps": [
+            35.458798749503444,
+            47.57663428805228,
+            36.24120605935833
+          ],
+          "eye_widths_ui": [
+            0.35458798749503445,
+            0.47576634288052283,
+            0.36241206059358333
+          ],
+          "worst_eye_height_v": 0.4540624861949516,
+          "worst_eye_width_ps": 35.458798749503444,
+          "worst_eye_width_ui": 0.35458798749503445,
+          "crossings_ps": [
+            [
+              -20.56415343566777,
+              14.894645313835671
+            ],
+            [
+              -28.896678750140122,
+              18.67995553791216
+            ],
+            [
+              -21.412116159432706,
+              14.829089899925627
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8132,
+            8090,
+            8282,
+            8264
+          ],
+          "thresholds_v": [
+            -0.5894518663642423,
+            0.0,
+            0.5894518663642423
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "time_refinement": {
+        "samples_per_ui": 128,
+        "metrics": {
+          "eye_heights_v": [
+            0.4597111064615085,
+            0.4573830973569729,
+            0.44408513065831856
+          ],
+          "eye_widths_ps": [
+            34.98710915837221,
+            47.34157734851192,
+            36.75120174252605
+          ],
+          "eye_widths_ui": [
+            0.34987109158372215,
+            0.4734157734851192,
+            0.3675120174252605
+          ],
+          "worst_eye_height_v": 0.44408513065831856,
+          "worst_eye_width_ps": 34.98710915837221,
+          "worst_eye_width_ui": 0.34987109158372215,
+          "crossings_ps": [
+            [
+              -21.353669527552736,
+              13.633439630819476
+            ],
+            [
+              -28.339463670686836,
+              19.002113677825083
+            ],
+            [
+              -21.996673986155397,
+              14.754527756370653
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8105,
+            8175,
+            8170,
+            8318
+          ],
+          "thresholds_v": [
+            -0.5894518663642423,
+            0.0,
+            0.5894518663642423
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "impulse_extension": {
+        "impulse_ns": 80.0,
+        "metrics": {
+          "eye_heights_v": [
+            0.4599773225535959,
+            0.45723233483404907,
+            0.44403168346308663
+          ],
+          "eye_widths_ps": [
+            34.998375124525396,
+            47.35305725699119,
+            36.75818274942217
+          ],
+          "eye_widths_ui": [
+            0.34998375124525394,
+            0.47353057256991193,
+            0.3675818274942217
+          ],
+          "worst_eye_height_v": 0.44403168346308663,
+          "worst_eye_width_ps": 34.998375124525396,
+          "worst_eye_width_ui": 0.34998375124525394,
+          "crossings_ps": [
+            [
+              -21.38035072506751,
+              13.618024399457882
+            ],
+            [
+              -28.36051657020626,
+              18.992540686784928
+            ],
+            [
+              -21.990383856798974,
+              14.767798892623194
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8105,
+            8175,
+            8170,
+            8318
+          ],
+          "thresholds_v": [
+            -0.5894518663642423,
+            0.0,
+            0.5894518663642423
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      }
+    },
+    "nrz_50gbps": {
+      "independent_seed": {
+        "seed": 2026,
+        "metrics": {
+          "eye_heights_v": [
+            0.021139942755898138
+          ],
+          "eye_widths_ps": [
+            5.4296624347484626
+          ],
+          "eye_widths_ui": [
+            0.2714831217374231
+          ],
+          "worst_eye_height_v": 0.021139942755898138,
+          "worst_eye_width_ps": 5.4296624347484626,
+          "worst_eye_width_ui": 0.2714831217374231,
+          "crossings_ps": [
+            [
+              -1.181461966212132,
+              4.24820046853633
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32618,
+            32918
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "time_refinement": {
+        "samples_per_ui": 128,
+        "metrics": {
+          "eye_heights_v": [
+            0.01653738552493103
+          ],
+          "eye_widths_ps": [
+            6.883771492901224
+          ],
+          "eye_widths_ui": [
+            0.3441885746450612
+          ],
+          "worst_eye_height_v": 0.01653738552493103,
+          "worst_eye_width_ps": 6.883771492901224,
+          "worst_eye_width_ui": 0.3441885746450612,
+          "crossings_ps": [
+            [
+              -2.765354948932189,
+              4.118416543969035
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32703,
+            32833
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "impulse_extension": {
+        "impulse_ns": 80.0,
+        "metrics": {
+          "eye_heights_v": [
+            0.016541257217181013
+          ],
+          "eye_widths_ps": [
+            6.888290114324899
+          ],
+          "eye_widths_ui": [
+            0.344414505716245
+          ],
+          "worst_eye_height_v": 0.016541257217181013,
+          "worst_eye_width_ps": 6.888290114324899,
+          "worst_eye_width_ui": 0.344414505716245,
+          "crossings_ps": [
+            [
+              -2.7695553221493996,
+              4.118734792175499
+            ]
+          ],
+          "measured_symbols": 65536,
+          "level_counts": [
+            32703,
+            32833
+          ],
+          "thresholds_v": [
+            0.0
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      }
+    },
+    "pam4_50gbps": {
+      "independent_seed": {
+        "seed": 2026,
+        "metrics": {
+          "eye_heights_v": [
+            0.06515779459090693,
+            0.07537226261658918,
+            0.0706342868094903
+          ],
+          "eye_widths_ps": [
+            6.6589038313051185,
+            9.850179104892332,
+            8.304971129453637
+          ],
+          "eye_widths_ui": [
+            0.16647259578262796,
+            0.2462544776223083,
+            0.20762427823634094
+          ],
+          "worst_eye_height_v": 0.06515779459090693,
+          "worst_eye_width_ps": 6.6589038313051185,
+          "worst_eye_width_ui": 0.16647259578262796,
+          "crossings_ps": [
+            [
+              -2.867231605446439,
+              3.7916722258586795
+            ],
+            [
+              -5.743958417507333,
+              4.106220687384999
+            ],
+            [
+              -4.209585484287837,
+              4.0953856451658
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8132,
+            8090,
+            8282,
+            8264
+          ],
+          "thresholds_v": [
+            -0.1299322712441432,
+            0.0,
+            0.1299322712441432
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "time_refinement": {
+        "samples_per_ui": 128,
+        "metrics": {
+          "eye_heights_v": [
+            0.0673417107448922,
+            0.07645845091828554,
+            0.07266666570540561
+          ],
+          "eye_widths_ps": [
+            7.669825657930792,
+            10.58804022995325,
+            7.493713652563135
+          ],
+          "eye_widths_ui": [
+            0.1917456414482698,
+            0.26470100574883126,
+            0.18734284131407836
+          ],
+          "worst_eye_height_v": 0.0673417107448922,
+          "worst_eye_width_ps": 7.493713652563135,
+          "worst_eye_width_ui": 0.18734284131407836,
+          "crossings_ps": [
+            [
+              -3.483918591203241,
+              4.185907066727551
+            ],
+            [
+              -5.785180071649048,
+              4.802860158304202
+            ],
+            [
+              -3.9670892966438362,
+              3.5266243559192985
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8105,
+            8175,
+            8170,
+            8318
+          ],
+          "thresholds_v": [
+            -0.1299322712441432,
+            0.0,
+            0.1299322712441432
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      },
+      "impulse_extension": {
+        "impulse_ns": 80.0,
+        "metrics": {
+          "eye_heights_v": [
+            0.06733096153579367,
+            0.07645119673833271,
+            0.07265176947282309
+          ],
+          "eye_widths_ps": [
+            7.664860174758063,
+            10.584373600285641,
+            7.4898126356501304
+          ],
+          "eye_widths_ui": [
+            0.1916215043689516,
+            0.26460934000714104,
+            0.18724531589125326
+          ],
+          "worst_eye_height_v": 0.06733096153579367,
+          "worst_eye_width_ps": 7.4898126356501304,
+          "worst_eye_width_ui": 0.18724531589125326,
+          "crossings_ps": [
+            [
+              -3.4803800182613585,
+              4.184480156496705
+            ],
+            [
+              -5.782856527936642,
+              4.801517072348999
+            ],
+            [
+              -3.967392837125529,
+              3.522419798524601
+            ]
+          ],
+          "measured_symbols": 32768,
+          "level_counts": [
+            8105,
+            8175,
+            8170,
+            8318
+          ],
+          "thresholds_v": [
+            -0.1299322712441432,
+            0.0,
+            0.1299322712441432
+          ],
+          "bit_errors": 0,
+          "symbol_errors": 0,
+          "empirical_ber": 0.0,
+          "empirical_ser": 0.0,
+          "measured_bits": 65536
+        }
+      }
+    }
+  },
+  "compliance": {
+    "same_source_vpp_and_rise": true,
+    "same_absolute_sj_and_rj_law": true,
+    "same_ffe_and_dfe_tap_counts": true,
+    "same_ctle_pole_count_and_peak_cap": true,
+    "all_ffe_l1_within_limit": true,
+    "all_final_eyes_open": true,
+    "all_payload_decisions_correct": true
+  },
+  "runtime_seconds": 26.111202600004617
+}
